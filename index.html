@@ -52,6 +52,23 @@
       transition: background 0.25s, color 0.25s;
     }
 
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
     /* ── NAV ── */
     nav {
       display: flex;
@@ -62,7 +79,7 @@
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 200;
       transition: background 0.25s, border-color 0.25s;
     }
 
@@ -88,8 +105,24 @@
       font-family: -apple-system, sans-serif;
       font-size: 0.875rem;
       transition: color 0.15s;
+      position: relative;
+      padding-bottom: 2px;
     }
 
+    nav ul a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--blue);
+      transition: width 0.2s;
+      border-radius: 2px;
+    }
+
+    nav ul a.active { color: var(--text); }
+    nav ul a.active::after { width: 100%; }
     nav ul a:hover { color: var(--text); }
 
     .nav-right {
@@ -153,7 +186,7 @@
     /* ── HERO ── */
     .hero {
       text-align: center;
-      padding: 6rem 2rem 5rem;
+      padding: 6.5rem 2rem 5.5rem;
       max-width: 760px;
       margin: 0 auto;
     }
@@ -185,6 +218,13 @@
       font-family: -apple-system, sans-serif;
     }
 
+    .hero-btns {
+      display: flex;
+      gap: 0.9rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .btn-primary {
       display: inline-block;
       background: var(--blue);
@@ -199,6 +239,20 @@
     }
 
     .btn-primary:hover { background: var(--blue-dk); }
+
+    .btn-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.95rem;
+      color: var(--text2);
+      text-decoration: none;
+      padding: 0.85rem 0;
+      transition: color 0.15s;
+    }
+
+    .btn-text:hover { color: var(--blue); }
 
     /* ── SECTION BASICS ── */
     .section {
@@ -254,15 +308,9 @@
       transition: border-color 0.2s, transform 0.15s, background 0.25s;
     }
 
-    .why-card:hover {
-      border-color: var(--blue);
-      transform: translateY(-2px);
-    }
+    .why-card:hover { border-color: var(--blue); transform: translateY(-2px); }
 
-    .why-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.85rem;
-    }
+    .why-icon { font-size: 1.5rem; margin-bottom: 0.85rem; }
 
     .why-card h3 {
       font-family: -apple-system, sans-serif;
@@ -278,6 +326,223 @@
       color: var(--text2);
       line-height: 1.65;
     }
+
+    /* ── BEFORE / AFTER ── */
+    .ba-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      transition: background 0.25s;
+    }
+
+    .ba-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .ba-card {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .ba-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 160px;
+      position: relative;
+    }
+
+    .ba-before {
+      background: linear-gradient(135deg, #4a3728 0%, #6b4c3b 50%, #3d2e22 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 0.6rem;
+    }
+
+    .ba-after {
+      background: linear-gradient(135deg, #1a6fa8 0%, #4db8ff 50%, #0d4a7a 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 0.6rem;
+    }
+
+    .ba-divider {
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 3px;
+      background: #fff;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .ba-divider::after {
+      content: '↔';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #333;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .ba-pill {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      color: #fff;
+    }
+
+    .ba-before .ba-pill { background: rgba(0,0,0,0.45); }
+    .ba-after .ba-pill { background: rgba(0,0,0,0.35); }
+
+    .ba-info {
+      background: var(--card);
+      padding: 1.1rem 1.25rem;
+      transition: background 0.25s;
+    }
+
+    .ba-info h3 {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .ba-info p {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.8rem;
+      color: var(--text3);
+    }
+
+    .ba-note {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.8rem;
+      color: var(--text3);
+      margin-top: 1.5rem;
+      font-style: italic;
+    }
+
+    /* ── QUOTE ESTIMATOR ── */
+    .estimator-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.25s;
+    }
+
+    .estimator-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      max-width: 640px;
+      transition: background 0.25s;
+    }
+
+    .estimator-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .est-group label {
+      display: block;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text3);
+      margin-bottom: 0.5rem;
+    }
+
+    .est-group select {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-family: -apple-system, sans-serif;
+      font-size: 0.875rem;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.25s;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.85rem center;
+    }
+
+    .est-group select:focus { border-color: var(--blue); }
+
+    .est-result {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: background 0.25s, border-color 0.2s;
+    }
+
+    .est-result.has-result { border-color: var(--blue); }
+
+    .est-label {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.8rem;
+      color: var(--text3);
+      margin-bottom: 0.2rem;
+    }
+
+    .est-price {
+      font-family: -apple-system, sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+
+    .est-result.has-result .est-price { color: var(--blue); }
+
+    .est-book {
+      background: var(--blue);
+      color: #fff;
+      padding: 0.6rem 1.25rem;
+      border-radius: 5px;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, background 0.15s;
+    }
+
+    .est-result.has-result .est-book { opacity: 1; pointer-events: all; }
+    .est-book:hover { background: var(--blue-dk); }
 
     /* ── PRICING ── */
     .pricing-grid {
@@ -298,15 +563,11 @@
 
     .pkg:hover { transform: translateY(-2px); }
 
-    .pkg.featured {
-      background: var(--card);
-      border-color: var(--blue);
-    }
+    .pkg.featured { background: var(--card); border-color: var(--blue); }
 
     .featured-tag {
       position: absolute;
-      top: -11px;
-      left: 1.5rem;
+      top: -11px; left: 1.5rem;
       background: var(--blue);
       color: #fff;
       font-family: -apple-system, sans-serif;
@@ -337,11 +598,7 @@
       margin-bottom: 0.2rem;
     }
 
-    .pkg-price span {
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: var(--text3);
-    }
+    .pkg-price span { font-size: 0.85rem; font-weight: 400; color: var(--text3); }
 
     .pkg-desc {
       font-family: -apple-system, sans-serif;
@@ -350,10 +607,7 @@
       margin-bottom: 1.25rem;
     }
 
-    .pkg-features {
-      list-style: none;
-      margin-bottom: 1.5rem;
-    }
+    .pkg-features { list-style: none; margin-bottom: 1.5rem; }
 
     .pkg-features li {
       font-family: -apple-system, sans-serif;
@@ -394,12 +648,7 @@
 
     .pkg-btn:hover { border-color: var(--text3); }
 
-    .pkg.featured .pkg-btn {
-      background: var(--blue);
-      color: #fff;
-      border-color: var(--blue);
-    }
-
+    .pkg.featured .pkg-btn { background: var(--blue); color: #fff; border-color: var(--blue); }
     .pkg.featured .pkg-btn:hover { background: var(--blue-dk); }
 
     /* ── ADD-ONS ── */
@@ -432,13 +681,114 @@
     }
 
     .addon:hover { border-color: var(--blue); }
-
     .addon-name { font-size: 0.875rem; font-weight: 600; color: var(--text); }
     .addon-price { font-size: 0.875rem; font-weight: 700; color: var(--blue); white-space: nowrap; }
 
+    /* ── ABOUT ── */
+    .about-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+      transition: background 0.25s;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      aspect-ratio: 4/3;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, #1a6fa8 0%, #0d4a7a 40%, #003a57 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.4);
+      font-family: -apple-system, sans-serif;
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .about-visual span { font-size: 2.5rem; opacity: 0.5; }
+
+    .about-text h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .about-text p {
+      font-size: 0.975rem;
+      color: var(--text2);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-family: -apple-system, sans-serif;
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-q {
+      width: 100%;
+      background: var(--card);
+      border: none;
+      padding: 1.1rem 1.5rem;
+      text-align: left;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: background 0.15s;
+    }
+
+    .faq-q:hover { background: var(--bg); }
+
+    .faq-arrow {
+      font-size: 0.65rem;
+      color: var(--text3);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    .faq-a {
+      display: none;
+      padding: 0 1.5rem 1.1rem;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.875rem;
+      color: var(--text2);
+      line-height: 1.75;
+      background: var(--card);
+    }
+
+    .faq-item.open .faq-a { display: block; }
+
     /* ── SERVICE AREA ── */
     .area-section {
-      background: var(--bg2);
+      background: var(--bg);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       transition: background 0.25s;
@@ -452,7 +802,7 @@
     }
 
     .city-tag {
-      background: var(--bg);
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 99px;
       padding: 0.4rem 1rem;
@@ -491,18 +841,40 @@
       margin-bottom: 0.4rem;
     }
 
+    .cta-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
     .cta-phone {
       font-family: -apple-system, sans-serif;
       font-size: 1.4rem;
       font-weight: 700;
       color: #7dd3fc;
       text-decoration: none;
-      display: inline-block;
-      margin-bottom: 2rem;
       transition: color 0.15s;
     }
 
     .cta-phone:hover { color: #fff; }
+
+    .cta-sms {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.875rem;
+      color: var(--cta-mut);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.4rem 1rem;
+      border-radius: 99px;
+      transition: border-color 0.15s, color 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .cta-sms:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
 
     .cta-divider {
       font-family: -apple-system, sans-serif;
@@ -513,10 +885,7 @@
       margin-bottom: 1.5rem;
     }
 
-    .quote-form {
-      display: grid;
-      gap: 0.85rem;
-    }
+    .quote-form { display: grid; gap: 0.85rem; }
 
     .form-row {
       display: grid;
@@ -604,16 +973,9 @@
       line-height: 1.7;
     }
 
-    .footer-info a {
-      color: #7dd3fc;
-      text-decoration: none;
-    }
+    .footer-info a { color: #7dd3fc; text-decoration: none; }
 
-    footer ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
+    footer ul { list-style: none; display: flex; gap: 1.5rem; }
 
     footer ul a {
       font-family: -apple-system, sans-serif;
@@ -625,15 +987,53 @@
 
     footer ul a:hover { color: #fff; }
 
+    /* ── STICKY MOBILE BAR ── */
+    .mobile-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--cta-bg);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 0.85rem 1.25rem;
+      z-index: 300;
+      gap: 0.75rem;
+    }
+
+    .mobile-bar a {
+      flex: 1;
+      text-align: center;
+      padding: 0.7rem;
+      border-radius: 6px;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .mobile-bar .bar-call {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .mobile-bar .bar-sms {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
     /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .about-visual { aspect-ratio: 16/7; }
+    }
+
     @media (max-width: 640px) {
       nav ul { display: none; }
       nav ul.open {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 100%;
-        left: 0; right: 0;
+        top: 100%; left: 0; right: 0;
         background: var(--nav);
         border-bottom: 1px solid var(--border);
         padding: 1rem 2rem;
@@ -641,20 +1041,24 @@
       }
       .menu-btn { display: block; }
       .form-row { grid-template-columns: 1fr; }
-      footer { flex-direction: column; text-align: center; }
+      .estimator-row { grid-template-columns: 1fr; }
+      .mobile-bar { display: flex; }
+      footer { flex-direction: column; text-align: center; padding-bottom: 5rem; }
+      body { padding-bottom: 60px; }
     }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav>
+  <nav id="main-nav">
     <a href="#" class="logo">Gulf<em>Shine</em></a>
     <ul id="nav-links">
-      <li><a href="#why">Why Us</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#area">Service Area</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#why" data-section="why">Why Us</a></li>
+      <li><a href="#pricing" data-section="pricing">Pricing</a></li>
+      <li><a href="#about" data-section="about">About</a></li>
+      <li><a href="#faq" data-section="faq">FAQ</a></li>
+      <li><a href="#area" data-section="area">Area</a></li>
     </ul>
     <div class="nav-right">
       <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode"></button>
@@ -665,38 +1069,125 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-eyebrow">Mobile detailing — Manatee & Sarasota County, FL</div>
-    <h1>Gulf<em style="font-style:normal;color:var(--blue);">Shine</em> Mobile Detailing</h1>
-    <p class="hero-tagline">We come to your driveway. You keep your afternoon. Professional detailing without the drop-off.</p>
-    <a href="#contact" class="btn-primary">Get a Free Quote</a>
+    <div class="hero-eyebrow reveal">Mobile detailing — Manatee &amp; Sarasota County, FL</div>
+    <h1 class="reveal reveal-delay-1">Gulf<em style="font-style:normal;color:var(--blue);">Shine</em><br>Mobile Detailing</h1>
+    <p class="hero-tagline reveal reveal-delay-2">We come to your driveway. You keep your afternoon. Professional detailing without the drop-off.</p>
+    <div class="hero-btns reveal reveal-delay-3">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="#estimator" class="btn-text">Estimate my price →</a>
+    </div>
   </section>
 
   <!-- WHY US -->
   <div class="why-section" id="why">
     <section class="section">
-      <div class="section-label">Why GulfShine</div>
-      <h2 class="section-title">Built for Florida car owners</h2>
-      <p class="section-sub">The sun, the salt air, and the humidity are rough on your paint. We take care of it so you don't have to think about it.</p>
+      <div class="section-label reveal">Why GulfShine</div>
+      <h2 class="section-title reveal">Built for Florida car owners</h2>
+      <p class="section-sub reveal">The sun, salt air, and humidity are rough on your paint. We take care of it.</p>
       <div class="why-grid">
-        <div class="why-card">
+        <div class="why-card reveal reveal-delay-1">
           <div class="why-icon">🚗</div>
           <h3>We come to you</h3>
-          <p>Your driveway, your parking spot, your workplace. No drop-off, no waiting rooms, no wasted time.</p>
+          <p>Your driveway, parking spot, or workplace. No drop-off, no waiting rooms, no wasted time.</p>
         </div>
-        <div class="why-card">
+        <div class="why-card reveal reveal-delay-2">
           <div class="why-icon">☀️</div>
           <h3>Florida weather protection</h3>
-          <p>UV rays, salt air, and hard water spots are a constant fight here. We use products built to handle the Gulf Coast climate.</p>
+          <p>UV rays, salt air, and hard water spots are a constant fight here. We use products built for the Gulf Coast.</p>
         </div>
-        <div class="why-card">
+        <div class="why-card reveal reveal-delay-3">
           <div class="why-icon">🕐</div>
           <h3>On time, every time</h3>
           <p>We show up when we say we will. No vague windows, no last-minute no-shows. Your time matters.</p>
         </div>
-        <div class="why-card">
+        <div class="why-card reveal reveal-delay-4">
           <div class="why-icon">🧴</div>
           <h3>Pro-grade products</h3>
-          <p>We don't cut corners with dollar-store supplies. Every product we use is what the pros use — because we are.</p>
+          <p>We don't cut corners with cheap supplies. Every product we use is what the pros use — because we are.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- BEFORE / AFTER -->
+  <div class="ba-section">
+    <section class="section">
+      <div class="section-label reveal">Results</div>
+      <h2 class="section-title reveal">Before &amp; after</h2>
+      <p class="section-sub reveal">A few examples of what a proper detail actually does.</p>
+      <div class="ba-grid">
+        <div class="ba-card reveal reveal-delay-1">
+          <div class="ba-visual">
+            <div class="ba-before"><span class="ba-pill">Before</span></div>
+            <div class="ba-after"><span class="ba-pill">After</span></div>
+            <div class="ba-divider"></div>
+          </div>
+          <div class="ba-info">
+            <h3>Exterior detail</h3>
+            <p>Swirl marks, water spots, oxidation — gone.</p>
+          </div>
+        </div>
+        <div class="ba-card reveal reveal-delay-2">
+          <div class="ba-visual">
+            <div class="ba-before" style="background:linear-gradient(135deg,#3a2a1a,#5c3d2a,#2e1f10)"><span class="ba-pill">Before</span></div>
+            <div class="ba-after" style="background:linear-gradient(135deg,#2d6a4f,#52b788,#1b4332)"><span class="ba-pill">After</span></div>
+            <div class="ba-divider"></div>
+          </div>
+          <div class="ba-info">
+            <h3>Interior detail</h3>
+            <p>Stains, odors, pet hair — fully cleaned out.</p>
+          </div>
+        </div>
+        <div class="ba-card reveal reveal-delay-3">
+          <div class="ba-visual">
+            <div class="ba-before" style="background:linear-gradient(135deg,#555,#777,#444)"><span class="ba-pill">Before</span></div>
+            <div class="ba-after" style="background:linear-gradient(135deg,#bdc3c7,#ecf0f1,#95a5a6)"><span class="ba-pill">After</span></div>
+            <div class="ba-divider"></div>
+          </div>
+          <div class="ba-info">
+            <h3>Headlight restoration</h3>
+            <p>Foggy yellow lenses polished back to clear.</p>
+          </div>
+        </div>
+      </div>
+      <p class="ba-note reveal">📸 Real photos coming soon — we're just getting started. These are placeholders.</p>
+    </section>
+  </div>
+
+  <!-- QUOTE ESTIMATOR -->
+  <div class="estimator-section" id="estimator">
+    <section class="section">
+      <div class="section-label reveal">Quick Estimate</div>
+      <h2 class="section-title reveal">What will it cost?</h2>
+      <p class="section-sub reveal">Pick your vehicle and service to get a ballpark — no info needed.</p>
+      <div class="estimator-box reveal">
+        <div class="estimator-row">
+          <div class="est-group">
+            <label>Vehicle type</label>
+            <select id="est-vehicle">
+              <option value="">Select vehicle</option>
+              <option value="sedan">Sedan / Coupe</option>
+              <option value="suv">SUV / Truck</option>
+              <option value="van">Van / Large Vehicle</option>
+            </select>
+          </div>
+          <div class="est-group">
+            <label>Service</label>
+            <select id="est-service">
+              <option value="">Select service</option>
+              <option value="exterior">Exterior Shine</option>
+              <option value="interior">Interior Detail</option>
+              <option value="full">Full Detail</option>
+              <option value="monthly">Monthly Plan</option>
+            </select>
+          </div>
+        </div>
+        <div class="est-result" id="est-result">
+          <div>
+            <div class="est-label">Estimated price</div>
+            <div class="est-price" id="est-price">Select options above</div>
+          </div>
+          <a href="#contact" class="est-book" id="est-book">Book this →</a>
         </div>
       </div>
     </section>
@@ -704,39 +1195,39 @@
 
   <!-- PRICING -->
   <section class="section" id="pricing">
-    <div class="section-label">Services & Pricing</div>
-    <h2 class="section-title">What we offer</h2>
-    <p class="section-sub">Prices vary by vehicle size and condition. These are our starting ranges — we'll give you an exact quote before we show up.</p>
+    <div class="section-label reveal">Services &amp; Pricing</div>
+    <h2 class="section-title reveal">What we offer</h2>
+    <p class="section-sub reveal">Prices vary by vehicle size and condition. We'll give you an exact quote before we show up.</p>
 
     <div class="pricing-grid">
-      <div class="pkg">
+      <div class="pkg reveal reveal-delay-1">
         <div class="pkg-name">Exterior Shine</div>
         <div class="pkg-price">$75<span> – $95</span></div>
         <div class="pkg-desc">Sedans to full-size SUVs</div>
         <ul class="pkg-features">
-          <li>Hand wash & dry</li>
-          <li>Wheel & tire clean</li>
+          <li>Hand wash &amp; dry</li>
+          <li>Wheel &amp; tire clean</li>
           <li>Tire dressing</li>
-          <li>Windows inside & out</li>
+          <li>Windows inside &amp; out</li>
         </ul>
         <a href="#contact" class="pkg-btn">Get a quote</a>
       </div>
 
-      <div class="pkg">
+      <div class="pkg reveal reveal-delay-2">
         <div class="pkg-name">Interior Detail</div>
         <div class="pkg-price">$100<span> – $130</span></div>
         <div class="pkg-desc">Sedans to full-size SUVs</div>
         <ul class="pkg-features">
           <li>Full vacuum</li>
           <li>Wipe-down all surfaces</li>
-          <li>Door jambs & cup holders</li>
+          <li>Door jambs &amp; cup holders</li>
           <li>Leather conditioning</li>
           <li>Odor treatment</li>
         </ul>
         <a href="#contact" class="pkg-btn">Get a quote</a>
       </div>
 
-      <div class="pkg featured">
+      <div class="pkg featured reveal reveal-delay-3">
         <div class="featured-tag">Most popular</div>
         <div class="pkg-name">Full Detail</div>
         <div class="pkg-price">$160<span> – $220</span></div>
@@ -751,7 +1242,7 @@
         <a href="#contact" class="pkg-btn">Get a quote</a>
       </div>
 
-      <div class="pkg">
+      <div class="pkg reveal reveal-delay-4">
         <div class="pkg-name">Monthly Plan</div>
         <div class="pkg-price">$90<span> / mo</span></div>
         <div class="pkg-desc">Recurring exterior maintenance</div>
@@ -766,34 +1257,85 @@
       </div>
     </div>
 
-    <!-- ADD-ONS -->
-    <div class="addons-label">Add-ons</div>
+    <div class="addons-label reveal">Add-ons</div>
     <div class="addons-grid">
-      <div class="addon"><span class="addon-name">Ceramic coating</span><span class="addon-price">from $350</span></div>
-      <div class="addon"><span class="addon-name">Paint correction</span><span class="addon-price">from $200</span></div>
-      <div class="addon"><span class="addon-name">Headlight restoration</span><span class="addon-price">$60 – $80</span></div>
-      <div class="addon"><span class="addon-name">Odor treatment</span><span class="addon-price">$40</span></div>
-      <div class="addon"><span class="addon-name">Engine bay cleaning</span><span class="addon-price">$75</span></div>
-      <div class="addon"><span class="addon-name">Pet hair removal</span><span class="addon-price">$40 – $60</span></div>
+      <div class="addon reveal reveal-delay-1"><span class="addon-name">Ceramic coating</span><span class="addon-price">from $350</span></div>
+      <div class="addon reveal reveal-delay-2"><span class="addon-name">Paint correction</span><span class="addon-price">from $200</span></div>
+      <div class="addon reveal reveal-delay-3"><span class="addon-name">Headlight restoration</span><span class="addon-price">$60 – $80</span></div>
+      <div class="addon reveal reveal-delay-1"><span class="addon-name">Odor treatment</span><span class="addon-price">$40</span></div>
+      <div class="addon reveal reveal-delay-2"><span class="addon-name">Engine bay cleaning</span><span class="addon-price">$75</span></div>
+      <div class="addon reveal reveal-delay-3"><span class="addon-name">Pet hair removal</span><span class="addon-price">$40 – $60</span></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <div class="about-section" id="about">
+    <section class="section">
+      <div class="about-inner">
+        <div class="about-visual reveal">
+          <span>📷</span>
+          Add your photo here
+        </div>
+        <div class="about-text">
+          <div class="section-label reveal">About</div>
+          <h2 class="reveal">Local, hands-on, and proud of it.</h2>
+          <p class="reveal">GulfShine was started right here in Manatee County. Not a franchise, not a chain — just someone who takes pride in doing good work and treating customers right.</p>
+          <p class="reveal">We bring everything we need to your location. Water, power, equipment — all of it. All you have to do is let us know when and where.</p>
+          <p class="reveal">We're new, we're hungry, and we want to earn your trust one car at a time.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-label reveal">FAQ</div>
+    <h2 class="section-title reveal">Common questions</h2>
+    <p class="section-sub reveal">If it's not here, just text or call us.</p>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">Do you need access to water or power? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a">Nope. We bring our own water tank and generator. All we need is enough space to work around the car — a driveway, parking spot, whatever you've got.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How long does a full detail take? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a">Usually 2–4 hours depending on the vehicle size and how much work it needs. We'll give you a better estimate when you book so you can plan your day.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you come to apartments or condos? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a">Yes — as long as there's a parking space we can work in. Most complexes are fine with it. If you're unsure, just check with your building before booking.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What happens if it rains on my appointment day? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a">We'll reach out the morning of and either reschedule or adjust. Light rain usually isn't a problem for interior work. We won't just no-show on you.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I pay? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a">We accept cash, Venmo, CashApp, and card. Payment is due when the job is done — not before.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you work weekends? <span class="faq-arrow">▼</span></button>
+        <div class="faq-a">Yes. We work 7 days a week. Weekends actually tend to be the most popular — just book a day or two ahead to make sure we can fit you in.</div>
+      </div>
     </div>
   </section>
 
   <!-- SERVICE AREA -->
   <div class="area-section" id="area">
     <section class="section">
-      <div class="section-label">Service Area</div>
-      <h2 class="section-title">We cover Manatee County & beyond</h2>
-      <p class="section-sub">Based locally, serving the communities around us. Not sure if we come to you? Just ask.</p>
+      <div class="section-label reveal">Service Area</div>
+      <h2 class="section-title reveal">We cover Manatee County &amp; beyond</h2>
+      <p class="section-sub reveal">Based locally, serving the communities around us.</p>
       <div class="area-cities">
-        <span class="city-tag">Ellenton</span>
-        <span class="city-tag">Palmetto</span>
-        <span class="city-tag">Parrish</span>
-        <span class="city-tag">Bradenton</span>
-        <span class="city-tag">Lakewood Ranch</span>
-        <span class="city-tag">Sarasota</span>
-        <span class="city-tag">Nearby areas too</span>
+        <span class="city-tag reveal reveal-delay-1">Ellenton</span>
+        <span class="city-tag reveal reveal-delay-2">Palmetto</span>
+        <span class="city-tag reveal reveal-delay-3">Parrish</span>
+        <span class="city-tag reveal reveal-delay-1">Bradenton</span>
+        <span class="city-tag reveal reveal-delay-2">Lakewood Ranch</span>
+        <span class="city-tag reveal reveal-delay-3">Sarasota</span>
+        <span class="city-tag reveal reveal-delay-4">Nearby areas too</span>
       </div>
-      <p class="area-note">Don't see your city? Give us a call — we may still be able to make it work.</p>
+      <p class="area-note reveal">Don't see your city? Give us a call — we may still be able to make it work.</p>
     </section>
   </div>
 
@@ -801,7 +1343,10 @@
   <div class="cta-wrap" id="contact">
     <div class="cta-inner">
       <h2>Get a Free Quote</h2>
-      <a href="tel:+19783027142" class="cta-phone">(978) 302-7142</a>
+      <div class="cta-contact-row">
+        <a href="tel:+19783027142" class="cta-phone">(978) 302-7142</a>
+        <a href="sms:+19783027142" class="cta-sms">💬 Text us instead</a>
+      </div>
       <div class="cta-divider">— or fill out the form below —</div>
 
       <form class="quote-form" id="quote-form" novalidate>
@@ -810,7 +1355,7 @@
           <input type="tel" placeholder="Phone number" required />
         </div>
         <input type="email" placeholder="Email address" />
-        <input type="text" placeholder="Vehicle (year, make & model — e.g. 2020 Toyota Camry)" />
+        <input type="text" placeholder="Vehicle (year, make &amp; model — e.g. 2020 Toyota Camry)" />
         <select>
           <option value="" disabled selected>Service interested in</option>
           <option>Exterior Shine ($75–$95)</option>
@@ -827,7 +1372,7 @@
 
       <div class="form-success" id="form-success">
         <span class="check">✓</span>
-        Thanks — we'll reach out shortly to confirm your booking.
+        Thanks — we'll reach out shortly to confirm.
       </div>
     </div>
   </div>
@@ -842,31 +1387,101 @@
     <ul>
       <li><a href="#why">Why Us</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#area">Area</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </footer>
 
+  <!-- STICKY MOBILE BAR -->
+  <div class="mobile-bar">
+    <a href="tel:+19783027142" class="bar-call">📞 Call</a>
+    <a href="sms:+19783027142" class="bar-sms">💬 Text</a>
+    <a href="#contact" class="bar-call" style="background:transparent;border:1px solid rgba(255,255,255,0.25);">Get a Quote</a>
+  </div>
+
   <script>
-    // Dark mode
+    // ── Dark mode ──────────────────────────────────────────
     const html = document.documentElement;
     const themeBtn = document.getElementById('theme-btn');
     const saved = localStorage.getItem('theme');
     if (saved) html.setAttribute('data-theme', saved);
-
     themeBtn.addEventListener('click', () => {
       const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
     });
 
-    // Mobile menu
+    // ── Mobile menu ────────────────────────────────────────
     const menuBtn = document.getElementById('menu-btn');
     const navLinks = document.getElementById('nav-links');
     menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-    // Form
+    // ── Scroll reveal ──────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Active nav on scroll ───────────────────────────────
+    const sections = ['why','estimator','pricing','about','faq','area','contact'];
+    const navAnchors = document.querySelectorAll('nav ul a[data-section]');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          navAnchors.forEach(a => {
+            a.classList.toggle('active', a.dataset.section === id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) sectionObserver.observe(el);
+    });
+
+    // ── Quote estimator ────────────────────────────────────
+    const prices = {
+      exterior: { sedan: '$75', suv:  '$85',  van: '$95'  },
+      interior: { sedan: '$100', suv: '$115', van: '$130' },
+      full:     { sedan: '$160', suv: '$190', van: '$220' },
+      monthly:  { sedan: '$90/mo', suv: '$90/mo', van: '$90/mo' },
+    };
+
+    const estVehicle = document.getElementById('est-vehicle');
+    const estService = document.getElementById('est-service');
+    const estResult  = document.getElementById('est-result');
+    const estPrice   = document.getElementById('est-price');
+
+    function updateEstimate() {
+      const v = estVehicle.value;
+      const s = estService.value;
+      if (v && s) {
+        estPrice.textContent = prices[s][v];
+        estResult.classList.add('has-result');
+      } else {
+        estPrice.textContent = 'Select options above';
+        estResult.classList.remove('has-result');
+      }
+    }
+
+    estVehicle.addEventListener('change', updateEstimate);
+    estService.addEventListener('change', updateEstimate);
+
+    // ── FAQ accordion ──────────────────────────────────────
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // ── Form submit ────────────────────────────────────────
     const form = document.getElementById('quote-form');
     const success = document.getElementById('form-success');
     form.addEventListener('submit', e => {
