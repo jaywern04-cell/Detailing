@@ -6,45 +6,49 @@
   <title>GulfShine Mobile Detailing</title>
   <style>
     :root {
-      --bg:       #f5f9fc;
-      --bg2:      #fff;
-      --border:   #ddeaf3;
-      --border2:  #e8f2f8;
-      --text:     #0d1f2d;
-      --text2:    #4a6070;
-      --text3:    #8aa3b1;
-      --text4:    #2e4a5a;
-      --card:     #fff;
-      --blue:     #0096c7;
-      --blue-dk:  #0077a3;
-      --teal:     #00b4d8;
-      --sand:     #f0e6c8;
-      --nav:      rgba(255,255,255,0.92);
-      --cta-bg:   #023e58;
-      --cta-mut:  #7ab3cc;
-      --plan-bg:  #eef6fb;
-      --hero-grad: linear-gradient(175deg, #caf0f8 0%, #ade8f4 25%, #e8f7fc 55%, #f5f9fc 100%);
+      --bg:        #fffcf5;
+      --bg2:       #fff;
+      --border:    #f0e8d0;
+      --border2:   #f5eed8;
+      --text:      #1a1005;
+      --text2:     #5a4a28;
+      --text3:     #a08050;
+      --text4:     #3a2a10;
+      --card:      #fff;
+      --blue:      #0096c7;
+      --blue-dk:   #007aa3;
+      --teal:      #00cfe8;
+      --sun:       #f9a825;
+      --sun-dk:    #e65100;
+      --coral:     #ff6d3a;
+      --nav:       rgba(255,252,245,0.93);
+      --cta-bg:    #03304a;
+      --cta-mut:   #7ab3cc;
+      --plan-bg:   #fffbee;
+      --hero-grad: linear-gradient(175deg, #ffe8a0 0%, #ffd166 8%, #ffc947 15%, #48cae4 45%, #90e0ef 65%, #fffcf5 100%);
     }
 
     [data-theme="dark"] {
-      --bg:       #08121a;
-      --bg2:      #0f1e28;
-      --border:   #1a3040;
-      --border2:  #152535;
-      --text:     #e8f4f8;
-      --text2:    #7aa8be;
-      --text3:    #3d6070;
-      --text4:    #a8cad8;
-      --card:     #0f1e28;
-      --blue:     #00d4ff;
-      --blue-dk:  #00b8e0;
-      --teal:     #00e5ff;
-      --sand:     #2a1f0a;
-      --nav:      rgba(8,18,26,0.95);
-      --cta-bg:   #020e16;
-      --cta-mut:  #3a7a99;
-      --plan-bg:  #08121a;
-      --hero-grad: linear-gradient(175deg, #051520 0%, #081c28 40%, #08121a 100%);
+      --bg:        #0d0a00;
+      --bg2:       #181200;
+      --border:    #2a2000;
+      --border2:   #201800;
+      --text:      #fff8e0;
+      --text2:     #c8a850;
+      --text3:     #806030;
+      --text4:     #d0b070;
+      --card:      #181200;
+      --blue:      #00d4ff;
+      --blue-dk:   #00b8e0;
+      --teal:      #00efff;
+      --sun:       #ffd54f;
+      --sun-dk:    #ffab40;
+      --coral:     #ff8a50;
+      --nav:       rgba(13,10,0,0.95);
+      --cta-bg:    #050800;
+      --cta-mut:   #806030;
+      --plan-bg:   #0d0a00;
+      --hero-grad: linear-gradient(175deg, #1a0f00 0%, #0a1520 35%, #0d0a00 100%);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -104,15 +108,15 @@
     }
 
     .logo-mark {
-      width: 32px;
-      height: 32px;
-      background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
-      border-radius: 8px;
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(145deg, #ffd54f 0%, #f9a825 50%, #ff8f00 100%);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 10px rgba(0,150,199,0.35);
+      box-shadow: 0 2px 12px rgba(249,168,37,0.55), 0 0 0 3px rgba(249,168,37,0.15);
     }
 
     .logo-mark svg { display: block; }
@@ -121,7 +125,7 @@
 
     .logo em {
       font-style: normal;
-      background: linear-gradient(135deg, var(--blue), var(--teal));
+      background: linear-gradient(135deg, var(--sun) 0%, var(--coral) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -224,21 +228,24 @@
       overflow: hidden;
     }
 
+    /* sun glow top-right */
     .hero-wrap::before {
       content: '';
       position: absolute;
-      top: -120px; right: -120px;
-      width: 480px; height: 480px;
-      background: radial-gradient(circle, rgba(0,180,216,0.18) 0%, transparent 70%);
+      top: -60px; right: -60px;
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(255,213,79,0.55) 0%, rgba(249,168,37,0.2) 40%, transparent 70%);
       pointer-events: none;
+      border-radius: 50%;
     }
 
+    /* ocean glow bottom-left */
     .hero-wrap::after {
       content: '';
       position: absolute;
-      bottom: 60px; left: -80px;
-      width: 320px; height: 320px;
-      background: radial-gradient(circle, rgba(0,150,199,0.1) 0%, transparent 70%);
+      bottom: 50px; left: -60px;
+      width: 340px; height: 260px;
+      background: radial-gradient(ellipse, rgba(0,207,232,0.25) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -265,11 +272,12 @@
       font-size: 0.78rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--blue);
+      color: var(--sun-dk);
       margin-bottom: 1.25rem;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      font-weight: 700;
     }
 
     .hero-eyebrow::before,
@@ -278,8 +286,8 @@
       display: inline-block;
       width: 20px;
       height: 1px;
-      background: var(--blue);
-      opacity: 0.5;
+      background: var(--sun);
+      opacity: 0.7;
     }
 
     h1 {
@@ -292,7 +300,7 @@
     }
 
     h1 .shine-word {
-      background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
+      background: linear-gradient(135deg, var(--sun) 0%, var(--coral) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -1143,9 +1151,16 @@
   <nav id="main-nav">
     <a href="#" class="logo">
       <div class="logo-mark">
-        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 7 C3 3, 6 1, 9 4 C12 7, 15 3, 18 7" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-          <path d="M0 11 C3 7, 6 5, 9 8 C12 11, 15 7, 18 11" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="3.8" fill="white"/>
+          <line x1="10" y1="1.5" x2="10" y2="4"   stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="10" y1="16"  x2="10" y2="18.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="1.5" y1="10" x2="4"   y2="10"  stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="16"  y1="10" x2="18.5" y2="10" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="3.6" y1="3.6" x2="5.4" y2="5.4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="14.6" y1="14.6" x2="16.4" y2="16.4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="16.4" y1="3.6" x2="14.6" y2="5.4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="5.4" y1="14.6" x2="3.6" y2="16.4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
         </svg>
       </div>
       <span class="logo-text">Gulf<em>Shine</em></span>
@@ -1177,7 +1192,8 @@
     </section>
     <div class="hero-wave">
       <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0,32 C240,72 480,0 720,36 C960,72 1200,8 1440,40 L1440,72 L0,72 Z" fill="var(--bg)"/>
+        <path d="M0,28 C180,68 420,4 720,38 C1020,72 1260,10 1440,42 L1440,72 L0,72 Z" fill="var(--bg)"/>
+        <path d="M0,50 C300,30 600,60 900,44 C1100,34 1300,52 1440,46 L1440,72 L0,72 Z" fill="var(--bg)" opacity="0.5"/>
       </svg>
     </div>
   </div>
