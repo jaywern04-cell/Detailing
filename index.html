@@ -6,39 +6,45 @@
   <title>GulfShine Mobile Detailing</title>
   <style>
     :root {
-      --bg:       #f7f5f2;
+      --bg:       #f5f9fc;
       --bg2:      #fff;
-      --border:   #e5e0d8;
-      --border2:  #ede9e3;
-      --text:     #1a1a1a;
-      --text2:    #555;
-      --text3:    #888;
-      --text4:    #444;
+      --border:   #ddeaf3;
+      --border2:  #e8f2f8;
+      --text:     #0d1f2d;
+      --text2:    #4a6070;
+      --text3:    #8aa3b1;
+      --text4:    #2e4a5a;
       --card:     #fff;
-      --blue:     #0077b6;
-      --blue-dk:  #005f92;
-      --nav:      #fff;
-      --cta-bg:   #003a57;
+      --blue:     #0096c7;
+      --blue-dk:  #0077a3;
+      --teal:     #00b4d8;
+      --sand:     #f0e6c8;
+      --nav:      rgba(255,255,255,0.92);
+      --cta-bg:   #023e58;
       --cta-mut:  #7ab3cc;
-      --plan-bg:  #f7f5f2;
+      --plan-bg:  #eef6fb;
+      --hero-grad: linear-gradient(175deg, #caf0f8 0%, #ade8f4 25%, #e8f7fc 55%, #f5f9fc 100%);
     }
 
     [data-theme="dark"] {
-      --bg:       #0d0d0d;
-      --bg2:      #161616;
-      --border:   #272727;
-      --border2:  #222;
-      --text:     #ededed;
-      --text2:    #aaa;
-      --text3:    #555;
-      --text4:    #bbb;
-      --card:     #1a1a1a;
-      --blue:     #38bdf8;
-      --blue-dk:  #0ea5e9;
-      --nav:      #111;
-      --cta-bg:   #050f14;
+      --bg:       #08121a;
+      --bg2:      #0f1e28;
+      --border:   #1a3040;
+      --border2:  #152535;
+      --text:     #e8f4f8;
+      --text2:    #7aa8be;
+      --text3:    #3d6070;
+      --text4:    #a8cad8;
+      --card:     #0f1e28;
+      --blue:     #00d4ff;
+      --blue-dk:  #00b8e0;
+      --teal:     #00e5ff;
+      --sand:     #2a1f0a;
+      --nav:      rgba(8,18,26,0.95);
+      --cta-bg:   #020e16;
       --cta-mut:  #3a7a99;
-      --plan-bg:  #0d0d0d;
+      --plan-bg:  #08121a;
+      --hero-grad: linear-gradient(175deg, #051520 0%, #081c28 40%, #08121a 100%);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -74,24 +80,52 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.1rem 2.5rem;
+      padding: 1rem 2.5rem;
       background: var(--nav);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 200;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       transition: background 0.25s, border-color 0.25s;
     }
 
     .logo {
-      font-size: 1.15rem;
-      font-weight: 700;
+      font-size: 1.2rem;
+      font-weight: 800;
       font-family: -apple-system, sans-serif;
       color: var(--text);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.02em;
     }
 
-    .logo em { font-style: normal; color: var(--blue); }
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(0,150,199,0.35);
+    }
+
+    .logo-mark svg { display: block; }
+
+    .logo-text { display: flex; align-items: baseline; gap: 0; }
+
+    .logo em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
     nav ul {
       list-style: none;
@@ -184,29 +218,84 @@
     }
 
     /* ── HERO ── */
+    .hero-wrap {
+      background: var(--hero-grad);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-wrap::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(0,180,216,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 60px; left: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(0,150,199,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
     .hero {
       text-align: center;
-      padding: 6.5rem 2rem 5.5rem;
+      padding: 6.5rem 2rem 4rem;
       max-width: 760px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
+
+    .hero-wave {
+      display: block;
+      width: 100%;
+      line-height: 0;
+      margin-top: -2px;
+    }
+
+    .hero-wave svg { width: 100%; height: auto; display: block; }
 
     .hero-eyebrow {
       font-family: -apple-system, sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--blue);
       margin-bottom: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--blue);
+      opacity: 0.5;
     }
 
     h1 {
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.03em;
       margin-bottom: 1rem;
       color: var(--text);
+    }
+
+    h1 .shine-word {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero-tagline {
@@ -1052,7 +1141,15 @@
 
   <!-- NAV -->
   <nav id="main-nav">
-    <a href="#" class="logo">Gulf<em>Shine</em></a>
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 7 C3 3, 6 1, 9 4 C12 7, 15 3, 18 7" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M0 11 C3 7, 6 5, 9 8 C12 11, 15 7, 18 11" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <span class="logo-text">Gulf<em>Shine</em></span>
+    </a>
     <ul id="nav-links">
       <li><a href="#why" data-section="why">Why Us</a></li>
       <li><a href="#pricing" data-section="pricing">Pricing</a></li>
@@ -1068,15 +1165,22 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-eyebrow reveal">Mobile detailing — Manatee &amp; Sarasota County, FL</div>
-    <h1 class="reveal reveal-delay-1">Gulf<em style="font-style:normal;color:var(--blue);">Shine</em><br>Mobile Detailing</h1>
-    <p class="hero-tagline reveal reveal-delay-2">We come to your driveway. You keep your afternoon. Professional detailing without the drop-off.</p>
-    <div class="hero-btns reveal reveal-delay-3">
-      <a href="#contact" class="btn-primary">Get a Free Quote</a>
-      <a href="#estimator" class="btn-text">Estimate my price →</a>
+  <div class="hero-wrap">
+    <section class="hero">
+      <div class="hero-eyebrow reveal">Mobile detailing — Manatee &amp; Sarasota County, FL</div>
+      <h1 class="reveal reveal-delay-1">Gulf<span class="shine-word">Shine</span><br>Mobile Detailing</h1>
+      <p class="hero-tagline reveal reveal-delay-2">We come to your driveway. You keep your afternoon. Professional detailing without the drop-off.</p>
+      <div class="hero-btns reveal reveal-delay-3">
+        <a href="#contact" class="btn-primary">Get a Free Quote</a>
+        <a href="#estimator" class="btn-text">Estimate my price →</a>
+      </div>
+    </section>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,32 C240,72 480,0 720,36 C960,72 1200,8 1440,40 L1440,72 L0,72 Z" fill="var(--bg)"/>
+      </svg>
     </div>
-  </section>
+  </div>
 
   <!-- WHY US -->
   <div class="why-section" id="why">
@@ -1379,7 +1483,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <a href="#" class="footer-logo">Gulf<em>Shine</em> Mobile Detailing</a>
+    <a href="#" class="footer-logo">Gulf<em style="font-style:normal;color:#00d4ff;">Shine</em> Mobile Detailing</a>
     <div class="footer-info">
       <a href="tel:+19783027142">(978) 302-7142</a><br>
       Ellenton · Palmetto · Parrish · Bradenton · Lakewood Ranch
