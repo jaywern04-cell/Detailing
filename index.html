@@ -3,53 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CutAbove Lawn Care</title>
+  <title>GulfShine Mobile Detailing</title>
   <style>
     /* ── TOKENS ─────────────────────────────────────────── */
     :root {
-      --bg:        #f9f7f4;
+      --bg:        #f7f5f2;
       --bg2:       #fff;
-      --border:    #e8e4de;
+      --border:    #e5e0d8;
       --border2:   #ede9e3;
       --text:      #1a1a1a;
       --text2:     #555;
       --text3:     #888;
       --text4:     #444;
       --card-bg:   #fff;
-      --card-bg2:  #f9f7f4;
-      --green:     #2e7d32;
-      --green-dk:  #256427;
-      --cta-bg:    #1a3a1c;
-      --cta-muted: #9dbf9e;
+      --card-bg2:  #f7f5f2;
+      --blue:      #0077b6;
+      --blue-dk:   #005f92;
+      --blue-lt:   #e0f0fa;
+      --cta-bg:    #003a57;
+      --cta-muted: #7ab3cc;
       --nav-bg:    #fff;
       --strip-bg:  #fff;
       --price-bg:  #fff;
-      --plan-bg:   #f9f7f4;
+      --plan-bg:   #f7f5f2;
     }
 
     [data-theme="dark"] {
-      --bg:        #0f0f0f;
-      --bg2:       #181818;
-      --border:    #2a2a2a;
-      --border2:   #252525;
+      --bg:        #0d0d0d;
+      --bg2:       #161616;
+      --border:    #272727;
+      --border2:   #222;
       --text:      #ededed;
       --text2:     #aaa;
-      --text3:     #666;
+      --text3:     #555;
       --text4:     #bbb;
-      --card-bg:   #1c1c1c;
-      --card-bg2:  #141414;
-      --green:     #4ade80;
-      --green-dk:  #22c55e;
-      --cta-bg:    #0d1f0e;
-      --cta-muted: #5a8a5c;
-      --nav-bg:    #141414;
-      --strip-bg:  #141414;
-      --price-bg:  #141414;
-      --plan-bg:   #111;
+      --card-bg:   #1a1a1a;
+      --card-bg2:  #111;
+      --blue:      #38bdf8;
+      --blue-dk:   #0ea5e9;
+      --blue-lt:   #0c2a3a;
+      --cta-bg:    #050f14;
+      --cta-muted: #3a7a99;
+      --nav-bg:    #111;
+      --strip-bg:  #111;
+      --price-bg:  #111;
+      --plan-bg:   #0d0d0d;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -60,7 +61,7 @@
       transition: background 0.25s, color 0.25s;
     }
 
-    /* ── NAV ─────────────────────────────────────────────── */
+    /* ── NAV ────────────────────────────────────────────── */
     nav {
       display: flex;
       align-items: center;
@@ -83,12 +84,12 @@
       text-decoration: none;
     }
 
-    .logo em { font-style: normal; color: var(--green); }
+    .logo em { font-style: normal; color: var(--blue); }
 
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 2.25rem;
+      gap: 2rem;
     }
 
     nav ul {
@@ -107,7 +108,6 @@
 
     nav ul a:hover { color: var(--text); }
 
-    /* dark mode toggle */
     .theme-btn {
       background: none;
       border: 1px solid var(--border);
@@ -116,7 +116,7 @@
       height: 22px;
       cursor: pointer;
       position: relative;
-      transition: border-color 0.2s, background 0.2s;
+      transition: border-color 0.2s;
       flex-shrink: 0;
     }
 
@@ -134,11 +134,11 @@
 
     [data-theme="dark"] .theme-btn::after {
       transform: translateX(18px);
-      background: var(--green);
+      background: var(--blue);
     }
 
     .nav-cta {
-      background: var(--green);
+      background: var(--blue);
       color: #fff;
       padding: 0.5rem 1.25rem;
       border-radius: 5px;
@@ -149,11 +149,8 @@
       transition: background 0.15s;
     }
 
-    [data-theme="dark"] .nav-cta { color: #0f0f0f; }
+    .nav-cta:hover { background: var(--blue-dk); }
 
-    .nav-cta:hover { background: var(--green-dk); }
-
-    /* mobile menu button */
     .menu-btn {
       display: none;
       background: none;
@@ -166,9 +163,9 @@
       line-height: 1;
     }
 
-    /* ── HERO ─────────────────────────────────────────────── */
+    /* ── HERO ───────────────────────────────────────────── */
     .hero {
-      max-width: 780px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 6rem 2rem 4.5rem;
       text-align: center;
@@ -179,7 +176,7 @@
       font-size: 0.8rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--green);
+      color: var(--blue);
       margin-bottom: 1.25rem;
     }
 
@@ -195,7 +192,7 @@
     .hero p {
       font-size: 1.1rem;
       color: var(--text2);
-      max-width: 480px;
+      max-width: 500px;
       margin: 0 auto 2.25rem;
       line-height: 1.75;
     }
@@ -208,7 +205,7 @@
     }
 
     .btn-primary {
-      background: var(--green);
+      background: var(--blue);
       color: #fff;
       padding: 0.75rem 1.75rem;
       border-radius: 5px;
@@ -219,8 +216,7 @@
       transition: background 0.15s;
     }
 
-    [data-theme="dark"] .btn-primary { color: #0f0f0f; }
-    .btn-primary:hover { background: var(--green-dk); }
+    .btn-primary:hover { background: var(--blue-dk); }
 
     .btn-secondary {
       background: var(--card-bg);
@@ -237,7 +233,7 @@
 
     .btn-secondary:hover { border-color: var(--text3); }
 
-    /* ── STATS STRIP ─────────────────────────────────────── */
+    /* ── STATS ──────────────────────────────────────────── */
     .strip {
       background: var(--strip-bg);
       border-top: 1px solid var(--border);
@@ -267,7 +263,7 @@
       transition: color 0.2s;
     }
 
-    .stat:hover .stat-num { color: var(--green); }
+    .stat:hover .stat-num { color: var(--blue); }
 
     .stat-label {
       font-family: -apple-system, sans-serif;
@@ -276,7 +272,7 @@
       margin-top: 0.2rem;
     }
 
-    /* ── SECTIONS ─────────────────────────────────────────── */
+    /* ── SECTIONS ───────────────────────────────────────── */
     .section {
       max-width: 1080px;
       margin: 0 auto;
@@ -288,7 +284,7 @@
       font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--green);
+      color: var(--blue);
       margin-bottom: 0.6rem;
     }
 
@@ -308,7 +304,7 @@
       font-family: -apple-system, sans-serif;
     }
 
-    /* ── SERVICE CARDS ────────────────────────────────────── */
+    /* ── SERVICE CARDS ──────────────────────────────────── */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -321,12 +317,17 @@
       border-radius: 8px;
       padding: 1.75rem;
       cursor: pointer;
-      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      transition: border-color 0.2s, transform 0.15s, background 0.25s;
     }
 
     .card:hover {
-      border-color: var(--green);
+      border-color: var(--blue);
       transform: translateY(-2px);
+    }
+
+    .card-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
     }
 
     .card h3 {
@@ -344,7 +345,7 @@
       font-family: -apple-system, sans-serif;
     }
 
-    /* ── PRICING ─────────────────────────────────────────── */
+    /* ── PRICING ────────────────────────────────────────── */
     .pricing-section {
       background: var(--price-bg);
       border-top: 1px solid var(--border);
@@ -352,7 +353,6 @@
       transition: background 0.25s;
     }
 
-    /* billing toggle */
     .billing-toggle {
       display: flex;
       align-items: center;
@@ -375,7 +375,7 @@
       flex-shrink: 0;
     }
 
-    .toggle-track.on { background: var(--green); }
+    .toggle-track.on { background: var(--blue); }
 
     .toggle-track::after {
       content: '';
@@ -392,7 +392,7 @@
     .toggle-track.on::after { transform: translateX(20px); }
 
     .save-badge {
-      background: var(--green);
+      background: var(--blue);
       color: #fff;
       font-size: 0.7rem;
       font-weight: 700;
@@ -402,7 +402,6 @@
       transition: opacity 0.2s;
     }
 
-    [data-theme="dark"] .save-badge { color: #0f0f0f; }
     .save-badge.visible { opacity: 1; }
 
     .pricing-grid {
@@ -424,14 +423,14 @@
 
     .pricing-card.featured {
       background: var(--card-bg);
-      border-color: var(--green);
+      border-color: var(--blue);
     }
 
     .featured-tag {
       position: absolute;
       top: -11px;
       left: 1.5rem;
-      background: var(--green);
+      background: var(--blue);
       color: #fff;
       font-family: -apple-system, sans-serif;
       font-size: 0.68rem;
@@ -441,8 +440,6 @@
       padding: 0.2rem 0.65rem;
       border-radius: 3px;
     }
-
-    [data-theme="dark"] .featured-tag { color: #0f0f0f; }
 
     .plan-name {
       font-family: -apple-system, sans-serif;
@@ -461,7 +458,6 @@
       letter-spacing: -0.03em;
       color: var(--text);
       margin-bottom: 0.2rem;
-      transition: color 0.2s;
     }
 
     .plan-price span {
@@ -508,18 +504,50 @@
       cursor: pointer;
     }
 
-    .plan-btn:hover { background: var(--bg); border-color: var(--text3); }
+    .plan-btn:hover { border-color: var(--text3); }
 
     .pricing-card.featured .plan-btn {
-      background: var(--green);
+      background: var(--blue);
       color: #fff;
-      border-color: var(--green);
+      border-color: var(--blue);
     }
 
-    [data-theme="dark"] .pricing-card.featured .plan-btn { color: #0f0f0f; }
-    .pricing-card.featured .plan-btn:hover { background: var(--green-dk); }
+    .pricing-card.featured .plan-btn:hover { background: var(--blue-dk); }
 
-    /* ── REVIEWS ─────────────────────────────────────────── */
+    /* ── ADD-ONS ────────────────────────────────────────── */
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .addon {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: -apple-system, sans-serif;
+      transition: border-color 0.2s, background 0.25s;
+    }
+
+    .addon:hover { border-color: var(--blue); }
+
+    .addon-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .addon-price {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    /* ── REVIEWS ────────────────────────────────────────── */
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -535,7 +563,7 @@
     }
 
     .stars {
-      color: #d4a017;
+      color: #f59e0b;
       font-size: 0.8rem;
       margin-bottom: 0.75rem;
       letter-spacing: 0.05em;
@@ -562,7 +590,71 @@
       margin-bottom: 0.1rem;
     }
 
-    /* ── CONTACT FORM ─────────────────────────────────────── */
+    /* ── FAQ ────────────────────────────────────────────── */
+    .faq-wrap {
+      background: var(--price-bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.25s;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-q {
+      width: 100%;
+      background: var(--card-bg);
+      border: none;
+      padding: 1.1rem 1.5rem;
+      text-align: left;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: background 0.15s;
+    }
+
+    .faq-q:hover { background: var(--bg); }
+
+    .faq-q .arrow {
+      font-size: 0.7rem;
+      color: var(--text3);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+
+    .faq-a {
+      display: none;
+      padding: 0 1.5rem 1.1rem;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.875rem;
+      color: var(--text2);
+      line-height: 1.7;
+      background: var(--card-bg);
+    }
+
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── CONTACT FORM ───────────────────────────────────── */
     .cta-wrap {
       background: var(--cta-bg);
       color: #fff;
@@ -620,12 +712,12 @@
     .quote-form textarea::placeholder { color: rgba(255,255,255,0.35); }
 
     .quote-form select { color: rgba(255,255,255,0.7); }
-    .quote-form select option { background: #1a3a1c; color: #fff; }
+    .quote-form select option { background: #003a57; color: #fff; }
 
     .quote-form input:focus,
     .quote-form select:focus,
     .quote-form textarea:focus {
-      border-color: var(--green);
+      border-color: var(--blue);
       background: rgba(255,255,255,0.1);
     }
 
@@ -633,7 +725,7 @@
 
     .form-submit {
       background: #fff;
-      color: #1a3a1c;
+      color: var(--cta-bg);
       border: none;
       padding: 0.8rem;
       border-radius: 5px;
@@ -644,7 +736,7 @@
       transition: background 0.15s, transform 0.1s;
     }
 
-    .form-submit:hover { background: #e8f5e9; }
+    .form-submit:hover { background: #dff0fb; }
     .form-submit:active { transform: scale(0.99); }
 
     .form-success {
@@ -652,7 +744,7 @@
       text-align: center;
       padding: 2rem;
       font-family: -apple-system, sans-serif;
-      color: var(--green);
+      color: #7dd3fc;
       font-size: 1rem;
     }
 
@@ -662,7 +754,7 @@
       margin-bottom: 0.5rem;
     }
 
-    /* ── FOOTER ────────────────────────────────────────────── */
+    /* ── FOOTER ─────────────────────────────────────────── */
     footer {
       background: var(--bg2);
       border-top: 1px solid var(--border);
@@ -699,7 +791,7 @@
 
     footer ul a:hover { color: var(--text); }
 
-    /* ── MOBILE ──────────────────────────────────────────── */
+    /* ── MOBILE ─────────────────────────────────────────── */
     @media (max-width: 640px) {
       nav ul { display: none; }
       nav ul.open {
@@ -725,37 +817,40 @@
 <body>
 
   <nav>
-    <a href="#" class="logo">Cut<em>Above</em></a>
+    <a href="#" class="logo">Gulf<em>Shine</em></a>
     <ul id="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Book</a></li>
     </ul>
     <div class="nav-right">
-      <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
-      <a href="#contact" class="nav-cta">Get a Quote</a>
+      <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode"></button>
+      <a href="#contact" class="nav-cta">Book Now</a>
       <button class="menu-btn" id="menu-btn" aria-label="Open menu">&#9776;</button>
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-eyebrow">Serving Riverside &amp; surrounding areas</div>
-    <h1>Lawn care you can<br>actually count on.</h1>
-    <p>We show up, we do good work, and we leave your yard looking better than we found it. That's the whole deal.</p>
+    <div class="hero-eyebrow">Mobile detailing — we come to you — Tampa Bay, FL</div>
+    <h1>Your car detailed<br>in your driveway.</h1>
+    <p>No dropping off. No waiting around. We show up with everything we need and leave your car looking better than the day you bought it.</p>
     <div class="hero-buttons">
-      <a href="#contact" class="btn-primary">Get a free quote</a>
-      <a href="#services" class="btn-secondary">What we do</a>
+      <a href="#contact" class="btn-primary">Book a detail</a>
+      <a href="#services" class="btn-secondary">See what we do</a>
     </div>
   </section>
 
+  <!-- STATS -->
   <div class="strip">
     <div class="stat">
-      <div class="stat-num">500+</div>
-      <div class="stat-label">Customers</div>
+      <div class="stat-num">300+</div>
+      <div class="stat-label">Cars detailed</div>
     </div>
     <div class="stat">
-      <div class="stat-num">8 yrs</div>
+      <div class="stat-num">5 yrs</div>
       <div class="stat-label">In business</div>
     </div>
     <div class="stat">
@@ -771,32 +866,38 @@
   <!-- SERVICES -->
   <section class="section" id="services">
     <div class="section-label">Services</div>
-    <h2 class="section-title">What we take care of</h2>
-    <p class="section-sub">Everything from a quick mow to a full cleanup — we handle it.</p>
+    <h2 class="section-title">What we do</h2>
+    <p class="section-sub">Everything from a quick wash to full paint correction — all at your location.</p>
     <div class="services-grid">
       <div class="card">
-        <h3>Mowing</h3>
-        <p>Weekly or bi-weekly cuts, sized to your yard. We edge along driveways and walkways every visit.</p>
+        <div class="card-icon">🚿</div>
+        <h3>Exterior Wash & Dry</h3>
+        <p>Full hand wash, wheel clean, tire dressing, and streak-free dry. Better than any drive-through.</p>
       </div>
       <div class="card">
-        <h3>Trimming &amp; Edging</h3>
-        <p>String trimmer work around fences, beds, and anything the mower can't reach cleanly.</p>
+        <div class="card-icon">🪣</div>
+        <h3>Interior Detail</h3>
+        <p>Vacuum, wipe-down, door jambs, cup holders, vents — everything gets done. No shortcuts.</p>
       </div>
       <div class="card">
-        <h3>Leaf Cleanup</h3>
-        <p>We haul it away. No blowing leaves into the street and calling it a day.</p>
+        <div class="card-icon">✨</div>
+        <h3>Full Detail</h3>
+        <p>Interior and exterior together. The works. Good for cars that haven't been touched in a while.</p>
       </div>
       <div class="card">
-        <h3>Fertilization</h3>
-        <p>Seasonal applications to keep the grass healthy, green, and crowding out weeds naturally.</p>
+        <div class="card-icon">🔵</div>
+        <h3>Ceramic Coating</h3>
+        <p>Long-term paint protection that repels water, UV, and dirt. Lasts years, not weeks.</p>
       </div>
       <div class="card">
-        <h3>Aeration &amp; Seeding</h3>
-        <p>Plugs pulled, seed laid down. Good for thin spots or lawns that just look tired.</p>
+        <div class="card-icon">🔧</div>
+        <h3>Paint Correction</h3>
+        <p>Swirl marks, light scratches, water spots — we cut them out and restore the gloss.</p>
       </div>
       <div class="card">
-        <h3>Shrub Trimming</h3>
-        <p>Hedges, ornamentals, whatever you've got. Shaped up so the whole front looks intentional.</p>
+        <div class="card-icon">💡</div>
+        <h3>Headlight Restoration</h3>
+        <p>Foggy yellowed headlights sanded back, polished clear, and sealed. Big difference for cheap.</p>
       </div>
     </div>
   </section>
@@ -805,57 +906,70 @@
   <div class="pricing-section" id="pricing">
     <section class="section">
       <div class="section-label">Pricing</div>
-      <h2 class="section-title">Flat rates, no surprises</h2>
-      <p class="section-sub">No contracts. You can stop whenever you want.</p>
+      <h2 class="section-title">Straight up pricing</h2>
+      <p class="section-sub">No hidden fees. Price is the price.</p>
 
       <div class="billing-toggle">
-        <span>Per visit</span>
-        <button class="toggle-track" id="billing-toggle" aria-label="Toggle monthly billing"></button>
-        <span>Monthly</span>
-        <span class="save-badge" id="save-badge">Save 15%</span>
+        <span>One-time</span>
+        <button class="toggle-track" id="billing-toggle" aria-label="Toggle package pricing"></button>
+        <span>Package (4 visits)</span>
+        <span class="save-badge" id="save-badge">Save 20%</span>
       </div>
 
       <div class="pricing-grid">
         <div class="pricing-card">
-          <div class="plan-name">Basic</div>
-          <div class="plan-price" id="price-basic">$49<span> / visit</span></div>
-          <div class="plan-desc">Up to 5,000 sq ft</div>
+          <div class="plan-name">Exterior Only</div>
+          <div class="plan-price" id="price-basic">$89<span> / visit</span></div>
+          <div class="plan-desc">Sedans & small SUVs</div>
           <ul class="plan-features">
-            <li>Mow, trim &amp; edge</li>
-            <li>Blow off driveway &amp; walkways</li>
-            <li>Weekly or every two weeks</li>
-            <li>Book online</li>
+            <li>Hand wash & dry</li>
+            <li>Wheel & tire clean</li>
+            <li>Windows inside & out</li>
+            <li>Tire dressing</li>
           </ul>
-          <a href="#contact" class="plan-btn">Get started</a>
+          <a href="#contact" class="plan-btn">Book now</a>
         </div>
 
         <div class="pricing-card featured">
           <div class="featured-tag">Most popular</div>
-          <div class="plan-name">Standard</div>
-          <div class="plan-price" id="price-standard">$89<span> / visit</span></div>
-          <div class="plan-desc">Up to 10,000 sq ft</div>
+          <div class="plan-name">Full Detail</div>
+          <div class="plan-price" id="price-standard">$179<span> / visit</span></div>
+          <div class="plan-desc">Sedans & small SUVs</div>
           <ul class="plan-features">
-            <li>Everything in Basic</li>
-            <li>Shrub trimming (up to 6)</li>
-            <li>Seasonal fertilization</li>
-            <li>Priority scheduling</li>
-            <li>Text reminders</li>
+            <li>Full exterior wash</li>
+            <li>Complete interior detail</li>
+            <li>Leather conditioning</li>
+            <li>Odor treatment</li>
+            <li>Engine bay wipe-down</li>
           </ul>
-          <a href="#contact" class="plan-btn">Get started</a>
+          <a href="#contact" class="plan-btn">Book now</a>
         </div>
 
         <div class="pricing-card">
-          <div class="plan-name">Full Service</div>
-          <div class="plan-price" id="price-full">$149<span> / visit</span></div>
-          <div class="plan-desc">Larger properties</div>
+          <div class="plan-name">Premium</div>
+          <div class="plan-price" id="price-full">$349<span> / visit</span></div>
+          <div class="plan-desc">Any vehicle size</div>
           <ul class="plan-features">
-            <li>Everything in Standard</li>
-            <li>Aeration &amp; overseeding</li>
-            <li>Leaf &amp; debris removal</li>
-            <li>Unlimited shrubs</li>
-            <li>Same crew every time</li>
+            <li>Everything in Full Detail</li>
+            <li>Single-stage paint correction</li>
+            <li>Ceramic sealant</li>
+            <li>Headlight restoration</li>
+            <li>Priority booking</li>
           </ul>
-          <a href="#contact" class="plan-btn">Get started</a>
+          <a href="#contact" class="plan-btn">Book now</a>
+        </div>
+      </div>
+
+      <!-- ADD-ONS -->
+      <div style="margin-top: 3rem;">
+        <div class="section-label" style="margin-bottom:1rem;">Add-ons</div>
+        <div class="addons-grid">
+          <div class="addon"><span class="addon-name">Pet hair removal</span><span class="addon-price">+$40</span></div>
+          <div class="addon"><span class="addon-name">Ozone odor treatment</span><span class="addon-price">+$60</span></div>
+          <div class="addon"><span class="addon-name">Truck / large SUV</span><span class="addon-price">+$30</span></div>
+          <div class="addon"><span class="addon-name">Headlight restoration</span><span class="addon-price">+$75</span></div>
+          <div class="addon"><span class="addon-name">Clay bar treatment</span><span class="addon-price">+$50</span></div>
+          <div class="addon"><span class="addon-name">Ceramic coating</span><span class="addon-price">from $300</span></div>
         </div>
       </div>
     </section>
@@ -864,76 +978,109 @@
   <!-- REVIEWS -->
   <section class="section" id="reviews">
     <div class="section-label">Reviews</div>
-    <h2 class="section-title">What customers say</h2>
-    <p class="section-sub">From real people in the area.</p>
+    <h2 class="section-title">What people say</h2>
+    <p class="section-sub">All from real customers in the Tampa Bay area.</p>
     <div class="reviews-grid">
       <div class="review">
         <div class="stars">★★★★★</div>
-        <p>"Been using them for two years. They show up when they say they will, which honestly was all I was looking for. Yard looks great too."</p>
-        <div class="reviewer"><strong>Marcus R.</strong>Riverside, CA</div>
+        <p>"My truck hadn't been detailed in two years. These guys came to my house and turned it around in about three hours. Looked brand new inside and out."</p>
+        <div class="reviewer"><strong>Derek M.</strong>Tampa, FL</div>
       </div>
       <div class="review">
         <div class="stars">★★★★★</div>
-        <p>"I tried doing it myself for years. Finally gave in and called these guys. Wish I did it sooner. They're done in 20 minutes and it looks better than I ever managed."</p>
-        <div class="reviewer"><strong>Tanya W.</strong>Corona, CA</div>
+        <p>"Did the ceramic coating on my Civic. Six months later still beading water like crazy. Worth every penny and they came to my apartment complex no problem."</p>
+        <div class="reviewer"><strong>Jasmine T.</strong>St. Petersburg, FL</div>
       </div>
       <div class="review">
         <div class="stars">★★★★★</div>
-        <p>"They flagged a brown patch before I even noticed it and told me what was causing it. Just appreciated that they actually pay attention."</p>
-        <div class="reviewer"><strong>James L.</strong>Moreno Valley, CA</div>
+        <p>"I've got two kids and a dog. The interior was a disaster. They got out stains I'd given up on and it doesn't smell like a wet dog anymore. Genuinely impressed."</p>
+        <div class="reviewer"><strong>Carlos R.</strong>Clearwater, FL</div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT FORM -->
+  <!-- FAQ -->
+  <div class="faq-wrap" id="faq">
+    <section class="section">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Common questions</h2>
+      <p class="section-sub">If it's not here, just ask.</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">Do you need access to water or power? <span class="arrow">▼</span></button>
+          <div class="faq-a">Nope. We bring our own water tank and generator. All we need is enough space to work around the car.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How long does a full detail take? <span class="arrow">▼</span></button>
+          <div class="faq-a">Usually 2–4 hours depending on the size and condition of the vehicle. We'll give you a better estimate when you book.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do you detail at apartments or condos? <span class="arrow">▼</span></button>
+          <div class="faq-a">Yes, as long as there's a parking space we can work in. Most complexes are fine with it — just double check with your building if you're unsure.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What areas do you cover? <span class="arrow">▼</span></button>
+          <div class="faq-a">We cover Tampa, St. Pete, Clearwater, Brandon, and most of the surrounding Tampa Bay area. Not sure if you're in range? Just ask.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What if it rains on my appointment day? <span class="arrow">▼</span></button>
+          <div class="faq-a">We'll reach out the morning of and either reschedule or work around it. Light drizzle usually isn't a problem for interior work — we won't leave you hanging.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CONTACT -->
   <div class="cta-wrap" id="contact">
     <div class="cta-section">
-      <h2>Want a quote?</h2>
-      <p>Fill out the form and we'll get back to you same day.</p>
-
+      <h2>Book a detail</h2>
+      <p>Fill this out and we'll get back to you within a few hours to confirm.</p>
       <form class="quote-form" id="quote-form" novalidate>
         <div class="form-row">
           <input type="text" placeholder="First name" required />
           <input type="text" placeholder="Last name" />
         </div>
         <input type="email" placeholder="Email address" required />
-        <input type="tel" placeholder="Phone (optional)" />
+        <input type="tel" placeholder="Phone number" />
+        <div class="form-row">
+          <input type="text" placeholder="Year, make & model (e.g. 2019 Honda Accord)" />
+          <input type="text" placeholder="Your city" />
+        </div>
         <select>
-          <option value="" disabled selected>Which service are you interested in?</option>
-          <option>Mowing</option>
-          <option>Trimming &amp; Edging</option>
-          <option>Leaf Cleanup</option>
-          <option>Fertilization</option>
-          <option>Aeration &amp; Seeding</option>
-          <option>Shrub Trimming</option>
+          <option value="" disabled selected>What service are you looking for?</option>
+          <option>Exterior Wash & Dry</option>
+          <option>Interior Detail</option>
+          <option>Full Detail</option>
+          <option>Paint Correction</option>
+          <option>Ceramic Coating</option>
+          <option>Headlight Restoration</option>
           <option>Not sure yet</option>
         </select>
-        <textarea placeholder="Anything else we should know? (yard size, specific issues, etc.)"></textarea>
-        <button type="submit" class="form-submit">Send Request</button>
+        <textarea placeholder="Anything else? (condition of the car, specific problem areas, preferred date/time, etc.)"></textarea>
+        <button type="submit" class="form-submit">Send Booking Request</button>
       </form>
-
       <div class="form-success" id="form-success">
         <span class="check">✓</span>
-        Got it — we'll be in touch shortly.
+        Got it — we'll text or email you shortly to confirm.
       </div>
     </div>
   </div>
 
   <footer>
-    <a href="#" class="logo">Cut<em style="font-style:normal;color:var(--green);">Above</em> Lawn Care</a>
-    <p>© 2026 CutAbove. Riverside, CA.</p>
+    <a href="#" class="logo">Gulf<em style="font-style:normal;color:var(--blue);">Shine</em> Mobile Detailing</a>
+    <p>© 2026 GulfShine. Tampa Bay, FL.</p>
     <ul>
       <li><a href="#services">Services</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Book</a></li>
     </ul>
   </footer>
 
   <script>
-    // ── Dark mode ──────────────────────────────────────────
+    // ── Dark mode ──────────────────────────────────────
     const html = document.documentElement;
     const themeBtn = document.getElementById('theme-btn');
-
     const saved = localStorage.getItem('theme');
     if (saved) html.setAttribute('data-theme', saved);
 
@@ -943,43 +1090,48 @@
       localStorage.setItem('theme', next);
     });
 
-    // ── Mobile menu ────────────────────────────────────────
+    // ── Mobile menu ────────────────────────────────────
     const menuBtn = document.getElementById('menu-btn');
     const navLinks = document.getElementById('nav-links');
 
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-    navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
-
-    // ── Pricing toggle ─────────────────────────────────────
+    // ── Pricing toggle ─────────────────────────────────
     const billingToggle = document.getElementById('billing-toggle');
     const saveBadge = document.getElementById('save-badge');
 
     const prices = {
-      visit:   { basic: '$49',  standard: '$89',  full: '$149' },
-      monthly: { basic: '$166', standard: '$302', full: '$507' },
+      once:    { basic: '$89',  standard: '$179', full: '$349' },
+      package: { basic: '$285', standard: '$573', full: '$1,117' },
     };
 
-    let isMonthly = false;
+    let isPkg = false;
 
     billingToggle.addEventListener('click', () => {
-      isMonthly = !isMonthly;
-      billingToggle.classList.toggle('on', isMonthly);
-      saveBadge.classList.toggle('visible', isMonthly);
+      isPkg = !isPkg;
+      billingToggle.classList.toggle('on', isPkg);
+      saveBadge.classList.toggle('visible', isPkg);
 
-      const mode = isMonthly ? 'monthly' : 'visit';
-      const suffix = isMonthly ? ' / mo' : ' / visit';
+      const mode = isPkg ? 'package' : 'once';
+      const suffix = isPkg ? ' / 4 visits' : ' / visit';
 
-      document.getElementById('price-basic').innerHTML     = prices[mode].basic     + `<span>${suffix}</span>`;
-      document.getElementById('price-standard').innerHTML  = prices[mode].standard  + `<span>${suffix}</span>`;
-      document.getElementById('price-full').innerHTML      = prices[mode].full      + `<span>${suffix}</span>`;
+      document.getElementById('price-basic').innerHTML    = prices[mode].basic    + `<span>${suffix}</span>`;
+      document.getElementById('price-standard').innerHTML = prices[mode].standard + `<span>${suffix}</span>`;
+      document.getElementById('price-full').innerHTML     = prices[mode].full     + `<span>${suffix}</span>`;
     });
 
-    // ── Quote form ─────────────────────────────────────────
+    // ── FAQ accordion ──────────────────────────────────
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // ── Quote form ─────────────────────────────────────
     const form = document.getElementById('quote-form');
     const success = document.getElementById('form-success');
 
