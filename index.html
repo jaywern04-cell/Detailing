@@ -5,49 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GulfShine Mobile Detailing</title>
   <style>
-    /* ── TOKENS ─────────────────────────────────────────── */
     :root {
-      --bg:        #f7f5f2;
-      --bg2:       #fff;
-      --border:    #e5e0d8;
-      --border2:   #ede9e3;
-      --text:      #1a1a1a;
-      --text2:     #555;
-      --text3:     #888;
-      --text4:     #444;
-      --card-bg:   #fff;
-      --card-bg2:  #f7f5f2;
-      --blue:      #0077b6;
-      --blue-dk:   #005f92;
-      --blue-lt:   #e0f0fa;
-      --cta-bg:    #003a57;
-      --cta-muted: #7ab3cc;
-      --nav-bg:    #fff;
-      --strip-bg:  #fff;
-      --price-bg:  #fff;
-      --plan-bg:   #f7f5f2;
+      --bg:       #f7f5f2;
+      --bg2:      #fff;
+      --border:   #e5e0d8;
+      --border2:  #ede9e3;
+      --text:     #1a1a1a;
+      --text2:    #555;
+      --text3:    #888;
+      --text4:    #444;
+      --card:     #fff;
+      --blue:     #0077b6;
+      --blue-dk:  #005f92;
+      --nav:      #fff;
+      --cta-bg:   #003a57;
+      --cta-mut:  #7ab3cc;
+      --plan-bg:  #f7f5f2;
     }
 
     [data-theme="dark"] {
-      --bg:        #0d0d0d;
-      --bg2:       #161616;
-      --border:    #272727;
-      --border2:   #222;
-      --text:      #ededed;
-      --text2:     #aaa;
-      --text3:     #555;
-      --text4:     #bbb;
-      --card-bg:   #1a1a1a;
-      --card-bg2:  #111;
-      --blue:      #38bdf8;
-      --blue-dk:   #0ea5e9;
-      --blue-lt:   #0c2a3a;
-      --cta-bg:    #050f14;
-      --cta-muted: #3a7a99;
-      --nav-bg:    #111;
-      --strip-bg:  #111;
-      --price-bg:  #111;
-      --plan-bg:   #0d0d0d;
+      --bg:       #0d0d0d;
+      --bg2:      #161616;
+      --border:   #272727;
+      --border2:  #222;
+      --text:     #ededed;
+      --text2:    #aaa;
+      --text3:    #555;
+      --text4:    #bbb;
+      --card:     #1a1a1a;
+      --blue:     #38bdf8;
+      --blue-dk:  #0ea5e9;
+      --nav:      #111;
+      --cta-bg:   #050f14;
+      --cta-mut:  #3a7a99;
+      --plan-bg:  #0d0d0d;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -56,18 +47,18 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: Georgia, 'Times New Roman', serif;
+      font-family: Georgia, serif;
       line-height: 1.65;
       transition: background 0.25s, color 0.25s;
     }
 
-    /* ── NAV ────────────────────────────────────────────── */
+    /* ── NAV ── */
     nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 1.1rem 2.5rem;
-      background: var(--nav-bg);
+      background: var(--nav);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
@@ -79,23 +70,16 @@
       font-size: 1.15rem;
       font-weight: 700;
       font-family: -apple-system, sans-serif;
-      letter-spacing: -0.01em;
       color: var(--text);
       text-decoration: none;
     }
 
     .logo em { font-style: normal; color: var(--blue); }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
     nav ul {
       list-style: none;
       display: flex;
-      gap: 2.25rem;
+      gap: 2rem;
     }
 
     nav ul a {
@@ -108,6 +92,12 @@
 
     nav ul a:hover { color: var(--text); }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
     .theme-btn {
       background: none;
       border: 1px solid var(--border);
@@ -116,17 +106,14 @@
       height: 22px;
       cursor: pointer;
       position: relative;
-      transition: border-color 0.2s;
       flex-shrink: 0;
     }
 
     .theme-btn::after {
       content: '';
       position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 14px;
-      height: 14px;
+      top: 3px; left: 3px;
+      width: 14px; height: 14px;
       border-radius: 50%;
       background: var(--text3);
       transition: transform 0.25s, background 0.25s;
@@ -140,7 +127,7 @@
     .nav-cta {
       background: var(--blue);
       color: #fff;
-      padding: 0.5rem 1.25rem;
+      padding: 0.5rem 1.2rem;
       border-radius: 5px;
       font-family: -apple-system, sans-serif;
       font-size: 0.875rem;
@@ -163,12 +150,12 @@
       line-height: 1;
     }
 
-    /* ── HERO ───────────────────────────────────────────── */
+    /* ── HERO ── */
     .hero {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 6rem 2rem 4.5rem;
       text-align: center;
+      padding: 6rem 2rem 5rem;
+      max-width: 760px;
+      margin: 0 auto;
     }
 
     .hero-eyebrow {
@@ -181,98 +168,39 @@
     }
 
     h1 {
-      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+      font-size: clamp(2.4rem, 6vw, 4rem);
       font-weight: 700;
-      line-height: 1.1;
+      line-height: 1.08;
       letter-spacing: -0.02em;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
       color: var(--text);
     }
 
-    .hero p {
-      font-size: 1.1rem;
+    .hero-tagline {
+      font-size: 1.15rem;
       color: var(--text2);
-      max-width: 500px;
+      max-width: 460px;
       margin: 0 auto 2.25rem;
-      line-height: 1.75;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 0.9rem;
-      justify-content: center;
-      flex-wrap: wrap;
+      line-height: 1.7;
+      font-family: -apple-system, sans-serif;
     }
 
     .btn-primary {
+      display: inline-block;
       background: var(--blue);
       color: #fff;
-      padding: 0.75rem 1.75rem;
-      border-radius: 5px;
+      padding: 0.85rem 2rem;
+      border-radius: 6px;
       font-family: -apple-system, sans-serif;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
-      font-size: 0.925rem;
+      font-size: 1rem;
       transition: background 0.15s;
     }
 
     .btn-primary:hover { background: var(--blue-dk); }
 
-    .btn-secondary {
-      background: var(--card-bg);
-      color: var(--text);
-      border: 1px solid var(--border);
-      padding: 0.75rem 1.75rem;
-      border-radius: 5px;
-      font-family: -apple-system, sans-serif;
-      font-weight: 500;
-      text-decoration: none;
-      font-size: 0.925rem;
-      transition: border-color 0.15s, background 0.25s;
-    }
-
-    .btn-secondary:hover { border-color: var(--text3); }
-
-    /* ── STATS ──────────────────────────────────────────── */
-    .strip {
-      background: var(--strip-bg);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: center;
-      transition: background 0.25s;
-    }
-
-    .stat {
-      flex: 1;
-      max-width: 200px;
-      padding: 1.75rem 1.5rem;
-      text-align: center;
-      border-right: 1px solid var(--border);
-      cursor: default;
-    }
-
-    .stat:last-child { border-right: none; }
-
-    .stat-num {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      font-family: -apple-system, sans-serif;
-      transition: color 0.2s;
-    }
-
-    .stat:hover .stat-num { color: var(--blue); }
-
-    .stat-label {
-      font-family: -apple-system, sans-serif;
-      font-size: 0.78rem;
-      color: var(--text3);
-      margin-top: 0.2rem;
-    }
-
-    /* ── SECTIONS ───────────────────────────────────────── */
+    /* ── SECTION BASICS ── */
     .section {
       max-width: 1080px;
       margin: 0 auto;
@@ -304,125 +232,74 @@
       font-family: -apple-system, sans-serif;
     }
 
-    /* ── SERVICE CARDS ──────────────────────────────────── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.75rem;
-      cursor: pointer;
-      transition: border-color 0.2s, transform 0.15s, background 0.25s;
-    }
-
-    .card:hover {
-      border-color: var(--blue);
-      transform: translateY(-2px);
-    }
-
-    .card-icon {
-      font-size: 1.4rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .card h3 {
-      font-family: -apple-system, sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--text);
-    }
-
-    .card p {
-      font-size: 0.9rem;
-      color: var(--text2);
-      line-height: 1.65;
-      font-family: -apple-system, sans-serif;
-    }
-
-    /* ── PRICING ────────────────────────────────────────── */
-    .pricing-section {
-      background: var(--price-bg);
+    /* ── WHY US ── */
+    .why-section {
+      background: var(--bg2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       transition: background 0.25s;
     }
 
-    .billing-toggle {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 2.5rem;
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .why-card {
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      transition: border-color 0.2s, transform 0.15s, background 0.25s;
+    }
+
+    .why-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    .why-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .why-card h3 {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .why-card p {
       font-family: -apple-system, sans-serif;
       font-size: 0.875rem;
       color: var(--text2);
+      line-height: 1.65;
     }
 
-    .toggle-track {
-      width: 44px;
-      height: 24px;
-      border-radius: 99px;
-      background: var(--border);
-      position: relative;
-      cursor: pointer;
-      transition: background 0.2s;
-      border: none;
-      flex-shrink: 0;
-    }
-
-    .toggle-track.on { background: var(--blue); }
-
-    .toggle-track::after {
-      content: '';
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: #fff;
-      transition: transform 0.2s;
-    }
-
-    .toggle-track.on::after { transform: translateX(20px); }
-
-    .save-badge {
-      background: var(--blue);
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.15rem 0.5rem;
-      border-radius: 3px;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-
-    .save-badge.visible { opacity: 1; }
-
+    /* ── PRICING ── */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.25rem;
+      margin-bottom: 3rem;
     }
 
-    .pricing-card {
+    .pkg {
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1.75rem;
-      position: relative;
       background: var(--plan-bg);
-      transition: background 0.25s, border-color 0.2s, transform 0.15s;
+      position: relative;
+      transition: border-color 0.2s, transform 0.15s, background 0.25s;
     }
 
-    .pricing-card:hover { transform: translateY(-2px); }
+    .pkg:hover { transform: translateY(-2px); }
 
-    .pricing-card.featured {
-      background: var(--card-bg);
+    .pkg.featured {
+      background: var(--card);
       border-color: var(--blue);
     }
 
@@ -441,54 +318,65 @@
       border-radius: 3px;
     }
 
-    .plan-name {
+    .pkg-name {
       font-family: -apple-system, sans-serif;
       font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text3);
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
+      color: var(--text3);
       margin-bottom: 0.4rem;
     }
 
-    .plan-price {
+    .pkg-price {
       font-family: -apple-system, sans-serif;
-      font-size: 2.25rem;
+      font-size: 1.9rem;
       font-weight: 700;
       letter-spacing: -0.03em;
       color: var(--text);
       margin-bottom: 0.2rem;
     }
 
-    .plan-price span {
-      font-size: 0.9rem;
+    .pkg-price span {
+      font-size: 0.85rem;
       font-weight: 400;
       color: var(--text3);
     }
 
-    .plan-desc {
+    .pkg-desc {
       font-family: -apple-system, sans-serif;
       font-size: 0.8rem;
       color: var(--text3);
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.25rem;
     }
 
-    .plan-features {
+    .pkg-features {
       list-style: none;
       margin-bottom: 1.5rem;
     }
 
-    .plan-features li {
+    .pkg-features li {
       font-family: -apple-system, sans-serif;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       color: var(--text4);
-      padding: 0.3rem 0;
+      padding: 0.28rem 0;
       border-bottom: 1px solid var(--border2);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .plan-features li:last-child { border-bottom: none; }
+    .pkg-features li::before {
+      content: '✓';
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
 
-    .plan-btn {
+    .pkg-features li:last-child { border-bottom: none; }
+
+    .pkg-btn {
       display: block;
       text-align: center;
       padding: 0.65rem;
@@ -499,33 +387,43 @@
       text-decoration: none;
       border: 1px solid var(--border);
       color: var(--text);
-      background: var(--card-bg);
-      transition: background 0.15s, border-color 0.15s;
+      background: var(--card);
+      transition: border-color 0.15s;
       cursor: pointer;
     }
 
-    .plan-btn:hover { border-color: var(--text3); }
+    .pkg-btn:hover { border-color: var(--text3); }
 
-    .pricing-card.featured .plan-btn {
+    .pkg.featured .pkg-btn {
       background: var(--blue);
       color: #fff;
       border-color: var(--blue);
     }
 
-    .pricing-card.featured .plan-btn:hover { background: var(--blue-dk); }
+    .pkg.featured .pkg-btn:hover { background: var(--blue-dk); }
 
-    /* ── ADD-ONS ────────────────────────────────────────── */
+    /* ── ADD-ONS ── */
+    .addons-label {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text3);
+      margin-bottom: 1rem;
+    }
+
     .addons-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.85rem;
     }
 
     .addon {
-      background: var(--card-bg);
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.25rem 1.5rem;
+      border-radius: 7px;
+      padding: 1rem 1.25rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -535,151 +433,84 @@
 
     .addon:hover { border-color: var(--blue); }
 
-    .addon-name {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--text);
-    }
+    .addon-name { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+    .addon-price { font-size: 0.875rem; font-weight: 700; color: var(--blue); white-space: nowrap; }
 
-    .addon-price {
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--blue);
-    }
-
-    /* ── REVIEWS ────────────────────────────────────────── */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .review {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      transition: background 0.25s, border-color 0.2s;
-    }
-
-    .stars {
-      color: #f59e0b;
-      font-size: 0.8rem;
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.05em;
-    }
-
-    .review p {
-      font-size: 0.95rem;
-      color: var(--text4);
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
-      font-family: -apple-system, sans-serif;
-    }
-
-    .reviewer {
-      font-family: -apple-system, sans-serif;
-      font-size: 0.8rem;
-      color: var(--text3);
-    }
-
-    .reviewer strong {
-      color: var(--text);
-      display: block;
-      font-size: 0.875rem;
-      margin-bottom: 0.1rem;
-    }
-
-    /* ── FAQ ────────────────────────────────────────────── */
-    .faq-wrap {
-      background: var(--price-bg);
+    /* ── SERVICE AREA ── */
+    .area-section {
+      background: var(--bg2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       transition: background 0.25s;
     }
 
-    .faq-list {
+    .area-cities {
       display: flex;
-      flex-direction: column;
-      gap: 0;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .city-tag {
+      background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .faq-item:last-child { border-bottom: none; }
-
-    .faq-q {
-      width: 100%;
-      background: var(--card-bg);
-      border: none;
-      padding: 1.1rem 1.5rem;
-      text-align: left;
-      font-family: -apple-system, sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      transition: background 0.15s;
-    }
-
-    .faq-q:hover { background: var(--bg); }
-
-    .faq-q .arrow {
-      font-size: 0.7rem;
-      color: var(--text3);
-      transition: transform 0.2s;
-      flex-shrink: 0;
-    }
-
-    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
-
-    .faq-a {
-      display: none;
-      padding: 0 1.5rem 1.1rem;
+      border-radius: 99px;
+      padding: 0.4rem 1rem;
       font-family: -apple-system, sans-serif;
       font-size: 0.875rem;
       color: var(--text2);
-      line-height: 1.7;
-      background: var(--card-bg);
+      transition: border-color 0.15s, color 0.15s, background 0.25s;
     }
 
-    .faq-item.open .faq-a { display: block; }
+    .city-tag:hover { border-color: var(--blue); color: var(--blue); }
 
-    /* ── CONTACT FORM ───────────────────────────────────── */
+    .area-note {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.875rem;
+      color: var(--text3);
+      margin-top: 1.25rem;
+    }
+
+    /* ── CONTACT ── */
     .cta-wrap {
       background: var(--cta-bg);
-      color: #fff;
       transition: background 0.25s;
     }
 
-    .cta-section {
-      max-width: 640px;
+    .cta-inner {
+      max-width: 680px;
       margin: 0 auto;
       padding: 5rem 2rem;
     }
 
-    .cta-section h2 {
-      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    .cta-inner h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.4rem);
       font-weight: 700;
       letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
       color: #fff;
+      margin-bottom: 0.4rem;
     }
 
-    .cta-section > p {
-      color: var(--cta-muted);
-      margin-bottom: 2rem;
-      font-size: 1rem;
+    .cta-phone {
       font-family: -apple-system, sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #7dd3fc;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 2rem;
+      transition: color 0.15s;
+    }
+
+    .cta-phone:hover { color: #fff; }
+
+    .cta-divider {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.8rem;
+      color: var(--cta-mut);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
     }
 
     .quote-form {
@@ -694,8 +525,7 @@
     }
 
     .quote-form input,
-    .quote-form select,
-    .quote-form textarea {
+    .quote-form select {
       width: 100%;
       padding: 0.7rem 0.9rem;
       border-radius: 5px;
@@ -708,24 +538,19 @@
       transition: border-color 0.15s, background 0.15s;
     }
 
-    .quote-form input::placeholder,
-    .quote-form textarea::placeholder { color: rgba(255,255,255,0.35); }
-
-    .quote-form select { color: rgba(255,255,255,0.7); }
+    .quote-form input::placeholder { color: rgba(255,255,255,0.35); }
+    .quote-form select { color: rgba(255,255,255,0.65); }
     .quote-form select option { background: #003a57; color: #fff; }
 
     .quote-form input:focus,
-    .quote-form select:focus,
-    .quote-form textarea:focus {
-      border-color: var(--blue);
+    .quote-form select:focus {
+      border-color: #38bdf8;
       background: rgba(255,255,255,0.1);
     }
 
-    .quote-form textarea { resize: vertical; min-height: 90px; }
-
     .form-submit {
       background: #fff;
-      color: var(--cta-bg);
+      color: #003a57;
       border: none;
       padding: 0.8rem;
       border-radius: 5px;
@@ -748,31 +573,40 @@
       font-size: 1rem;
     }
 
-    .form-success .check {
-      font-size: 2rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
+    .form-success .check { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
 
-    /* ── FOOTER ─────────────────────────────────────────── */
+    /* ── FOOTER ── */
     footer {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 1.75rem 2.5rem;
+      background: #001f2e;
+      padding: 2rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
-      transition: background 0.25s;
     }
 
-    footer .logo { font-size: 0.95rem; }
+    .footer-logo {
+      font-family: -apple-system, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
 
-    footer p {
+    .footer-logo em { font-style: normal; color: #38bdf8; }
+
+    .footer-info {
       font-family: -apple-system, sans-serif;
       font-size: 0.8rem;
-      color: var(--text3);
+      color: #5a8fa8;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .footer-info a {
+      color: #7dd3fc;
+      text-decoration: none;
     }
 
     footer ul {
@@ -784,14 +618,14 @@
     footer ul a {
       font-family: -apple-system, sans-serif;
       font-size: 0.8rem;
-      color: var(--text3);
+      color: #5a8fa8;
       text-decoration: none;
       transition: color 0.15s;
     }
 
-    footer ul a:hover { color: var(--text); }
+    footer ul a:hover { color: #fff; }
 
-    /* ── MOBILE ─────────────────────────────────────────── */
+    /* ── MOBILE ── */
     @media (max-width: 640px) {
       nav ul { display: none; }
       nav ul.open {
@@ -799,16 +633,13 @@
         flex-direction: column;
         position: absolute;
         top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--nav-bg);
+        left: 0; right: 0;
+        background: var(--nav);
         border-bottom: 1px solid var(--border);
         padding: 1rem 2rem;
         gap: 1rem;
       }
       .menu-btn { display: block; }
-      .strip { flex-wrap: wrap; }
-      .stat { max-width: 50%; border-bottom: 1px solid var(--border); }
       .form-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; }
     }
@@ -816,261 +647,207 @@
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
     <a href="#" class="logo">Gulf<em>Shine</em></a>
     <ul id="nav-links">
-      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact">Book</a></li>
+      <li><a href="#area">Service Area</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
       <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode"></button>
-      <a href="#contact" class="nav-cta">Book Now</a>
-      <button class="menu-btn" id="menu-btn" aria-label="Open menu">&#9776;</button>
+      <a href="#contact" class="nav-cta">Get a Free Quote</a>
+      <button class="menu-btn" id="menu-btn">&#9776;</button>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-eyebrow">Mobile detailing — we come to you — Tampa Bay, FL</div>
-    <h1>Your car detailed<br>in your driveway.</h1>
-    <p>No dropping off. No waiting around. We show up with everything we need and leave your car looking better than the day you bought it.</p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn-primary">Book a detail</a>
-      <a href="#services" class="btn-secondary">See what we do</a>
-    </div>
+    <div class="hero-eyebrow">Mobile detailing — Manatee & Sarasota County, FL</div>
+    <h1>Gulf<em style="font-style:normal;color:var(--blue);">Shine</em> Mobile Detailing</h1>
+    <p class="hero-tagline">We come to your driveway. You keep your afternoon. Professional detailing without the drop-off.</p>
+    <a href="#contact" class="btn-primary">Get a Free Quote</a>
   </section>
 
-  <!-- STATS -->
-  <div class="strip">
-    <div class="stat">
-      <div class="stat-num">Mobile</div>
-      <div class="stat-label">We come to you</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">7 days</div>
-      <div class="stat-label">We work all week</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Flexible</div>
-      <div class="stat-label">You pick the time</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Same day</div>
-      <div class="stat-label">Often available</div>
-    </div>
-  </div>
-
-  <!-- SERVICES -->
-  <section class="section" id="services">
-    <div class="section-label">Services</div>
-    <h2 class="section-title">What we do</h2>
-    <p class="section-sub">Everything from a quick wash to full paint correction — all at your location.</p>
-    <div class="services-grid">
-      <div class="card">
-        <div class="card-icon">🚿</div>
-        <h3>Exterior Wash & Dry</h3>
-        <p>Full hand wash, wheel clean, tire dressing, and streak-free dry. Better than any drive-through.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🪣</div>
-        <h3>Interior Detail</h3>
-        <p>Vacuum, wipe-down, door jambs, cup holders, vents — everything gets done. No shortcuts.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">✨</div>
-        <h3>Full Detail</h3>
-        <p>Interior and exterior together. The works. Good for cars that haven't been touched in a while.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔧</div>
-        <h3>Paint Correction</h3>
-        <p>Swirl marks, light scratches, water spots — we cut them out and restore the gloss.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">💡</div>
-        <h3>Headlight Restoration</h3>
-        <p>Foggy yellowed headlights sanded back, polished clear, and sealed. Big difference for cheap.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <div class="pricing-section" id="pricing">
+  <!-- WHY US -->
+  <div class="why-section" id="why">
     <section class="section">
-      <div class="section-label">Pricing</div>
-      <h2 class="section-title">Straight up pricing</h2>
-      <p class="section-sub">No hidden fees. Price is the price.</p>
-
-      <div class="billing-toggle">
-        <span>One-time</span>
-        <button class="toggle-track" id="billing-toggle" aria-label="Toggle package pricing"></button>
-        <span>Package (4 visits)</span>
-        <span class="save-badge" id="save-badge">Save 20%</span>
-      </div>
-
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="plan-name">Exterior Only</div>
-          <div class="plan-price" id="price-basic">$89<span> / visit</span></div>
-          <div class="plan-desc">Sedans & small SUVs</div>
-          <ul class="plan-features">
-            <li>Hand wash & dry</li>
-            <li>Wheel & tire clean</li>
-            <li>Windows inside & out</li>
-            <li>Tire dressing</li>
-          </ul>
-          <a href="#contact" class="plan-btn">Book now</a>
+      <div class="section-label">Why GulfShine</div>
+      <h2 class="section-title">Built for Florida car owners</h2>
+      <p class="section-sub">The sun, the salt air, and the humidity are rough on your paint. We take care of it so you don't have to think about it.</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🚗</div>
+          <h3>We come to you</h3>
+          <p>Your driveway, your parking spot, your workplace. No drop-off, no waiting rooms, no wasted time.</p>
         </div>
-
-        <div class="pricing-card featured">
-          <div class="featured-tag">Most popular</div>
-          <div class="plan-name">Full Detail</div>
-          <div class="plan-price" id="price-standard">$179<span> / visit</span></div>
-          <div class="plan-desc">Sedans & small SUVs</div>
-          <ul class="plan-features">
-            <li>Full exterior wash</li>
-            <li>Complete interior detail</li>
-            <li>Leather conditioning</li>
-            <li>Odor treatment</li>
-            <li>Engine bay wipe-down</li>
-          </ul>
-          <a href="#contact" class="plan-btn">Book now</a>
+        <div class="why-card">
+          <div class="why-icon">☀️</div>
+          <h3>Florida weather protection</h3>
+          <p>UV rays, salt air, and hard water spots are a constant fight here. We use products built to handle the Gulf Coast climate.</p>
         </div>
-
-        <div class="pricing-card">
-          <div class="plan-name">Premium</div>
-          <div class="plan-price" id="price-full">$349<span> / visit</span></div>
-          <div class="plan-desc">Any vehicle size</div>
-          <ul class="plan-features">
-            <li>Everything in Full Detail</li>
-            <li>Single-stage paint correction</li>
-            <li>Headlight restoration</li>
-            <li>Priority booking</li>
-          </ul>
-          <a href="#contact" class="plan-btn">Book now</a>
+        <div class="why-card">
+          <div class="why-icon">🕐</div>
+          <h3>On time, every time</h3>
+          <p>We show up when we say we will. No vague windows, no last-minute no-shows. Your time matters.</p>
         </div>
-      </div>
-
-      <!-- ADD-ONS -->
-      <div style="margin-top: 3rem;">
-        <div class="section-label" style="margin-bottom:1rem;">Add-ons</div>
-        <div class="addons-grid">
-          <div class="addon"><span class="addon-name">Pet hair removal</span><span class="addon-price">+$40</span></div>
-          <div class="addon"><span class="addon-name">Ozone odor treatment</span><span class="addon-price">+$60</span></div>
-          <div class="addon"><span class="addon-name">Truck / large SUV</span><span class="addon-price">+$30</span></div>
-          <div class="addon"><span class="addon-name">Headlight restoration</span><span class="addon-price">+$75</span></div>
-          <div class="addon"><span class="addon-name">Clay bar treatment</span><span class="addon-price">+$50</span></div>
+        <div class="why-card">
+          <div class="why-icon">🧴</div>
+          <h3>Pro-grade products</h3>
+          <p>We don't cut corners with dollar-store supplies. Every product we use is what the pros use — because we are.</p>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- REVIEWS -->
-  <section class="section" id="reviews">
-    <div class="section-label">Reviews</div>
-    <h2 class="section-title">What people say</h2>
-    <p class="section-sub">All from real customers in the Tampa Bay area.</p>
-    <div class="reviews-grid">
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>"My truck hadn't been detailed in two years. These guys came to my house and turned it around in about three hours. Looked brand new inside and out."</p>
-        <div class="reviewer"><strong>Derek M.</strong>Tampa, FL</div>
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="section-label">Services & Pricing</div>
+    <h2 class="section-title">What we offer</h2>
+    <p class="section-sub">Prices vary by vehicle size and condition. These are our starting ranges — we'll give you an exact quote before we show up.</p>
+
+    <div class="pricing-grid">
+      <div class="pkg">
+        <div class="pkg-name">Exterior Shine</div>
+        <div class="pkg-price">$75<span> – $95</span></div>
+        <div class="pkg-desc">Sedans to full-size SUVs</div>
+        <ul class="pkg-features">
+          <li>Hand wash & dry</li>
+          <li>Wheel & tire clean</li>
+          <li>Tire dressing</li>
+          <li>Windows inside & out</li>
+        </ul>
+        <a href="#contact" class="pkg-btn">Get a quote</a>
       </div>
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>"Had my car fully detailed before a road trip. They came to my apartment and had it done in a couple hours. Interior looked and smelled completely fresh."</p>
-        <div class="reviewer"><strong>Jasmine T.</strong>St. Petersburg, FL</div>
+
+      <div class="pkg">
+        <div class="pkg-name">Interior Detail</div>
+        <div class="pkg-price">$100<span> – $130</span></div>
+        <div class="pkg-desc">Sedans to full-size SUVs</div>
+        <ul class="pkg-features">
+          <li>Full vacuum</li>
+          <li>Wipe-down all surfaces</li>
+          <li>Door jambs & cup holders</li>
+          <li>Leather conditioning</li>
+          <li>Odor treatment</li>
+        </ul>
+        <a href="#contact" class="pkg-btn">Get a quote</a>
       </div>
-      <div class="review">
-        <div class="stars">★★★★★</div>
-        <p>"I've got two kids and a dog. The interior was a disaster. They got out stains I'd given up on and it doesn't smell like a wet dog anymore. Genuinely impressed."</p>
-        <div class="reviewer"><strong>Carlos R.</strong>Clearwater, FL</div>
+
+      <div class="pkg featured">
+        <div class="featured-tag">Most popular</div>
+        <div class="pkg-name">Full Detail</div>
+        <div class="pkg-price">$160<span> – $220</span></div>
+        <div class="pkg-desc">Interior + exterior, any vehicle</div>
+        <ul class="pkg-features">
+          <li>Everything in Exterior Shine</li>
+          <li>Everything in Interior Detail</li>
+          <li>Engine bay wipe-down</li>
+          <li>Clay bar decontamination</li>
+          <li>Hand applied wax/sealant</li>
+        </ul>
+        <a href="#contact" class="pkg-btn">Get a quote</a>
       </div>
+
+      <div class="pkg">
+        <div class="pkg-name">Monthly Plan</div>
+        <div class="pkg-price">$90<span> / mo</span></div>
+        <div class="pkg-desc">Recurring exterior maintenance</div>
+        <ul class="pkg-features">
+          <li>Monthly exterior wash</li>
+          <li>Tire dressing each visit</li>
+          <li>Window cleaning</li>
+          <li>Priority scheduling</li>
+          <li>No contracts, cancel anytime</li>
+        </ul>
+        <a href="#contact" class="pkg-btn">Get a quote</a>
+      </div>
+    </div>
+
+    <!-- ADD-ONS -->
+    <div class="addons-label">Add-ons</div>
+    <div class="addons-grid">
+      <div class="addon"><span class="addon-name">Ceramic coating</span><span class="addon-price">from $350</span></div>
+      <div class="addon"><span class="addon-name">Paint correction</span><span class="addon-price">from $200</span></div>
+      <div class="addon"><span class="addon-name">Headlight restoration</span><span class="addon-price">$60 – $80</span></div>
+      <div class="addon"><span class="addon-name">Odor treatment</span><span class="addon-price">$40</span></div>
+      <div class="addon"><span class="addon-name">Engine bay cleaning</span><span class="addon-price">$75</span></div>
+      <div class="addon"><span class="addon-name">Pet hair removal</span><span class="addon-price">$40 – $60</span></div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <div class="faq-wrap" id="faq">
+  <!-- SERVICE AREA -->
+  <div class="area-section" id="area">
     <section class="section">
-      <div class="section-label">FAQ</div>
-      <h2 class="section-title">Common questions</h2>
-      <p class="section-sub">If it's not here, just ask.</p>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-q">Do you need access to water or power? <span class="arrow">▼</span></button>
-          <div class="faq-a">Nope. We bring our own water tank and generator. All we need is enough space to work around the car.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">How long does a full detail take? <span class="arrow">▼</span></button>
-          <div class="faq-a">Usually 2–4 hours depending on the size and condition of the vehicle. We'll give you a better estimate when you book.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Do you detail at apartments or condos? <span class="arrow">▼</span></button>
-          <div class="faq-a">Yes, as long as there's a parking space we can work in. Most complexes are fine with it — just double check with your building if you're unsure.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">What areas do you cover? <span class="arrow">▼</span></button>
-          <div class="faq-a">We cover Tampa, St. Pete, Clearwater, Brandon, and most of the surrounding Tampa Bay area. Not sure if you're in range? Just ask.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">What if it rains on my appointment day? <span class="arrow">▼</span></button>
-          <div class="faq-a">We'll reach out the morning of and either reschedule or work around it. Light drizzle usually isn't a problem for interior work — we won't leave you hanging.</div>
-        </div>
+      <div class="section-label">Service Area</div>
+      <h2 class="section-title">We cover Manatee County & beyond</h2>
+      <p class="section-sub">Based locally, serving the communities around us. Not sure if we come to you? Just ask.</p>
+      <div class="area-cities">
+        <span class="city-tag">Ellenton</span>
+        <span class="city-tag">Palmetto</span>
+        <span class="city-tag">Parrish</span>
+        <span class="city-tag">Bradenton</span>
+        <span class="city-tag">Lakewood Ranch</span>
+        <span class="city-tag">Sarasota</span>
+        <span class="city-tag">Nearby areas too</span>
       </div>
+      <p class="area-note">Don't see your city? Give us a call — we may still be able to make it work.</p>
     </section>
   </div>
 
   <!-- CONTACT -->
   <div class="cta-wrap" id="contact">
-    <div class="cta-section">
-      <h2>Book a detail</h2>
-      <p>Fill this out and we'll get back to you within a few hours to confirm.</p>
+    <div class="cta-inner">
+      <h2>Get a Free Quote</h2>
+      <a href="tel:+19415550100" class="cta-phone">(941) 555-0100</a>
+      <div class="cta-divider">— or fill out the form below —</div>
+
       <form class="quote-form" id="quote-form" novalidate>
         <div class="form-row">
-          <input type="text" placeholder="First name" required />
-          <input type="text" placeholder="Last name" />
+          <input type="text" placeholder="Your name" required />
+          <input type="tel" placeholder="Phone number" required />
         </div>
-        <input type="email" placeholder="Email address" required />
-        <input type="tel" placeholder="Phone number" />
-        <div class="form-row">
-          <input type="text" placeholder="Year, make & model (e.g. 2019 Honda Accord)" />
-          <input type="text" placeholder="Your city" />
-        </div>
+        <input type="text" placeholder="Vehicle (year, make & model — e.g. 2020 Toyota Camry)" />
         <select>
-          <option value="" disabled selected>What service are you looking for?</option>
-          <option>Exterior Wash & Dry</option>
-          <option>Interior Detail</option>
-          <option>Full Detail</option>
-          <option>Paint Correction</option>
-          <option>Headlight Restoration</option>
+          <option value="" disabled selected>Service interested in</option>
+          <option>Exterior Shine ($75–$95)</option>
+          <option>Interior Detail ($100–$130)</option>
+          <option>Full Detail ($160–$220)</option>
+          <option>Monthly Plan ($90/mo)</option>
+          <option>Ceramic Coating (add-on)</option>
+          <option>Paint Correction (add-on)</option>
+          <option>Headlight Restoration (add-on)</option>
           <option>Not sure yet</option>
         </select>
-        <textarea placeholder="Anything else? (condition of the car, specific problem areas, preferred date/time, etc.)"></textarea>
-        <button type="submit" class="form-submit">Send Booking Request</button>
+        <button type="submit" class="form-submit">Send Request</button>
       </form>
+
       <div class="form-success" id="form-success">
         <span class="check">✓</span>
-        Got it — we'll text or email you shortly to confirm.
+        Thanks — we'll reach out shortly to confirm your booking.
       </div>
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer>
-    <a href="#" class="logo">Gulf<em style="font-style:normal;color:var(--blue);">Shine</em> Mobile Detailing</a>
-    <p>© 2026 GulfShine. Tampa Bay, FL.</p>
+    <a href="#" class="footer-logo">Gulf<em>Shine</em> Mobile Detailing</a>
+    <div class="footer-info">
+      <a href="tel:+19415550100">(941) 555-0100</a><br>
+      Ellenton · Palmetto · Parrish · Bradenton · Lakewood Ranch
+    </div>
     <ul>
-      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
       <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact">Book</a></li>
+      <li><a href="#area">Area</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </footer>
 
   <script>
-    // ── Dark mode ──────────────────────────────────────
+    // Dark mode
     const html = document.documentElement;
     const themeBtn = document.getElementById('theme-btn');
     const saved = localStorage.getItem('theme');
@@ -1082,52 +859,16 @@
       localStorage.setItem('theme', next);
     });
 
-    // ── Mobile menu ────────────────────────────────────
+    // Mobile menu
     const menuBtn = document.getElementById('menu-btn');
     const navLinks = document.getElementById('nav-links');
-
     menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-    // ── Pricing toggle ─────────────────────────────────
-    const billingToggle = document.getElementById('billing-toggle');
-    const saveBadge = document.getElementById('save-badge');
-
-    const prices = {
-      once:    { basic: '$89',  standard: '$179', full: '$349' },
-      package: { basic: '$285', standard: '$573', full: '$1,117' },
-    };
-
-    let isPkg = false;
-
-    billingToggle.addEventListener('click', () => {
-      isPkg = !isPkg;
-      billingToggle.classList.toggle('on', isPkg);
-      saveBadge.classList.toggle('visible', isPkg);
-
-      const mode = isPkg ? 'package' : 'once';
-      const suffix = isPkg ? ' / 4 visits' : ' / visit';
-
-      document.getElementById('price-basic').innerHTML    = prices[mode].basic    + `<span>${suffix}</span>`;
-      document.getElementById('price-standard').innerHTML = prices[mode].standard + `<span>${suffix}</span>`;
-      document.getElementById('price-full').innerHTML     = prices[mode].full     + `<span>${suffix}</span>`;
-    });
-
-    // ── FAQ accordion ──────────────────────────────────
-    document.querySelectorAll('.faq-q').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
-      });
-    });
-
-    // ── Quote form ─────────────────────────────────────
+    // Form
     const form = document.getElementById('quote-form');
     const success = document.getElementById('form-success');
-
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', e => {
       e.preventDefault();
       form.style.display = 'none';
       success.style.display = 'block';
