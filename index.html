@@ -1,54 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GulfShine Mobile Detailing</title>
   <style>
     :root {
-      --bg:        #fffcf5;
-      --bg2:       #fff;
-      --border:    #f0e8d0;
-      --border2:   #f5eed8;
-      --text:      #1a1005;
-      --text2:     #5a4a28;
-      --text3:     #a08050;
-      --text4:     #3a2a10;
-      --card:      #fff;
+      --bg:        #e8f7fb;
+      --bg2:       #fdf6e3;
+      --border:    #b8dce8;
+      --border2:   #cce8f0;
+      --text:      #0d2a38;
+      --text2:     #2e6070;
+      --text3:     #6a9aaa;
+      --text4:     #1a4050;
+      --card:      #fffdf6;
       --blue:      #0096c7;
       --blue-dk:   #007aa3;
       --teal:      #00cfe8;
       --sun:       #f9a825;
       --sun-dk:    #e65100;
       --coral:     #ff6d3a;
-      --nav:       rgba(255,252,245,0.93);
+      --nav:       rgba(232,247,251,0.95);
       --cta-bg:    #03304a;
       --cta-mut:   #7ab3cc;
-      --plan-bg:   #fffbee;
-      --hero-grad: linear-gradient(175deg, #ffe8a0 0%, #ffd166 8%, #ffc947 15%, #48cae4 45%, #90e0ef 65%, #fffcf5 100%);
-    }
-
-    [data-theme="dark"] {
-      --bg:        #0d0a00;
-      --bg2:       #181200;
-      --border:    #2a2000;
-      --border2:   #201800;
-      --text:      #fff8e0;
-      --text2:     #c8a850;
-      --text3:     #806030;
-      --text4:     #d0b070;
-      --card:      #181200;
-      --blue:      #00d4ff;
-      --blue-dk:   #00b8e0;
-      --teal:      #00efff;
-      --sun:       #ffd54f;
-      --sun-dk:    #ffab40;
-      --coral:     #ff8a50;
-      --nav:       rgba(13,10,0,0.95);
-      --cta-bg:    #050800;
-      --cta-mut:   #806030;
-      --plan-bg:   #0d0a00;
-      --hero-grad: linear-gradient(175deg, #1a0f00 0%, #0a1520 35%, #0d0a00 100%);
+      --plan-bg:   #fdf0c8;
+      --hero-grad: linear-gradient(175deg, #ffe8a0 0%, #ffd166 8%, #ffc947 15%, #48cae4 45%, #90e0ef 65%, #e8f7fb 100%);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -169,33 +146,7 @@
       gap: 1.25rem;
     }
 
-    .theme-btn {
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 99px;
-      width: 40px;
-      height: 22px;
-      cursor: pointer;
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    .theme-btn::after {
-      content: '';
-      position: absolute;
-      top: 3px; left: 3px;
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      background: var(--text3);
-      transition: transform 0.25s, background 0.25s;
-    }
-
-    [data-theme="dark"] .theme-btn::after {
-      transform: translateX(18px);
-      background: var(--blue);
-    }
-
-    .nav-cta {
+.nav-cta {
       background: var(--blue);
       color: #fff;
       padding: 0.5rem 1.2rem;
@@ -1173,7 +1124,6 @@
       <li><a href="#area" data-section="area">Area</a></li>
     </ul>
     <div class="nav-right">
-      <button class="theme-btn" id="theme-btn" aria-label="Toggle dark mode"></button>
       <a href="#contact" class="nav-cta">Get a Free Quote</a>
       <button class="menu-btn" id="menu-btn">&#9776;</button>
     </div>
@@ -1520,18 +1470,7 @@
   </div>
 
   <script>
-    // ── Dark mode ──────────────────────────────────────────
-    const html = document.documentElement;
-    const themeBtn = document.getElementById('theme-btn');
-    const saved = localStorage.getItem('theme');
-    if (saved) html.setAttribute('data-theme', saved);
-    themeBtn.addEventListener('click', () => {
-      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-    });
-
-    // ── Mobile menu ────────────────────────────────────────
+// ── Mobile menu ────────────────────────────────────────
     const menuBtn = document.getElementById('menu-btn');
     const navLinks = document.getElementById('nav-links');
     menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
