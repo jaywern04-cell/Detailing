@@ -6,37 +6,52 @@
   <title>GulfShine Mobile Detailing</title>
   <style>
     :root {
-      --bg:        #e8f7fb;
-      --bg2:       #fdf6e3;
-      --border:    #b8dce8;
-      --border2:   #cce8f0;
-      --text:      #0d2a38;
-      --text2:     #2e6070;
-      --text3:     #6a9aaa;
-      --text4:     #1a4050;
-      --card:      #fffdf6;
-      --blue:      #0096c7;
-      --blue-dk:   #007aa3;
-      --teal:      #00cfe8;
-      --sun:       #f9a825;
-      --sun-dk:    #e65100;
-      --coral:     #ff6d3a;
-      --nav:       rgba(232,247,251,0.95);
-      --cta-bg:    #03304a;
+      --text:      #0b2435;
+      --text2:     #2d5a6e;
+      --text3:     #5a8fa8;
+      --text4:     #1a3d50;
+      --border:    rgba(255,255,255,0.55);
+      --border2:   rgba(255,255,255,0.35);
+      --card:      rgba(255,255,255,0.58);
+      --card-solid: #fff;
+      --blue:      #0284c7;
+      --blue-dk:   #0369a1;
+      --teal:      #06b6d4;
+      --sun:       #f59e0b;
+      --sun-lt:    #fde68a;
+      --sun-dk:    #d97706;
+      --coral:     #f97316;
+      --nav:       rgba(255,240,200,0.75);
+      --cta-bg:    #0a2744;
       --cta-mut:   #7ab3cc;
-      --plan-bg:   #fdf0c8;
-      --hero-grad: linear-gradient(175deg, #ffe8a0 0%, #ffd166 8%, #ffc947 15%, #48cae4 45%, #90e0ef 65%, #e8f7fb 100%);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+      min-height: 100%;
+      background: linear-gradient(
+        to bottom,
+        #ffe8a0 0%,
+        #fbc84a 5%,
+        #7ecef5 16%,
+        #3ab8e0 28%,
+        #6dd4ec 42%,
+        #a8e6f0 56%,
+        #c6eeea 68%,
+        #d8f0e2 78%,
+        #eef6de 86%,
+        #f8edcc 93%,
+        #fde3a0 100%
+      );
+    }
 
     body {
-      background: var(--bg);
+      background: transparent;
       color: var(--text);
       font-family: Georgia, serif;
       line-height: 1.65;
-      transition: background 0.25s, color 0.25s;
     }
 
     /* ── SCROLL ANIMATIONS ── */
@@ -61,51 +76,61 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 2.5rem;
+      padding: 0.9rem 2.5rem;
       background: var(--nav);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(255,255,255,0.4);
       position: sticky;
       top: 0;
       z-index: 200;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: background 0.25s, border-color 0.25s;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
+    /* ── LOGO ── */
     .logo {
-      font-size: 1.2rem;
-      font-weight: 800;
-      font-family: -apple-system, sans-serif;
-      color: var(--text);
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      letter-spacing: -0.02em;
+      gap: 0.6rem;
     }
 
     .logo-mark {
-      width: 34px;
-      height: 34px;
-      background: linear-gradient(145deg, #ffd54f 0%, #f9a825 50%, #ff8f00 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 38px;
+      height: 30px;
       flex-shrink: 0;
-      box-shadow: 0 2px 12px rgba(249,168,37,0.55), 0 0 0 3px rgba(249,168,37,0.15);
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15));
     }
 
-    .logo-mark svg { display: block; }
+    .logo-mark svg { display: block; width: 100%; height: 100%; }
 
-    .logo-text { display: flex; align-items: baseline; gap: 0; }
+    .logo-wordmark {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      line-height: 1;
+    }
 
-    .logo em {
-      font-style: normal;
-      background: linear-gradient(135deg, var(--sun) 0%, var(--coral) 100%);
+    .logo-gulf {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue-dk);
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .logo-shine {
+      font-family: -apple-system, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #fbbf24 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      display: block;
     }
 
     nav ul {
@@ -174,7 +199,7 @@
 
     /* ── HERO ── */
     .hero-wrap {
-      background: var(--hero-grad);
+      background: transparent;
       position: relative;
       overflow: hidden;
     }
@@ -208,15 +233,6 @@
       position: relative;
       z-index: 1;
     }
-
-    .hero-wave {
-      display: block;
-      width: 100%;
-      line-height: 0;
-      margin-top: -2px;
-    }
-
-    .hero-wave svg { width: 100%; height: auto; display: block; }
 
     .hero-eyebrow {
       font-family: -apple-system, sans-serif;
@@ -335,12 +351,7 @@
     }
 
     /* ── WHY US ── */
-    .why-section {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.25s;
-    }
+    .why-section { background: transparent; }
 
     .why-grid {
       display: grid;
@@ -351,12 +362,15 @@
     .why-card {
       padding: 1.75rem;
       border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--bg);
-      transition: border-color 0.2s, transform 0.15s, background 0.25s;
+      border-radius: 12px;
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform 0.15s, box-shadow 0.15s;
     }
 
-    .why-card:hover { border-color: var(--blue); transform: translateY(-2px); }
+    .why-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
 
     .why-icon { font-size: 1.5rem; margin-bottom: 0.85rem; }
 
@@ -376,12 +390,7 @@
     }
 
     /* ── BEFORE / AFTER ── */
-    .ba-section {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-      transition: background 0.25s;
-    }
+    .ba-section { background: transparent; }
 
     .ba-grid {
       display: grid;
@@ -390,9 +399,10 @@
     }
 
     .ba-card {
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--border);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
     }
 
     .ba-visual {
@@ -460,9 +470,9 @@
     .ba-after .ba-pill { background: rgba(0,0,0,0.35); }
 
     .ba-info {
-      background: var(--card);
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(8px);
       padding: 1.1rem 1.25rem;
-      transition: background 0.25s;
     }
 
     .ba-info h3 {
@@ -488,20 +498,17 @@
     }
 
     /* ── QUOTE ESTIMATOR ── */
-    .estimator-section {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.25s;
-    }
+    .estimator-section { background: transparent; }
 
     .estimator-box {
-      background: var(--bg);
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 14px;
       padding: 2rem;
       max-width: 640px;
-      transition: background 0.25s;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     }
 
     .estimator-row {
@@ -526,8 +533,8 @@
       width: 100%;
       padding: 0.65rem 0.85rem;
       border-radius: 6px;
-      border: 1px solid var(--border);
-      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.7);
       color: var(--text);
       font-family: -apple-system, sans-serif;
       font-size: 0.875rem;
@@ -543,8 +550,8 @@
     .est-group select:focus { border-color: var(--blue); }
 
     .est-result {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.6);
       border-radius: 8px;
       padding: 1.25rem 1.5rem;
       display: flex;
@@ -602,16 +609,23 @@
 
     .pkg {
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 12px;
       padding: 1.75rem;
-      background: var(--plan-bg);
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       position: relative;
-      transition: border-color 0.2s, transform 0.15s, background 0.25s;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform 0.15s, box-shadow 0.15s;
     }
 
-    .pkg:hover { transform: translateY(-2px); }
+    .pkg:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
 
-    .pkg.featured { background: var(--card); border-color: var(--blue); }
+    .pkg.featured {
+      background: rgba(255,255,255,0.8);
+      border-color: var(--blue);
+      box-shadow: 0 4px 24px rgba(2,132,199,0.2);
+    }
 
     .featured-tag {
       position: absolute;
@@ -734,10 +748,7 @@
 
     /* ── ABOUT ── */
     .about-section {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--bg2);
-      transition: background 0.25s;
+      background: transparent;
     }
 
     .about-inner {
@@ -811,7 +822,7 @@
       transition: background 0.15s;
     }
 
-    .faq-q:hover { background: var(--bg); }
+    .faq-q:hover { background: rgba(255,255,255,0.75); }
 
     .faq-arrow {
       font-size: 0.65rem;
@@ -836,10 +847,7 @@
 
     /* ── SERVICE AREA ── */
     .area-section {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.25s;
+      background: transparent;
     }
 
     .area-cities {
@@ -1102,19 +1110,41 @@
   <nav id="main-nav">
     <a href="#" class="logo">
       <div class="logo-mark">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="10" cy="10" r="3.8" fill="white"/>
-          <line x1="10" y1="1.5" x2="10" y2="4"   stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="10" y1="16"  x2="10" y2="18.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="1.5" y1="10" x2="4"   y2="10"  stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="16"  y1="10" x2="18.5" y2="10" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="3.6" y1="3.6" x2="5.4" y2="5.4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="14.6" y1="14.6" x2="16.4" y2="16.4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="16.4" y1="3.6" x2="14.6" y2="5.4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="5.4" y1="14.6" x2="3.6" y2="16.4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- sky gradient -->
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fde68a"/>
+              <stop offset="60%" stop-color="#7ecef5"/>
+              <stop offset="100%" stop-color="#3ab8e0"/>
+            </linearGradient>
+            <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3ab8e0"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+          </defs>
+          <!-- sky bg -->
+          <rect width="38" height="30" rx="5" fill="url(#sky)"/>
+          <!-- sun -->
+          <circle cx="19" cy="13" r="5.5" fill="#f59e0b"/>
+          <!-- sun glow -->
+          <circle cx="19" cy="13" r="7.5" fill="#fde68a" opacity="0.35"/>
+          <!-- rays -->
+          <line x1="19" y1="3.5" x2="19" y2="6"   stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="27.5" y1="6" x2="25.8" y2="7.7" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="10.5" y1="6" x2="12.2" y2="7.7" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- water -->
+          <path d="M0 20 C8 17 14 22 19 20 C24 18 30 22 38 19 L38 30 L0 30 Z" fill="url(#water)"/>
+          <!-- waves -->
+          <path d="M2 22 C6 20.5 10 23 14 21.5 C18 20 22 22.5 26 21 C29 19.8 32 21.5 36 20.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none" stroke-linecap="round"/>
+          <!-- horizon line -->
+          <line x1="0" y1="20" x2="38" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="0.5"/>
         </svg>
       </div>
-      <span class="logo-text">Gulf<em>Shine</em></span>
+      <div class="logo-wordmark">
+        <span class="logo-gulf">Gulf</span>
+        <span class="logo-shine">Shine</span>
+      </div>
     </a>
     <ul id="nav-links">
       <li><a href="#why" data-section="why">Why Us</a></li>
@@ -1140,12 +1170,6 @@
         <a href="#estimator" class="btn-text">Estimate my price →</a>
       </div>
     </section>
-    <div class="hero-wave">
-      <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0,28 C180,68 420,4 720,38 C1020,72 1260,10 1440,42 L1440,72 L0,72 Z" fill="var(--bg)"/>
-        <path d="M0,50 C300,30 600,60 900,44 C1100,34 1300,52 1440,46 L1440,72 L0,72 Z" fill="var(--bg)" opacity="0.5"/>
-      </svg>
-    </div>
   </div>
 
   <!-- WHY US -->
