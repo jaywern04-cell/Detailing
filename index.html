@@ -410,69 +410,156 @@
       letter-spacing: 0.08em;
     }
 
-    /* Hero right — logo showcase */
+    /* Hero right — B/A slideshow */
     .hero-visual {
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .logo-showcase {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo-showcase::before {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 26px;
-      background: conic-gradient(
-        from 0deg,
-        rgba(124,58,237,0.65) 0%,
-        rgba(225,29,110,0.7)  20%,
-        rgba(249,115,22,0.85) 38%,
-        rgba(245,158,11,1)    50%,
-        rgba(249,115,22,0.85) 62%,
-        rgba(225,29,110,0.7)  80%,
-        rgba(124,58,237,0.65) 100%
-      );
-      animation: rotate-halo 10s linear infinite;
-      opacity: 0.55;
-    }
-
-    .logo-showcase-inner {
-      position: relative;
-      background: var(--bg2);
-      border-radius: 22px;
-      padding: 2.5rem;
+    .bah-slider {
+      width: 380px;
+      max-width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
       border: 1px solid var(--border-g);
+      background: var(--bg2);
+      box-shadow: 0 0 60px rgba(245,158,11,0.15), 0 0 120px rgba(249,115,22,0.08);
       animation: float 4s ease-in-out infinite, glow-pulse 4s ease-in-out infinite;
     }
 
-    .logo-showcase img {
-      width: 280px;
-      max-width: 100%;
-      display: block;
-      filter: drop-shadow(0 8px 32px rgba(245,158,11,0.25));
+    .bah-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.1rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .logo-showcase-tag {
-      position: absolute;
-      bottom: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--gold);
-      color: #000;
-      font-size: 0.65rem;
+    .bah-badge {
+      font-size: 0.6rem;
       font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 0.3rem 1rem;
-      border-radius: 99px;
-      white-space: nowrap;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .bah-badge::before {
+      content: '';
+      display: block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 6px var(--gold);
+      animation: horizon-breathe 1.5s ease-in-out infinite;
+    }
+
+    .bah-slides {
+      position: relative;
+      height: 220px;
+    }
+
+    .bah-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.7s ease-in-out;
+      pointer-events: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .bah-slide.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .bah-panel-b, .bah-panel-a {
+      display: flex;
+      align-items: flex-end;
+      padding: 0.65rem;
+      height: 220px;
+    }
+    .bah-panel-a { justify-content: flex-end; }
+
+    .bah-divider {
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      width: 2px;
+      background: rgba(255,255,255,0.9);
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    .bah-divider::after {
+      content: '↔';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      background: #fff;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; color: #333;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .bah-pill {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.45rem;
+      border-radius: 2px;
+      color: #fff;
+      background: rgba(0,0,0,0.5);
+    }
+
+    /* Progress bar */
+    .bah-progress { height: 2px; background: var(--border); }
+    .bah-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--coral));
+    }
+    .bah-progress-fill.running {
+      width: 100%;
+      transition: width 3s linear;
+    }
+
+    .bah-info {
+      padding: 0.8rem 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .bah-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.15rem;
+    }
+    .bah-sub {
+      font-size: 0.7rem;
+      color: var(--t2);
+    }
+
+    .bah-dots {
+      display: flex;
+      gap: 0.45rem;
+      flex-shrink: 0;
+    }
+    .bah-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--t3);
+      cursor: pointer;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .bah-dot.active {
+      background: var(--gold);
+      transform: scale(1.4);
     }
 
     /* ── TICKER ───────────────────────────────────────────── */
@@ -1313,11 +1400,70 @@
       </div>
 
       <div class="hero-visual reveal reveal-delay-2">
-        <div class="logo-showcase">
-          <div class="logo-showcase-inner">
-            <img src="logo.png" alt="CurbShine Auto Detailing" />
+        <div class="bah-slider">
+
+          <!-- Header -->
+          <div class="bah-header">
+            <span class="bah-badge">Before &amp; After</span>
+            <span style="font-size:0.62rem;color:var(--t3);font-weight:600;letter-spacing:0.06em;">Real results</span>
           </div>
-          <div class="logo-showcase-tag">Manatee &amp; Sarasota County</div>
+
+          <!-- Slides -->
+          <div class="bah-slides" id="bah-slides">
+
+            <!-- 1: Exterior -->
+            <div class="bah-slide active">
+              <div class="bah-panel-b" style="background:linear-gradient(135deg,#4a3728,#6b4c3b,#3d2e22)">
+                <span class="bah-pill">Before</span>
+              </div>
+              <div class="bah-panel-a" style="background:linear-gradient(135deg,#1a4a8a,#2a7ac4,#0d2c5e)">
+                <span class="bah-pill">After</span>
+              </div>
+              <div class="bah-divider"></div>
+            </div>
+
+            <!-- 2: Interior -->
+            <div class="bah-slide">
+              <div class="bah-panel-b" style="background:linear-gradient(135deg,#3a2a1a,#5c3d2a,#2e1f10)">
+                <span class="bah-pill">Before</span>
+              </div>
+              <div class="bah-panel-a" style="background:linear-gradient(135deg,#1b4332,#2d6a4f,#0a2318)">
+                <span class="bah-pill">After</span>
+              </div>
+              <div class="bah-divider"></div>
+            </div>
+
+            <!-- 3: Engine Bay -->
+            <div class="bah-slide">
+              <div class="bah-panel-b" style="background:linear-gradient(135deg,#2a1f14,#3d2f1a,#1c150c)">
+                <span class="bah-pill">Before</span>
+              </div>
+              <div class="bah-panel-a" style="background:linear-gradient(135deg,#1a2a3c,#2c4460,#0e1c2e)">
+                <span class="bah-pill">After</span>
+              </div>
+              <div class="bah-divider"></div>
+            </div>
+
+          </div>
+
+          <!-- Progress bar -->
+          <div class="bah-progress">
+            <div class="bah-progress-fill running" id="bah-fill"></div>
+          </div>
+
+          <!-- Info + dots -->
+          <div class="bah-info">
+            <div id="bah-label">
+              <div class="bah-title">Exterior Detail</div>
+              <div class="bah-sub">Swirl marks &amp; oxidation &mdash; gone.</div>
+            </div>
+            <div class="bah-dots" id="bah-dots">
+              <span class="bah-dot active"></span>
+              <span class="bah-dot"></span>
+              <span class="bah-dot"></span>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -1759,6 +1905,42 @@
         ].join(';');
         hero.appendChild(s);
       }
+    })();
+
+    // ── Hero B/A Slideshow ─────────────────────────────────
+    (function() {
+      const slides = Array.from(document.querySelectorAll('.bah-slide'));
+      const dots   = Array.from(document.querySelectorAll('.bah-dot'));
+      const fill   = document.getElementById('bah-fill');
+      const label  = document.getElementById('bah-label');
+      const data   = [
+        { title: 'Exterior Detail',  sub: 'Swirl marks &amp; oxidation &mdash; gone.' },
+        { title: 'Interior Detail',  sub: 'Stains, odors, pet hair &mdash; out.' },
+        { title: 'Engine Bay Clean', sub: 'Years of grease &mdash; completely cleared.' },
+      ];
+      let cur = 0;
+
+      function goTo(n) {
+        slides[cur].classList.remove('active');
+        dots[cur].classList.remove('active');
+        cur = n;
+        slides[cur].classList.add('active');
+        dots[cur].classList.add('active');
+        label.innerHTML =
+          `<div class="bah-title">${data[cur].title}</div>` +
+          `<div class="bah-sub">${data[cur].sub}</div>`;
+        // restart progress bar
+        fill.classList.remove('running');
+        void fill.offsetWidth;
+        fill.classList.add('running');
+      }
+
+      dots.forEach((d, i) => d.addEventListener('click', () => {
+        clearInterval(timer); goTo(i); timer = setInterval(advance, 3000);
+      }));
+
+      function advance() { goTo((cur + 1) % slides.length); }
+      let timer = setInterval(advance, 3000);
     })();
 
     // ── Mobile menu ────────────────────────────────────────
