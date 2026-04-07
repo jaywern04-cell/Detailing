@@ -1289,8 +1289,8 @@
     <div class="pricing-grid">
       <div class="pkg reveal reveal-delay-1">
         <div class="pkg-name">Exterior Shine</div>
-        <div class="pkg-price">$75<span> – $95</span></div>
-        <div class="pkg-desc">Sedans to full-size SUVs</div>
+        <div class="pkg-price">$95<span> – $130</span></div>
+        <div class="pkg-desc">Sedan · SUV / Truck · Van</div>
         <ul class="pkg-features">
           <li>Hand wash &amp; dry</li>
           <li>Wheel &amp; tire clean</li>
@@ -1302,8 +1302,8 @@
 
       <div class="pkg reveal reveal-delay-2">
         <div class="pkg-name">Interior Detail</div>
-        <div class="pkg-price">$100<span> – $130</span></div>
-        <div class="pkg-desc">Sedans to full-size SUVs</div>
+        <div class="pkg-price">$130<span> – $170</span></div>
+        <div class="pkg-desc">Sedan · SUV / Truck · Van</div>
         <ul class="pkg-features">
           <li>Full vacuum</li>
           <li>Wipe-down all surfaces</li>
@@ -1317,7 +1317,7 @@
       <div class="pkg featured reveal reveal-delay-3">
         <div class="featured-tag">Most popular</div>
         <div class="pkg-name">Full Detail</div>
-        <div class="pkg-price">$160<span> – $220</span></div>
+        <div class="pkg-price">$210<span> – $290</span></div>
         <div class="pkg-desc">Interior + exterior, any vehicle</div>
         <ul class="pkg-features">
           <li>Everything in Exterior Shine</li>
@@ -1331,7 +1331,7 @@
 
       <div class="pkg reveal reveal-delay-4">
         <div class="pkg-name">Monthly Plan</div>
-        <div class="pkg-price">$90<span> / mo</span></div>
+        <div class="pkg-price">$120<span> / mo</span></div>
         <div class="pkg-desc">Recurring exterior maintenance</div>
         <ul class="pkg-features">
           <li>Monthly exterior wash</li>
@@ -1346,12 +1346,12 @@
 
     <div class="addons-label reveal">Add-ons</div>
     <div class="addons-grid">
-      <div class="addon reveal reveal-delay-1"><span class="addon-name">Ceramic coating</span><span class="addon-price">from $350</span></div>
-      <div class="addon reveal reveal-delay-2"><span class="addon-name">Paint correction</span><span class="addon-price">from $200</span></div>
-      <div class="addon reveal reveal-delay-3"><span class="addon-name">Headlight restoration</span><span class="addon-price">$60 – $80</span></div>
-      <div class="addon reveal reveal-delay-1"><span class="addon-name">Odor treatment</span><span class="addon-price">$40</span></div>
-      <div class="addon reveal reveal-delay-2"><span class="addon-name">Engine bay cleaning</span><span class="addon-price">$75</span></div>
-      <div class="addon reveal reveal-delay-3"><span class="addon-name">Pet hair removal</span><span class="addon-price">$40 – $60</span></div>
+      <div class="addon reveal reveal-delay-1"><span class="addon-name">Ceramic coating</span><span class="addon-price">from $450</span></div>
+      <div class="addon reveal reveal-delay-2"><span class="addon-name">Paint correction</span><span class="addon-price">from $250</span></div>
+      <div class="addon reveal reveal-delay-3"><span class="addon-name">Headlight restoration</span><span class="addon-price">$75 – $100</span></div>
+      <div class="addon reveal reveal-delay-1"><span class="addon-name">Odor treatment</span><span class="addon-price">$55</span></div>
+      <div class="addon reveal reveal-delay-2"><span class="addon-name">Engine bay cleaning</span><span class="addon-price">$85</span></div>
+      <div class="addon reveal reveal-delay-3"><span class="addon-name">Pet hair removal</span><span class="addon-price">$50 – $75</span></div>
     </div>
   </section>
 
@@ -1445,10 +1445,10 @@
         <input type="text" placeholder="Vehicle (year, make &amp; model — e.g. 2020 Toyota Camry)" />
         <select>
           <option value="" disabled selected>Service interested in</option>
-          <option>Exterior Shine ($75–$95)</option>
-          <option>Interior Detail ($100–$130)</option>
-          <option>Full Detail ($160–$220)</option>
-          <option>Monthly Plan ($90/mo)</option>
+          <option>Exterior Shine ($95–$130)</option>
+          <option>Interior Detail ($130–$170)</option>
+          <option>Full Detail ($210–$290)</option>
+          <option>Monthly Plan ($120/mo)</option>
           <option>Ceramic Coating (add-on)</option>
           <option>Paint Correction (add-on)</option>
           <option>Headlight Restoration (add-on)</option>
@@ -1521,10 +1521,10 @@
 
     // ── Quote estimator ────────────────────────────────────
     const prices = {
-      exterior: { sedan: '$75', suv:  '$85',  van: '$95'  },
-      interior: { sedan: '$100', suv: '$115', van: '$130' },
-      full:     { sedan: '$160', suv: '$190', van: '$220' },
-      monthly:  { sedan: '$90/mo', suv: '$90/mo', van: '$90/mo' },
+      exterior: { sedan: '$95',  suv: '$115', van: '$130' },
+      interior: { sedan: '$130', suv: '$150', van: '$170' },
+      full:     { sedan: '$210', suv: '$250', van: '$290' },
+      monthly:  { sedan: '$120/mo', suv: '$120/mo', van: '$120/mo' },
     };
 
     const estVehicle = document.getElementById('est-vehicle');
