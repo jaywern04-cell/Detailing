@@ -143,50 +143,15 @@
       gap: 0.65rem;
     }
 
-    .logo-icon {
-      height: 38px;
+    .logo-img {
+      height: 56px;
       width: auto;
-      flex-shrink: 0;
-      filter: drop-shadow(0 0 6px rgba(245,158,11,0.5));
+      display: block;
+      filter: drop-shadow(0 2px 10px rgba(245,158,11,0.3));
       transition: filter 0.2s;
     }
-    .logo:hover .logo-icon {
-      filter: drop-shadow(0 0 12px rgba(245,158,11,0.75));
-    }
-
-    .logo-wordmark {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
-    }
-
-    .logo-name {
-      font-size: 1.12rem;
-      font-weight: 900;
-      letter-spacing: -0.025em;
-      line-height: 1;
-    }
-
-    .logo-curb { color: var(--white); }
-
-    .logo-shine {
-      background: linear-gradient(90deg,
-        #d97706, #f59e0b 25%, #fde68a 50%, #f59e0b 75%, #d97706
-      );
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gold-shimmer 5s linear infinite;
-    }
-
-    .logo-tagline {
-      font-size: 0.52rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--t3);
-      margin-top: 0.28rem;
+    .logo:hover .logo-img {
+      filter: drop-shadow(0 2px 16px rgba(245,158,11,0.55));
     }
 
     nav ul { list-style: none; display: flex; gap: 2rem; }
@@ -1403,96 +1368,7 @@
   <!-- NAV -->
   <nav id="main-nav">
     <a href="#" class="logo">
-      <!--
-        Car side-profile icon:
-        Gold sedan body · dark window · wheel hubs · 3 shine rays
-      -->
-      <svg class="logo-icon" viewBox="0 0 54 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-        <!-- ── CAR BODY ────────────────────────────────── -->
-        <path d="
-          M 4 19
-          L 4 17
-          C 4 15 5.5 14.5 7 14.5
-          L 11.5 14.5
-          C 13 9.5 17 7.5 21.5 6.5
-          L 27 5.5
-          C 30 5.5 33 5.5 35 6.5
-          C 37 7.5 39 9.5 40.5 13
-          L 45 13.5
-          C 48.5 14 51 15.5 51 18
-          L 51 19.5
-          C 51 21 50 21.5 48.5 21.5
-          L 45.5 21.5
-          C 44.5 19 42 17.5 39.5 17.5
-          C 37 17.5 34.5 19 33.5 21.5
-          L 20.5 21.5
-          C 19.5 19 17 17.5 14.5 17.5
-          C 12 17.5 9.5 19 8.5 21.5
-          L 5.5 21.5
-          C 4.5 21.5 4 20.5 4 19 Z
-        " fill="url(#car-g)"/>
-
-        <!-- ── BODY SHINE (highlight on hood) ─────────── -->
-        <path d="
-          M 13 14.5
-          C 16 10 21 7.5 27 6.5
-          L 25.5 5.5
-          C 19.5 6 15 8.5 11.5 14.5 Z
-        " fill="white" opacity="0.14"/>
-
-        <!-- ── WINDOW / GREENHOUSE ─────────────────────── -->
-        <path d="
-          M 16.5 14.5
-          L 21 7.5
-          L 34 7.5
-          L 38 13.5
-          Z
-        " fill="#06030e" opacity="0.45"/>
-
-        <!-- Window inner highlight -->
-        <path d="M 22 8.5 L 20 13.5 L 23.5 13.5 L 25.5 8.5 Z"
-              fill="white" opacity="0.1"/>
-
-        <!-- ── WHEELS ────────────────────────────────── -->
-        <!-- Front wheel -->
-        <circle cx="14.5" cy="23"  r="4"   fill="#06030e"/>
-        <circle cx="14.5" cy="23"  r="2.2" fill="#160a2e"/>
-        <circle cx="14.5" cy="23"  r="0.9" fill="#fde68a"/>
-
-        <!-- Rear wheel -->
-        <circle cx="39.5" cy="23"  r="4"   fill="#06030e"/>
-        <circle cx="39.5" cy="23"  r="2.2" fill="#160a2e"/>
-        <circle cx="39.5" cy="23"  r="0.9" fill="#fde68a"/>
-
-        <!-- ── SHINE RAYS ─────────────────────────────── -->
-        <!-- 3 lines fanning out from the roof/rear corner —
-             the classic "freshly polished car in sunlight" mark -->
-        <line x1="37"  y1="5.5" x2="42"  y2="1.5"
-              stroke="#fde68a" stroke-width="1.6" stroke-linecap="round"/>
-        <line x1="41"  y1="8.5" x2="47.5" y2="6"
-              stroke="#fde68a" stroke-width="1.3" stroke-linecap="round" opacity="0.75"/>
-        <line x1="43"  y1="12" x2="51"   y2="11.5"
-              stroke="#fde68a" stroke-width="1"   stroke-linecap="round" opacity="0.5"/>
-
-        <!-- ── GRADIENT ───────────────────────────────── -->
-        <defs>
-          <linearGradient id="car-g" x1="4" y1="5.5" x2="51" y2="23"
-                          gradientUnits="userSpaceOnUse">
-            <stop offset="0%"   stop-color="#c97a0a"/>
-            <stop offset="40%"  stop-color="#f59e0b"/>
-            <stop offset="72%"  stop-color="#fde68a"/>
-            <stop offset="100%" stop-color="#f97316"/>
-          </linearGradient>
-        </defs>
-      </svg>
-
-      <span class="logo-wordmark">
-        <span class="logo-name">
-          <span class="logo-curb">Curb</span><span class="logo-shine">Shine</span>
-        </span>
-        <span class="logo-tagline">Auto Detailing</span>
-      </span>
+      <img src="logo.png" alt="CurbShine Auto Detailing" class="logo-img" />
     </a>
     <ul id="nav-links">
       <li><a href="#why"      data-section="why">Why Us</a></li>
