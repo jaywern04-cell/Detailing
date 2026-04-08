@@ -1361,6 +1361,60 @@
       .hero-stat { border-right: none; padding: 0; border-bottom: 1px solid var(--border); padding-bottom: 1.25rem; }
       .hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
     }
+
+    /* ── BUBBLE DIVE (one-time scroll animation) ──────────── */
+    #bubble-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    #bubble-overlay.active { opacity: 1; }
+
+    /* Underwater colour wash */
+    #bubble-overlay::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 40%,
+        rgba(8,50,120,0.32) 0%,
+        rgba(4,70,110,0.18) 45%,
+        transparent 75%
+      );
+      opacity: 0;
+      animation: water-wash 2.8s ease-in-out forwards;
+    }
+
+    @keyframes water-wash {
+      0%   { opacity: 0; }
+      18%  { opacity: 1; }
+      72%  { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes bubble-rise {
+      0%   { transform: translateY(0)      translateX(0);                    opacity: 0;  }
+      8%   {                                                                  opacity: 0.9;}
+      50%  { transform: translateY(-52vh)  translateX(calc(var(--dx)*0.55)); }
+      88%  {                                                                  opacity: 0.5;}
+      100% { transform: translateY(-118vh) translateX(var(--dx));             opacity: 0;  }
+    }
+
+    /* Individual bubble */
+    .bbl {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 32% 32%,
+        rgba(255,255,255,0.6)  0%,
+        rgba(180,225,255,0.2) 45%,
+        rgba(100,190,255,0.07) 100%
+      );
+      border: 1px solid rgba(255,255,255,0.38);
+      animation: bubble-rise linear forwards;
+    }
   </style>
 </head>
 <body>
@@ -1847,6 +1901,9 @@
     </ul>
   </footer>
 
+  <!-- BUBBLE DIVE OVERLAY -->
+  <div id="bubble-overlay"></div>
+
   <!-- MOBILE BAR -->
   <div class="mobile-bar">
     <a href="tel:+19783027142" class="bar-call">📞 Call Now</a>
@@ -1923,6 +1980,50 @@
 
       function advance() { goTo((cur + 1) % slides.length); }
       let timer = setInterval(advance, 10000);
+    })();
+
+    // ── Bubble dive — fires once on first scroll ───────────
+    (function() {
+      let fired = false;
+
+      function dive() {
+        if (fired || window.scrollY < 25) return;
+        fired = true;
+        window.removeEventListener('scroll', dive, true);
+
+        const ov     = document.getElementById('bubble-overlay');
+        const sizes  = [5, 7, 9, 12, 16, 22, 30, 40, 52];
+        const count  = 34;
+
+        ov.classList.add('active');
+
+        for (let i = 0; i < count; i++) {
+          const b   = document.createElement('div');
+          b.className = 'bbl';
+          const sz  = sizes[Math.floor(Math.random() * sizes.length)];
+          const dur = 1.6 + Math.random() * 1.8;      // 1.6s – 3.4s
+          const del = Math.random() * 1.1;              // 0 – 1.1s stagger
+          const dx  = (Math.random() - 0.5) * 90;      // horizontal drift
+          b.style.cssText = [
+            `width:${sz}px`,
+            `height:${sz}px`,
+            `left:${2 + Math.random() * 96}%`,
+            `bottom:${-(sz + Math.random() * 40)}px`,
+            `--dx:${dx}px`,
+            `animation-duration:${dur}s`,
+            `animation-delay:${del}s`,
+          ].join(';');
+          ov.appendChild(b);
+        }
+
+        // Fade overlay out once the longest bubble has cleared
+        setTimeout(() => {
+          ov.classList.remove('active');
+          setTimeout(() => { ov.innerHTML = ''; }, 550);
+        }, 2900);
+      }
+
+      window.addEventListener('scroll', dive, { passive: true, capture: true });
     })();
 
     // ── Mobile menu ────────────────────────────────────────
