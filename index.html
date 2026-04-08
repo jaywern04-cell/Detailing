@@ -96,7 +96,7 @@ body::after{
 
 /* ── PACKAGES / PRICING ── */
 #pricing{background:linear-gradient(180deg,var(--black) 0%,#0d0d0d 50%,var(--black) 100%)}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3.5rem}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:2rem;margin-top:3.5rem}
 .price-card{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:4px;padding:2.75rem 2.25rem;position:relative;transition:all .4s var(--ease)}
 .price-card.featured{border-color:var(--gold);box-shadow:0 0 60px rgba(201,168,76,.08)}
 .price-card.featured::after{content:'MOST POPULAR';position:absolute;top:0;right:1.5rem;background:var(--gold);color:var(--black);font-size:.6rem;font-weight:700;letter-spacing:2px;padding:.35rem 1rem;border-radius:0 0 4px 4px}
@@ -362,71 +362,97 @@ body::after{
     <div class="reveal">
       <div class="section-tag">Packages</div>
       <div class="section-title">SIMPLE, HONEST PRICING</div>
-      <p class="section-sub">No hidden fees, no surprises. We quote you before we arrive and stick to it. All packages are mobile — we come to you.</p>
+      <p class="section-sub">No hidden fees, no surprises — we give you a firm quote before we ever show up. Every service is mobile. We come to you.</p>
     </div>
     <div class="pricing-grid">
 
+      <!-- EXTERIOR ONLY -->
       <div class="price-card reveal">
-        <div class="price-tier">Tier 01</div>
-        <div class="price-name">SHINE</div>
-        <div class="price-amount">$80 <small>sedan &nbsp;·&nbsp; $95 SUV &nbsp;·&nbsp; $110 van</small></div>
+        <div class="price-tier">Exterior Only</div>
+        <div class="price-name">EXTERIOR<br>SHINE</div>
+        <div class="price-amount">$85 <small>sedan</small></div>
+        <div style="font-size:.75rem;color:var(--gray);margin-top:-.5rem;margin-bottom:1rem;">$100 SUV/truck &nbsp;·&nbsp; $115 van</div>
         <ul class="price-list">
           <li>Two-bucket hand wash &amp; dry</li>
-          <li>Wheels &amp; brake dust cleaned</li>
+          <li>Wheels &amp; brake dust removed</li>
           <li>Tires dressed &amp; UV protected</li>
-          <li>Windows cleaned inside &amp; out</li>
+          <li>Exterior windows cleaned</li>
           <li>Door jambs wiped down</li>
-          <li>Air freshener finish</li>
-          <li>~1.5 hrs &nbsp;·&nbsp; exterior only</li>
+          <li>Exterior trim wiped</li>
         </ul>
-        <a href="#contact" class="btn btn-ghost price-btn">Book Shine</a>
+        <div style="font-size:.72rem;color:var(--gray);margin:.75rem 0 1.25rem;letter-spacing:.5px;">⏱ About 1.5 hrs</div>
+        <a href="#contact" class="btn btn-ghost price-btn">Book Now</a>
       </div>
 
-      <div class="price-card featured reveal">
-        <div class="price-tier">Tier 02 &nbsp;·&nbsp; Most Popular</div>
-        <div class="price-name">DETAIL</div>
-        <div class="price-amount">$150 <small>sedan &nbsp;·&nbsp; $175 SUV &nbsp;·&nbsp; $200 van</small></div>
-        <ul class="price-list">
-          <li>Full exterior from Shine package</li>
-          <li>Deep vacuum — seats, floors, trunk</li>
-          <li>Dashboard, vents &amp; door panels</li>
-          <li>Cup holders &amp; all crevices</li>
-          <li>Carpet spot cleaning</li>
-          <li>Leather wipe-down &amp; condition</li>
-          <li>Interior glass cleaned</li>
-          <li>~3 hrs &nbsp;·&nbsp; inside &amp; out</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary price-btn">Book Detail</a>
-      </div>
-
+      <!-- INTERIOR ONLY -->
       <div class="price-card reveal">
-        <div class="price-tier">Tier 03</div>
-        <div class="price-name">FULL DETAIL</div>
-        <div class="price-amount">$220 <small>sedan &nbsp;·&nbsp; $255 SUV &nbsp;·&nbsp; $285 van</small></div>
+        <div class="price-tier">Interior Only</div>
+        <div class="price-name">INTERIOR<br>REFRESH</div>
+        <div class="price-amount">$100 <small>sedan</small></div>
+        <div style="font-size:.75rem;color:var(--gray);margin-top:-.5rem;margin-bottom:1rem;">$120 SUV/truck &nbsp;·&nbsp; $140 van</div>
         <ul class="price-list">
-          <li>Everything in Detail, plus:</li>
+          <li>Full vacuum — seats, floors, trunk</li>
+          <li>Dashboard &amp; vents wiped down</li>
+          <li>Door panels &amp; pockets cleaned</li>
+          <li>Cup holders &amp; crevices detailed</li>
+          <li>Interior windows cleaned</li>
+          <li>Leather wiped &amp; conditioned</li>
+          <li>Air freshener finish</li>
+        </ul>
+        <div style="font-size:.72rem;color:var(--gray);margin:.75rem 0 1.25rem;letter-spacing:.5px;">⏱ About 1.5–2 hrs</div>
+        <a href="#contact" class="btn btn-ghost price-btn">Book Now</a>
+      </div>
+
+      <!-- FULL DETAIL — FEATURED -->
+      <div class="price-card featured reveal">
+        <div class="price-tier">Best Value</div>
+        <div class="price-name">FULL<br>DETAIL</div>
+        <div class="price-amount">$175 <small>sedan</small></div>
+        <div style="font-size:.75rem;color:var(--gray);margin-top:-.5rem;margin-bottom:1rem;">$205 SUV/truck &nbsp;·&nbsp; $235 van</div>
+        <ul class="price-list">
+          <li>Complete exterior — wash, wheels, trim, glass</li>
           <li>Clay bar paint decontamination</li>
           <li>Hand wax or paint sealant</li>
-          <li>Deep leather conditioning</li>
+          <li>Full interior — every surface, every corner</li>
+          <li>Deep leather clean &amp; condition</li>
+          <li>Carpet spot treatment</li>
           <li>Engine bay wipe-down</li>
-          <li>Trim restoration &amp; protection</li>
-          <li>~4–5 hrs &nbsp;·&nbsp; the full treatment</li>
         </ul>
-        <a href="#contact" class="btn btn-ghost price-btn">Book Full Detail</a>
+        <div style="font-size:.72rem;color:var(--gray);margin:.75rem 0 1.25rem;letter-spacing:.5px;">⏱ About 3–4 hrs</div>
+        <a href="#contact" class="btn btn-primary price-btn">Book Now</a>
+      </div>
+
+      <!-- SUBSCRIPTION -->
+      <div class="price-card reveal" style="border-color:rgba(201,168,76,.2);position:relative;">
+        <div style="position:absolute;top:0;left:1.5rem;background:linear-gradient(90deg,#c9a84c,#e4cc7a);color:#0a0a0a;font-size:.58rem;font-weight:700;letter-spacing:2px;padding:.3rem 1rem;border-radius:0 0 4px 4px;">SAVE MONTHLY</div>
+        <div class="price-tier" style="margin-top:.75rem;">Subscription</div>
+        <div class="price-name">MONTHLY<br>PLAN</div>
+        <div class="price-amount">$70 <small>sedan / mo</small></div>
+        <div style="font-size:.75rem;color:var(--gray);margin-top:-.5rem;margin-bottom:1rem;">$85 SUV/truck &nbsp;·&nbsp; $100 van</div>
+        <ul class="price-list">
+          <li>Monthly exterior detail included</li>
+          <li>Quick interior touch-up each visit</li>
+          <li>We reach out to schedule — zero effort for you</li>
+          <li>Priority booking over one-time customers</li>
+          <li>Rate locked in — no surprise increases</li>
+          <li>No contracts &nbsp;·&nbsp; cancel anytime</li>
+        </ul>
+        <div style="font-size:.72rem;color:var(--gray);margin:.75rem 0 1.25rem;letter-spacing:.5px;">Florida sun &amp; salt damage adds up fast — monthly upkeep stops it</div>
+        <a href="#contact" class="btn btn-ghost price-btn">Get Started</a>
       </div>
 
     </div>
 
     <!-- Add-ons strip -->
-    <div class="reveal" style="margin-top:3rem;padding:2rem;background:var(--card);border:1px solid rgba(201,168,76,.1);border-radius:4px;">
-      <div style="font-family:var(--font-display);font-size:1.1rem;letter-spacing:2px;margin-bottom:1.25rem;color:var(--gold);">ADD-ONS</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem 2rem;">
-        <div style="font-size:.85rem;color:var(--gray-light);display:flex;justify-content:space-between;"><span>Headlight Restoration</span><span style="color:var(--gold);">$60</span></div>
-        <div style="font-size:.85rem;color:var(--gray-light);display:flex;justify-content:space-between;"><span>Engine Bay Detail</span><span style="color:var(--gold);">$75</span></div>
-        <div style="font-size:.85rem;color:var(--gray-light);display:flex;justify-content:space-between;"><span>Odor Elimination</span><span style="color:var(--gold);">$45</span></div>
-        <div style="font-size:.85rem;color:var(--gray-light);display:flex;justify-content:space-between;"><span>Pet Hair Removal</span><span style="color:var(--gold);">$45–$65</span></div>
-        <div style="font-size:.85rem;color:var(--gray-light);display:flex;justify-content:space-between;"><span>Monthly Plan</span><span style="color:var(--gold);">from $80/mo</span></div>
-        <div style="font-size:.85rem;color:var(--gray-light);display:flex;justify-content:space-between;"><span>Ceramic Coating</span><span style="color:var(--gold);">Quote only</span></div>
+    <div class="reveal" style="margin-top:2.5rem;padding:1.75rem 2rem;background:var(--card);border:1px solid rgba(201,168,76,.1);border-radius:4px;">
+      <div style="font-family:var(--font-display);font-size:1rem;letter-spacing:2px;margin-bottom:1.1rem;color:var(--gold);">ADD-ONS — STACK ONTO ANY PACKAGE</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.65rem 2.5rem;">
+        <div style="font-size:.84rem;color:var(--gray-light);display:flex;justify-content:space-between;gap:1rem;"><span>Headlight Restoration</span><span style="color:var(--gold);white-space:nowrap;">$60 / pair</span></div>
+        <div style="font-size:.84rem;color:var(--gray-light);display:flex;justify-content:space-between;gap:1rem;"><span>Engine Bay Detail</span><span style="color:var(--gold);white-space:nowrap;">$75</span></div>
+        <div style="font-size:.84rem;color:var(--gray-light);display:flex;justify-content:space-between;gap:1rem;"><span>Odor Elimination</span><span style="color:var(--gold);white-space:nowrap;">$45</span></div>
+        <div style="font-size:.84rem;color:var(--gray-light);display:flex;justify-content:space-between;gap:1rem;"><span>Pet Hair Removal</span><span style="color:var(--gold);white-space:nowrap;">$45–$65</span></div>
+        <div style="font-size:.84rem;color:var(--gray-light);display:flex;justify-content:space-between;gap:1rem;"><span>Carpet Extraction</span><span style="color:var(--gold);white-space:nowrap;">$50</span></div>
+        <div style="font-size:.84rem;color:var(--gray-light);display:flex;justify-content:space-between;gap:1rem;"><span>Ceramic Coating</span><span style="color:var(--gold);white-space:nowrap;">Quote only</span></div>
       </div>
     </div>
 
@@ -684,12 +710,12 @@ body::after{
               <label>Package</label>
               <select id="package">
                 <option value="">Select a package</option>
-                <option>Shine — $80+ (exterior)</option>
-                <option>Detail — $150+ (in &amp; out)</option>
-                <option>Full Detail — $220+ (premium)</option>
-                <option>Monthly Plan — from $80/mo</option>
+                <option>Exterior Shine — $85 sedan / $100 SUV</option>
+                <option>Interior Refresh — $100 sedan / $120 SUV</option>
+                <option>Full Detail — $175 sedan / $205 SUV</option>
+                <option>Monthly Plan — $70/mo sedan / $85/mo SUV</option>
                 <option>Add-on only (headlights, engine bay, etc.)</option>
-                <option>Not sure yet</option>
+                <option>Not sure yet — just want a quote</option>
               </select>
             </div>
             <div class="form-group">
