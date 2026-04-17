@@ -247,6 +247,18 @@ body::after{
 .tier-book{display:block;text-align:center;padding:.65rem 1rem;border:1px solid rgba(201,168,76,.35);color:var(--gold);font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border-radius:2px;text-decoration:none;transition:all .3s var(--ease);margin-top:auto}
 .tier-book:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
 
+/* ── NAV DROPDOWN ── */
+.nav-dropdown{position:relative}
+.nav-dropdown>a{display:flex;align-items:center;gap:.35rem}
+.nav-dropdown>a::after{content:'▾';font-size:.65rem;transition:transform .25s}
+.nav-dropdown:hover>a::after{transform:rotate(180deg)}
+.dropdown-menu{position:absolute;top:calc(100% + .75rem);left:50%;transform:translateX(-50%);background:#111;border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:.5rem 0;min-width:220px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;transform:translateX(-50%) translateY(-6px);z-index:100;white-space:nowrap}
+.nav-dropdown:hover .dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.dropdown-menu a{display:block;padding:.6rem 1.25rem;font-size:.78rem;letter-spacing:.5px;color:var(--gray-light);transition:color .2s,background .2s;text-transform:none;font-weight:400}
+.dropdown-menu a:hover{color:var(--gold);background:rgba(201,168,76,.05)}
+.dropdown-divider{height:1px;background:rgba(255,255,255,.06);margin:.4rem 0}
+.dropdown-label{padding:.5rem 1.25rem .25rem;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray)}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
@@ -280,7 +292,24 @@ body::after{
   <div class="nav-inner">
     <a href="#" class="logo">CURB<span class="logo-accent">SHINE</span></a>
     <div class="nav-links">
-      <a href="#services">Services</a>
+      <div class="nav-dropdown">
+        <a href="#pricing">Services</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-label">Main Services</div>
+          <a href="#pricing" onclick="openPkgModal('full')">Full Detailing</a>
+          <a href="#pricing" onclick="openPkgModal('exterior')">Exterior Detailing</a>
+          <a href="#pricing" onclick="openPkgModal('interior')">Interior Only</a>
+          <a href="#pricing" onclick="openPkgModal('ceramic')">Ceramic Coating</a>
+          <div class="dropdown-divider"></div>
+          <div class="dropdown-label">Other Services</div>
+          <a href="#contact">Engine Bay Cleaning</a>
+          <a href="#contact">Pet Hair Removal</a>
+          <a href="#contact">Headlight Restoration</a>
+          <a href="#contact">Water Spot Removal</a>
+          <a href="#contact">1 Step Paint Correction</a>
+          <a href="#contact">2 Step Paint Correction</a>
+        </div>
+      </div>
       <a href="#pricing">Packages</a>
       <a href="#process">Process</a>
       <a href="#gallery">Gallery</a>
@@ -297,8 +326,16 @@ body::after{
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="toggleMenu()">✕</button>
-  <a href="#services" onclick="toggleMenu()">Services</a>
-  <a href="#pricing" onclick="toggleMenu()">Packages</a>
+  <a href="#pricing" onclick="toggleMenu()">Full Detailing</a>
+  <a href="#pricing" onclick="toggleMenu()">Exterior Detailing</a>
+  <a href="#pricing" onclick="toggleMenu()">Interior Only</a>
+  <a href="#pricing" onclick="toggleMenu()">Ceramic Coating</a>
+  <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">Engine Bay Cleaning</a>
+  <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">Pet Hair Removal</a>
+  <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">Headlight Restoration</a>
+  <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">Water Spot Removal</a>
+  <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">1 Step Paint Correction</a>
+  <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">2 Step Paint Correction</a>
   <a href="#process" onclick="toggleMenu()">Process</a>
   <a href="#gallery" onclick="toggleMenu()">Gallery</a>
   <a href="#reviews" onclick="toggleMenu()">Reviews</a>
@@ -338,49 +375,6 @@ body::after{
       <div>
         <div class="stat-num">6</div>
         <div class="stat-label">Years in Florida</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="section" id="services">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-tag">What We Do</div>
-      <div class="section-title">SERVICES</div>
-      <p class="section-sub">Mobile detailing done right — we bring everything to you. Professional products, real attention to detail, and results you can actually see.</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <h3>ENGINE BAY CLEANING</h3>
-        <p>Get your engine bay looking new again with our engine bay cleaning service. Safe degreasing and hand-cleaning that helps you spot leaks or issues before they become problems.</p>
-        <div class="service-price">FROM $160</div>
-      </div>
-      <div class="service-card reveal">
-        <h3>PET HAIR REMOVAL</h3>
-        <p>Say goodbye to pesky pet hair with our specialized removal service. We use professional-grade tools to lift and extract embedded pet hair from every surface in your vehicle.</p>
-        <div class="service-price">FROM $40</div>
-      </div>
-      <div class="service-card reveal">
-        <h3>HEADLIGHT RESTORATION</h3>
-        <p>Bring your car back to life — our specialists buff and polish your headlights to perfection, restoring them to like-new condition and sealing with UV protection so they stay clear.</p>
-        <div class="service-price">FROM $85</div>
-      </div>
-      <div class="service-card reveal">
-        <h3>WATER SPOT REMOVAL</h3>
-        <p>Water spot removal is a specialized process that eliminates unsightly baked-on water stains left on a vehicle's surface from mineral-rich water droplets.</p>
-        <div class="service-price">FROM $50</div>
-      </div>
-      <div class="service-card reveal">
-        <h3>1 STEP PAINT CORRECTION</h3>
-        <p>This service includes a detailed clay bar, iron remover, and polishing process to remove surface contaminants and minor defects from your car's paint.</p>
-        <div class="service-price">FROM $260</div>
-      </div>
-      <div class="service-card reveal">
-        <h3>2 STEP PAINT CORRECTION</h3>
-        <p>We use a combination of compounding and polishing in a specialized two-step paint correction process to restore the luster of your car's finish and make it look like new.</p>
-        <div class="service-price">FROM $399</div>
       </div>
     </div>
   </div>
