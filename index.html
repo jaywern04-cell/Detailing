@@ -303,12 +303,12 @@ body::after{
           <a href="#" onclick="event.preventDefault();goToService('ceramic')">Ceramic Coating</a>
           <div class="dropdown-divider"></div>
           <div class="dropdown-label">Other Services</div>
-          <a href="#contact">Engine Bay Cleaning</a>
-          <a href="#contact">Pet Hair Removal</a>
-          <a href="#contact">Headlight Restoration</a>
-          <a href="#contact">Water Spot Removal</a>
-          <a href="#contact">1 Step Paint Correction</a>
-          <a href="#contact">2 Step Paint Correction</a>
+          <a href="#" onclick="event.preventDefault();goToService('other')">Engine Bay Cleaning</a>
+          <a href="#" onclick="event.preventDefault();goToService('other')">Pet Hair Removal</a>
+          <a href="#" onclick="event.preventDefault();goToService('other')">Headlight Restoration</a>
+          <a href="#" onclick="event.preventDefault();goToService('other')">Water Spot Removal</a>
+          <a href="#" onclick="event.preventDefault();goToService('other')">1 Step Paint Correction</a>
+          <a href="#" onclick="event.preventDefault();goToService('other')">2 Step Paint Correction</a>
         </div>
       </div>
       <a href="#pricing">Packages</a>
@@ -331,12 +331,12 @@ body::after{
   <a href="#" onclick="event.preventDefault();toggleMenu();goToService('exterior')">Exterior Detailing</a>
   <a href="#" onclick="event.preventDefault();toggleMenu();goToService('interior')">Interior Only</a>
   <a href="#" onclick="event.preventDefault();toggleMenu();goToService('ceramic')">Ceramic Coating</a>
-  <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">Engine Bay Cleaning</a>
-  <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">Pet Hair Removal</a>
-  <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">Headlight Restoration</a>
-  <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">Water Spot Removal</a>
-  <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">1 Step Paint Correction</a>
-  <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">2 Step Paint Correction</a>
+  <a href="#" onclick="event.preventDefault();toggleMenu();goToService('other')" style="font-size:1rem;color:var(--gray);">Engine Bay Cleaning</a>
+  <a href="#" onclick="event.preventDefault();toggleMenu();goToService('other')" style="font-size:1rem;color:var(--gray);">Pet Hair Removal</a>
+  <a href="#" onclick="event.preventDefault();toggleMenu();goToService('other')" style="font-size:1rem;color:var(--gray);">Headlight Restoration</a>
+  <a href="#" onclick="event.preventDefault();toggleMenu();goToService('other')" style="font-size:1rem;color:var(--gray);">Water Spot Removal</a>
+  <a href="#" onclick="event.preventDefault();toggleMenu();goToService('other')" style="font-size:1rem;color:var(--gray);">1 Step Paint Correction</a>
+  <a href="#" onclick="event.preventDefault();toggleMenu();goToService('other')" style="font-size:1rem;color:var(--gray);">2 Step Paint Correction</a>
   <a href="#process" onclick="toggleMenu()">Process</a>
   <a href="#gallery" onclick="toggleMenu()">Gallery</a>
   <a href="#reviews" onclick="toggleMenu()">Reviews</a>
@@ -415,6 +415,12 @@ body::after{
         <div class="pkg-name">CERAMIC<br>COATING</div>
         <p class="pkg-desc">Professional-grade ceramic protection that bonds to your clear coat. Standard 1–2 year or premium multi-layer 3–5 year coverage.</p>
         <button class="pkg-btn" onclick="openPkgModal('ceramic')">More Info</button>
+      </div>
+
+      <div class="pkg-box" style="grid-column:1/-1">
+        <div class="pkg-name">OTHER<br>SERVICES</div>
+        <p class="pkg-desc">Specialized services available as standalone or add-ons — engine bay cleaning, pet hair removal, headlight restoration, water spot removal, and paint correction.</p>
+        <button class="pkg-btn" onclick="openPkgModal('other')">More Info</button>
       </div>
 
     </div>
@@ -959,6 +965,54 @@ const pkgData = {
       }
     ]
   },
+  other: {
+    title: 'OTHER SERVICES',
+    sub: 'Specialized services available as a standalone booking or added on to any detail package.',
+    tiers: [
+      {
+        name: 'ENGINE BAY CLEANING',
+        price: '$160',
+        sizeNote: 'Price may vary by vehicle',
+        time: '',
+        items: ['Safe engine degreasing','Hand-cleaning of all components','Helps identify leaks early','Engine bay looking new']
+      },
+      {
+        name: 'PET HAIR REMOVAL',
+        price: '$40',
+        sizeNote: 'Price may vary by severity',
+        time: '',
+        items: ['Professional rubber extraction tools','Full vacuum after removal','Every seat & carpet surface treated','Stubborn embedded hair eliminated']
+      },
+      {
+        name: 'HEADLIGHT RESTORATION',
+        price: '$85',
+        sizeNote: 'Per pair',
+        time: '',
+        items: ['Wet sand & machine polish','UV protective sealant applied','Restored to like-new clarity','Prevents re-yellowing']
+      },
+      {
+        name: 'WATER SPOT REMOVAL',
+        price: '$50',
+        sizeNote: 'Price may vary by severity',
+        time: '',
+        items: ['Specialized mineral removal process','Safe for all paint & glass types','Eliminates baked-on water stains','Restored clarity & shine']
+      },
+      {
+        name: '1 STEP PAINT CORRECTION',
+        price: '$260',
+        sizeNote: 'Price may vary by vehicle size',
+        time: '',
+        items: ['Clay bar treatment','Iron remover applied','1-step machine polish','Removes light scratches & swirl marks']
+      },
+      {
+        name: '2 STEP PAINT CORRECTION',
+        price: '$399',
+        sizeNote: 'Price may vary by vehicle size',
+        time: '',
+        items: ['Clay bar & iron remover','Compound cut — step 1','Refining polish — step 2','Restores deep gloss & maximum clarity']
+      }
+    ]
+  },
   ceramic: {
     title: 'CERAMIC COATING',
     sub: 'Professional-grade nano-ceramic protection that bonds to your clear coat for long-term shine, hydrophobic defense, and UV resistance.',
@@ -1002,13 +1056,15 @@ function openPkgModal(key) {
   const data = pkgData[key];
   document.getElementById('pkgModalTitle').textContent = data.title;
   document.getElementById('pkgModalSub').textContent = data.sub;
-  document.getElementById('pkgModalTiers').innerHTML = data.tiers.map(t => `
+  const tiersEl = document.getElementById('pkgModalTiers');
+  tiersEl.style.gridTemplateColumns = data.tiers.length > 3 ? 'repeat(auto-fit,minmax(180px,1fr))' : 'repeat(auto-fit,minmax(220px,1fr))';
+  tiersEl.innerHTML = data.tiers.map(t => `
     <div class="pkg-tier${t.featured ? ' tier-featured' : ''}">
       ${t.featured ? '<div class="tier-badge">BEST VALUE</div>' : ''}
       <div class="tier-name">${t.name}</div>
       <div class="tier-price">From ${t.price}</div>
       <div class="tier-size-note">${t.sizeNote}</div>
-      <div class="tier-time">${t.time}</div>
+      ${t.time ? `<div class="tier-time">${t.time}</div>` : ''}
       <ul class="tier-list">${t.items.map(i => `<li>${i}</li>`).join('')}</ul>
       <a href="#contact" class="tier-book" onclick="closePkgModal()">Book Now</a>
     </div>
