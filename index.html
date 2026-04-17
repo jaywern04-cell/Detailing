@@ -211,6 +211,42 @@ body::after{
 .mobile-menu a:hover{color:var(--gold)}
 .mobile-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;cursor:pointer;color:var(--white);background:none;border:none}
 
+/* ── PACKAGE BOXES ── */
+.pkg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3.5rem}
+.pkg-box{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:3rem 2.5rem;cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);display:flex;flex-direction:column;align-items:flex-start;gap:1rem;position:relative;overflow:hidden}
+.pkg-box::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.07),transparent);opacity:0;transition:opacity .35s;pointer-events:none}
+.pkg-box:hover::before{opacity:1}
+.pkg-box:hover{transform:scale(1.03);box-shadow:0 24px 70px rgba(0,0,0,.45);border-color:rgba(201,168,76,.3)}
+.pkg-icon{font-size:2.4rem;line-height:1}
+.pkg-name{font-family:var(--font-display);font-size:1.9rem;letter-spacing:2px;color:var(--white);line-height:1.1}
+.pkg-desc{font-size:.87rem;color:var(--gray);line-height:1.7;flex:1}
+.pkg-btn{margin-top:.5rem;padding:.65rem 1.75rem;background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold);font-family:var(--font-body);font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border-radius:2px;cursor:pointer;transition:all .3s var(--ease)}
+.pkg-btn:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+@media(max-width:700px){.pkg-grid{grid-template-columns:1fr}}
+
+/* ── PACKAGE MODAL ── */
+.pkg-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:200;display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
+.pkg-modal-overlay.open{opacity:1;pointer-events:all}
+.pkg-modal{background:#111;border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:3rem 2.5rem;max-width:960px;width:100%;max-height:88vh;overflow-y:auto;position:relative;transform:translateY(28px);transition:transform .35s var(--ease)}
+.pkg-modal-overlay.open .pkg-modal{transform:translateY(0)}
+.pkg-modal-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--gray);font-size:1.4rem;cursor:pointer;line-height:1;transition:color .2s;padding:.25rem}
+.pkg-modal-close:hover{color:var(--white)}
+.pkg-modal-title{font-family:var(--font-display);font-size:2.2rem;letter-spacing:2px;margin-bottom:.4rem}
+.pkg-modal-sub{font-size:.87rem;color:var(--gray);margin-bottom:2.5rem;line-height:1.6}
+.pkg-tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}
+.pkg-tier{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:4px;padding:1.75rem 1.5rem;display:flex;flex-direction:column}
+.pkg-tier.tier-featured{border-color:var(--gold);box-shadow:0 0 40px rgba(201,168,76,.08)}
+.tier-badge{font-size:.58rem;font-weight:700;letter-spacing:2px;color:var(--black);background:var(--gold);padding:.25rem .8rem;border-radius:100px;width:fit-content;margin-bottom:.75rem}
+.tier-name{font-family:var(--font-display);font-size:1.3rem;letter-spacing:1.5px;margin-bottom:.2rem}
+.tier-price{font-family:var(--font-display);font-size:2.1rem;color:var(--gold);margin-bottom:.15rem}
+.tier-size-note{font-size:.71rem;color:var(--gray);margin-bottom:.6rem}
+.tier-time{font-size:.7rem;color:var(--gray);margin-bottom:1.1rem}
+.tier-list{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.5rem;flex:1}
+.tier-list li{display:flex;gap:.6rem;font-size:.83rem;color:var(--gray-light);line-height:1.4}
+.tier-list li::before{content:'✦';color:var(--gold);font-size:.55rem;margin-top:4px;flex-shrink:0}
+.tier-book{display:block;text-align:center;padding:.65rem 1rem;border:1px solid rgba(201,168,76,.35);color:var(--gold);font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border-radius:2px;text-decoration:none;transition:all .3s var(--ease);margin-top:auto}
+.tier-book:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
@@ -366,82 +402,34 @@ body::after{
     </div>
 
     <!-- ── MAIN PACKAGES ── -->
-    <div class="pricing-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+    <div class="pkg-grid reveal">
 
-      <!-- EXTERIOR ONLY -->
-      <div class="price-card reveal">
-        <div class="price-tier">Package 01</div>
-        <div class="price-name">EXTERIOR<br>ONLY</div>
-        <div class="price-amount">$85–$120</div>
-        <div style="font-size:.74rem;color:var(--gray);margin-top:-.4rem;margin-bottom:1.1rem;letter-spacing:.3px;">Varies by vehicle size</div>
-        <ul class="price-list">
-          <li>Hand wash &amp; dry (two-bucket method)</li>
-          <li>Wheels &amp; brake dust cleaned</li>
-          <li>Tires dressed &amp; UV protected</li>
-          <li>Exterior windows cleaned</li>
-          <li>Door jambs wiped</li>
-          <li>Exterior trim wiped down</li>
-          <li>Quick detailer spray for gloss</li>
-        </ul>
-        <div style="font-size:.71rem;color:var(--gray);margin:.8rem 0 1.25rem;">⏱ ~1–1.5 hrs</div>
-        <a href="#contact" class="btn btn-ghost price-btn">Book Now</a>
+      <div class="pkg-box">
+        <div class="pkg-icon">🚗</div>
+        <div class="pkg-name">FULL<br>DETAILING</div>
+        <p class="pkg-desc">Complete interior &amp; exterior service. Three tiers from a thorough standard clean all the way to a showroom-quality finish.</p>
+        <button class="pkg-btn" onclick="openPkgModal('full')">More Info</button>
       </div>
 
-      <!-- INTERIOR ONLY -->
-      <div class="price-card reveal">
-        <div class="price-tier">Package 02</div>
-        <div class="price-name">INTERIOR<br>ONLY</div>
-        <div class="price-amount">$100–$145</div>
-        <div style="font-size:.74rem;color:var(--gray);margin-top:-.4rem;margin-bottom:1.1rem;letter-spacing:.3px;">Varies by vehicle size</div>
-        <ul class="price-list">
-          <li>Full vacuum — seats, floors, trunk</li>
-          <li>Dashboard, vents &amp; door panels</li>
-          <li>Cup holders &amp; crevices detailed</li>
-          <li>Interior windows cleaned</li>
-          <li>Leather wiped &amp; conditioned</li>
-          <li>Carpet spot treatment</li>
-          <li>Air freshener finish</li>
-        </ul>
-        <div style="font-size:.71rem;color:var(--gray);margin:.8rem 0 1.25rem;">⏱ ~1.5–2 hrs</div>
-        <a href="#contact" class="btn btn-ghost price-btn">Book Now</a>
+      <div class="pkg-box">
+        <div class="pkg-icon">✨</div>
+        <div class="pkg-name">EXTERIOR<br>DETAILING</div>
+        <p class="pkg-desc">Exterior-only services from a professional hand wash to a full clay bar and paint sealant treatment. Three tiers available.</p>
+        <button class="pkg-btn" onclick="openPkgModal('exterior')">More Info</button>
       </div>
 
-      <!-- STANDARD DETAIL — FEATURED -->
-      <div class="price-card featured reveal">
-        <div class="price-tier">Most Popular</div>
-        <div class="price-name">STANDARD<br>DETAIL</div>
-        <div class="price-amount">$155–$225</div>
-        <div style="font-size:.74rem;color:var(--gray);margin-top:-.4rem;margin-bottom:1.1rem;letter-spacing:.3px;">Varies by vehicle size</div>
-        <ul class="price-list">
-          <li>Full exterior wash &amp; dry</li>
-          <li>Wheels, tires &amp; door jambs</li>
-          <li>Full interior vacuum &amp; wipe-down</li>
-          <li>Dashboard, vents &amp; door panels</li>
-          <li>Leather wiped &amp; conditioned</li>
-          <li>Carpet spot treatment</li>
-          <li>All windows cleaned inside &amp; out</li>
-        </ul>
-        <div style="font-size:.71rem;color:var(--gray);margin:.8rem 0 1.25rem;">⏱ ~2.5–3.5 hrs</div>
-        <a href="#contact" class="btn btn-primary price-btn">Book Now</a>
+      <div class="pkg-box">
+        <div class="pkg-icon">🧹</div>
+        <div class="pkg-name">INTERIOR<br>ONLY</div>
+        <p class="pkg-desc">Interior-focused cleaning from a thorough vacuum and wipe-down to a full carpet extraction, steam clean, and deep conditioning.</p>
+        <button class="pkg-btn" onclick="openPkgModal('interior')">More Info</button>
       </div>
 
-      <!-- SHOWROOM FINISH -->
-      <div class="price-card reveal">
-        <div class="price-tier">Package 04</div>
-        <div class="price-name">SHOWROOM<br>FINISH</div>
-        <div class="price-amount">$250–$360</div>
-        <div style="font-size:.74rem;color:var(--gray);margin-top:-.4rem;margin-bottom:1.1rem;letter-spacing:.3px;">Varies by vehicle size</div>
-        <ul class="price-list">
-          <li>Everything in Standard Detail, plus:</li>
-          <li>Clay bar paint decontamination</li>
-          <li>Hand wax or paint sealant</li>
-          <li>Deep leather conditioning</li>
-          <li>Engine bay wipe-down</li>
-          <li>Exterior trim restoration</li>
-          <li>Full glass &amp; seal treatment</li>
-        </ul>
-        <div style="font-size:.71rem;color:var(--gray);margin:.8rem 0 1.25rem;">⏱ ~4–6 hrs</div>
-        <a href="#contact" class="btn btn-ghost price-btn">Book Now</a>
+      <div class="pkg-box">
+        <div class="pkg-icon">💎</div>
+        <div class="pkg-name">CERAMIC<br>COATING</div>
+        <p class="pkg-desc">Professional-grade ceramic protection that bonds to your clear coat. Standard 1–2 year or premium multi-layer 3–5 year coverage.</p>
+        <button class="pkg-btn" onclick="openPkgModal('ceramic')">More Info</button>
       </div>
 
     </div>
@@ -895,6 +883,16 @@ body::after{
   </div>
 </footer>
 
+<!-- PACKAGE MODAL -->
+<div class="pkg-modal-overlay" id="pkgModalOverlay">
+  <div class="pkg-modal">
+    <button class="pkg-modal-close" onclick="closePkgModal()">✕</button>
+    <div class="pkg-modal-title" id="pkgModalTitle"></div>
+    <div class="pkg-modal-sub" id="pkgModalSub"></div>
+    <div class="pkg-tiers" id="pkgModalTiers"></div>
+  </div>
+</div>
+
 <script>
 // Nav scroll effect
 const nav = document.getElementById('nav');
@@ -968,6 +966,136 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
+});
+
+// Package modal data
+const pkgData = {
+  full: {
+    title: 'FULL DETAILING',
+    sub: 'Complete interior & exterior service — every inch of your vehicle covered.',
+    tiers: [
+      {
+        name: 'STANDARD',
+        price: '$155',
+        sizeNote: 'Sedan · SUV/Truck from $190 · Large from $225',
+        time: '⏱ ~2.5–3.5 hrs',
+        items: ['Full exterior hand wash & dry','Wheels & brake dust cleaned','Tires dressed & UV protected','All windows cleaned inside & out','Door jambs wiped','Full interior vacuum — seats, floors, trunk','Dashboard, vents & door panels wiped','Cup holders & crevices detailed','Leather wiped & conditioned','Carpet spot treatment']
+      },
+      {
+        name: 'PREMIUM',
+        price: '$215',
+        sizeNote: 'Sedan · SUV/Truck from $260 · Large from $310',
+        time: '⏱ ~3.5–5 hrs',
+        featured: true,
+        items: ['Everything in Standard, plus:','Carpet extraction & shampoo','Deep leather conditioning & treatment','Exterior trim restoration','Engine bay wipe-down','Iron decontamination rinse']
+      },
+      {
+        name: 'SHOWROOM',
+        price: '$280',
+        sizeNote: 'Sedan · SUV/Truck from $340 · Large from $400',
+        time: '⏱ ~5–7 hrs',
+        items: ['Everything in Premium, plus:','Clay bar paint decontamination','Hand wax or paint sealant applied','Full glass & rubber seal treatment','Final LED light inspection']
+      }
+    ]
+  },
+  exterior: {
+    title: 'EXTERIOR DETAILING',
+    sub: 'Professional exterior-only services — from a clean wash to a full clay and wax treatment.',
+    tiers: [
+      {
+        name: 'BASIC WASH',
+        price: '$85',
+        sizeNote: 'Sedan · SUV/Truck from $100 · Large from $120',
+        time: '⏱ ~1–1.5 hrs',
+        items: ['Hand wash & dry (two-bucket method)','Wheels & brake dust cleaned','Tires dressed & UV protected','Exterior windows cleaned','Door jambs wiped','Exterior trim wiped down','Quick detailer spray for gloss']
+      },
+      {
+        name: 'EXTERIOR DETAIL',
+        price: '$125',
+        sizeNote: 'Sedan · SUV/Truck from $150 · Large from $180',
+        time: '⏱ ~1.5–2.5 hrs',
+        featured: true,
+        items: ['Everything in Basic Wash, plus:','Iron decontamination treatment','Spray paint sealant applied','Exterior trim dressed & restored','Water spot treatment']
+      },
+      {
+        name: 'FULL EXTERIOR',
+        price: '$170',
+        sizeNote: 'Sedan · SUV/Truck from $205 · Large from $240',
+        time: '⏱ ~2.5–3.5 hrs',
+        items: ['Everything in Exterior Detail, plus:','Clay bar paint decontamination','Hand wax or paint sealant','Full glass treatment inside & out','Rubber seal & trim restoration']
+      }
+    ]
+  },
+  interior: {
+    title: 'INTERIOR ONLY',
+    sub: 'Deep cleaning focused entirely on the inside of your vehicle.',
+    tiers: [
+      {
+        name: 'BASIC INTERIOR',
+        price: '$100',
+        sizeNote: 'Sedan · SUV/Truck from $125 · Large from $145',
+        time: '⏱ ~1.5–2 hrs',
+        items: ['Full vacuum — seats, floors, trunk','Dashboard, vents & door panels wiped','Cup holders & crevices detailed','Interior windows cleaned','Leather wiped & conditioned','Carpet spot treatment','Air freshener finish']
+      },
+      {
+        name: 'DEEP INTERIOR',
+        price: '$165',
+        sizeNote: 'Sedan · SUV/Truck from $200 · Large from $235',
+        time: '⏱ ~3–4.5 hrs',
+        featured: true,
+        items: ['Everything in Basic Interior, plus:','Carpet extraction & full shampoo','Steam cleaning of all surfaces','Deep leather conditioning & treatment','Headliner spot cleaning','Seat belt cleaning','Odor neutralizer treatment']
+      }
+    ]
+  },
+  ceramic: {
+    title: 'CERAMIC COATING',
+    sub: 'Professional-grade protection that chemically bonds to your clear coat for long-term shine and defense.',
+    tiers: [
+      {
+        name: 'STANDARD',
+        price: '$600',
+        sizeNote: 'Sedan · SUV/Truck from $750 · Large from $900',
+        time: '⏱ ~6–8 hrs',
+        items: ['Full wash & clay bar prep','IPA panel wipe & decontamination','Single-layer ceramic coating applied','1–2 year protection','Hydrophobic water-beading finish','UV paint protection','Aftercare instructions provided']
+      },
+      {
+        name: 'PREMIUM',
+        price: '$950',
+        sizeNote: 'Sedan · SUV/Truck from $1,150 · Large from $1,400',
+        time: '⏱ ~8–12 hrs (may require 2 days)',
+        featured: true,
+        items: ['Full paint correction included','Multi-step decontamination','Clay bar treatment','IPA panel wipe','Multi-layer premium ceramic coating','3–5 year protection','Enhanced gloss & depth','Maintenance spray kit included']
+      }
+    ]
+  }
+};
+
+function openPkgModal(key) {
+  const data = pkgData[key];
+  document.getElementById('pkgModalTitle').textContent = data.title;
+  document.getElementById('pkgModalSub').textContent = data.sub;
+  document.getElementById('pkgModalTiers').innerHTML = data.tiers.map(t => `
+    <div class="pkg-tier${t.featured ? ' tier-featured' : ''}">
+      ${t.featured ? '<div class="tier-badge">BEST VALUE</div>' : ''}
+      <div class="tier-name">${t.name}</div>
+      <div class="tier-price">${t.price}</div>
+      <div class="tier-size-note">${t.sizeNote}</div>
+      <div class="tier-time">${t.time}</div>
+      <ul class="tier-list">${t.items.map(i => `<li>${i}</li>`).join('')}</ul>
+      <a href="#contact" class="tier-book" onclick="closePkgModal()">Book Now</a>
+    </div>
+  `).join('');
+  document.getElementById('pkgModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePkgModal() {
+  document.getElementById('pkgModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('pkgModalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closePkgModal();
 });
 </script>
 </body>
