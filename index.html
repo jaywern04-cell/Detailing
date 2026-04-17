@@ -296,10 +296,10 @@ body::after{
         <a href="#pricing">Services</a>
         <div class="dropdown-menu">
           <div class="dropdown-label">Main Services</div>
-          <a href="#pricing" onclick="openPkgModal('full')">Full Detailing</a>
-          <a href="#pricing" onclick="openPkgModal('exterior')">Exterior Detailing</a>
-          <a href="#pricing" onclick="openPkgModal('interior')">Interior Only</a>
-          <a href="#pricing" onclick="openPkgModal('ceramic')">Ceramic Coating</a>
+          <a href="#" onclick="event.preventDefault();goToService('full')">Full Detailing</a>
+          <a href="#" onclick="event.preventDefault();goToService('exterior')">Exterior Detailing</a>
+          <a href="#" onclick="event.preventDefault();goToService('interior')">Interior Only</a>
+          <a href="#" onclick="event.preventDefault();goToService('ceramic')">Ceramic Coating</a>
           <div class="dropdown-divider"></div>
           <div class="dropdown-label">Other Services</div>
           <a href="#contact">Engine Bay Cleaning</a>
@@ -326,10 +326,10 @@ body::after{
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="toggleMenu()">✕</button>
-  <a href="#pricing" onclick="toggleMenu()">Full Detailing</a>
-  <a href="#pricing" onclick="toggleMenu()">Exterior Detailing</a>
-  <a href="#pricing" onclick="toggleMenu()">Interior Only</a>
-  <a href="#pricing" onclick="toggleMenu()">Ceramic Coating</a>
+  <a href="#" onclick="event.preventDefault();toggleMenu();goToService('full')">Full Detailing</a>
+  <a href="#" onclick="event.preventDefault();toggleMenu();goToService('exterior')">Exterior Detailing</a>
+  <a href="#" onclick="event.preventDefault();toggleMenu();goToService('interior')">Interior Only</a>
+  <a href="#" onclick="event.preventDefault();toggleMenu();goToService('ceramic')">Ceramic Coating</a>
   <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">Engine Bay Cleaning</a>
   <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">Pet Hair Removal</a>
   <a href="#contact" onclick="toggleMenu()" style="font-size:1rem;color:var(--gray);">Headlight Restoration</a>
@@ -994,6 +994,17 @@ const pkgData = {
     ]
   }
 };
+
+function goToService(key) {
+  const menu = document.getElementById('mobileMenu');
+  if (menu.classList.contains('open')) {
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  const target = document.getElementById('pricing');
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(() => openPkgModal(key), 500);
+}
 
 function openPkgModal(key) {
   const data = pkgData[key];
