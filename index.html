@@ -414,6 +414,70 @@ img{max-width:100%;display:block}
   .gallery-grid{grid-template-columns:1fr}
   .process-row{grid-template-columns:1fr}
   .cta-section{padding:5rem 0}
+  /* kill diagonal cuts on mobile — too tight */
+  .why-strip,.gallery-section,.cta-section,.footer{clip-path:none!important;margin-top:0!important;padding-top:5rem!important;padding-bottom:5rem!important}
+  .services-section,.reviews-section,.contact-section{margin-top:0!important;padding-top:5rem!important}
+}
+
+/* ══════════════════════════════════════
+   DIAGONAL SECTION TRANSITIONS
+   Removes the hard "bold line" between
+   sections by angling each transition.
+══════════════════════════════════════ */
+
+/* Hero bleeds into why-strip (both dark — subtle gradient fade) */
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:100px;
+  background:linear-gradient(to bottom,transparent,var(--navy-800));
+  pointer-events:none;z-index:3;
+}
+
+/* Why-strip: diagonal cut at the bottom, light section slides up under it */
+.why-strip{
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 72px),0 100%);
+  padding-bottom:calc(5rem + 72px);
+}
+.services-section{
+  margin-top:-72px;
+  position:relative;z-index:2;
+  padding-top:calc(7rem + 72px);
+}
+
+/* Process → Gallery: gallery cuts in diagonally from the top-right.
+   Gallery also cuts diagonally at the bottom for the reviews transition. */
+.gallery-section{
+  margin-top:-72px;
+  clip-path:polygon(0 72px,100% 0,100% calc(100% - 72px),0 100%);
+  padding-top:calc(7rem + 72px);
+  padding-bottom:calc(7rem + 72px);
+  position:relative;z-index:1;
+}
+.reviews-section{
+  margin-top:-72px;
+  position:relative;z-index:2;
+  padding-top:calc(7rem + 72px);
+}
+
+/* FAQ → CTA: cta cuts in diagonally from top-right.
+   CTA also cuts at the bottom for the contact transition. */
+.cta-section{
+  margin-top:-72px;
+  clip-path:polygon(0 72px,100% 0,100% calc(100% - 72px),0 100%);
+  padding-top:calc(8rem + 72px);
+  padding-bottom:calc(8rem + 72px);
+  position:relative;z-index:1;
+}
+.contact-section{
+  margin-top:-72px;
+  position:relative;z-index:2;
+  padding-top:calc(7rem + 72px);
+}
+
+/* Contact → Footer: footer cuts in with a top diagonal */
+.footer{
+  clip-path:polygon(0 48px,100% 0,100% 100%,0 100%);
+  margin-top:-48px;
+  padding-top:calc(5rem + 48px);
 }
 </style>
 </head>
