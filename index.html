@@ -95,8 +95,8 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:160px;background:linear-gradient(transparent,var(--ink));pointer-events:none;z-index:3}
-.hero-canvas{position:absolute;inset:0;overflow:hidden;background:linear-gradient(165deg,rgba(180,79,232,.12) 0%,rgba(13,10,30,0) 40%,rgba(255,90,40,.06) 100%)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(180,79,232,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(0,237,184,.018) 1px,transparent 1px);background-size:72px 72px}
+.hero-canvas{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#1a0533 0%,#3d1060 18%,#7a2560 35%,#c45030 58%,#e8801a 75%,#f5b830 90%,#ffe066 100%)}
+.hero-grid{display:none}
 .orb{position:absolute;border-radius:50%;pointer-events:none}
 .orb-1{width:900px;height:900px;background:radial-gradient(circle,rgba(0,237,184,.12) 0%,transparent 65%);top:-25%;right:-20%;filter:blur(90px);animation:orbA 16s ease-in-out infinite}
 .orb-2{width:650px;height:650px;background:radial-gradient(circle,rgba(255,90,40,.1) 0%,transparent 65%);bottom:-25%;left:-15%;filter:blur(80px);animation:orbB 20s ease-in-out infinite}
@@ -482,13 +482,6 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-inner">
-    <div class="marquee-seg"><span>Full Detailing</span><span class="bullet">✦</span><span>Exterior Detailing</span><span class="bullet">✦</span><span>Interior Only</span><span class="bullet">✦</span><span>Ceramic Coating</span><span class="bullet">✦</span><span>Paint Correction</span><span class="bullet">✦</span><span>Headlight Restoration</span><span class="bullet">✦</span><span>Engine Bay Cleaning</span><span class="bullet">✦</span><span>Mobile Service</span><span class="bullet">✦</span></div>
-    <div class="marquee-seg" aria-hidden="true"><span>Full Detailing</span><span class="bullet">✦</span><span>Exterior Detailing</span><span class="bullet">✦</span><span>Interior Only</span><span class="bullet">✦</span><span>Ceramic Coating</span><span class="bullet">✦</span><span>Paint Correction</span><span class="bullet">✦</span><span>Headlight Restoration</span><span class="bullet">✦</span><span>Engine Bay Cleaning</span><span class="bullet">✦</span><span>Mobile Service</span><span class="bullet">✦</span></div>
-  </div>
-</div>
 
 <!-- PRICING -->
 <section class="section" id="pricing">
