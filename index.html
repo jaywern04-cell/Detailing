@@ -107,11 +107,21 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 @keyframes orbC{0%,100%{transform:translate(0,0)}50%{transform:translate(12%,-14%)}}
 .particle{position:absolute;border-radius:50%;pointer-events:none;animation:particleFloat linear infinite}
 @keyframes particleFloat{0%{transform:translateY(100vh) scale(1);opacity:0}10%{opacity:1}90%{opacity:.5}100%{transform:translateY(-10vh) scale(0);opacity:0}}
-.hero-content{position:relative;z-index:2;padding:9rem 0 7rem;width:100%}
+.hero-content{position:relative;z-index:2;padding:0;width:100%;display:flex;align-items:center;min-height:100vh;gap:2rem}
+.hero-text{flex:0 0 46%;max-width:46%;padding:9rem 0 7rem}
+.hero-car-wrap{flex:1;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4rem;padding-top:6rem;pointer-events:none;overflow:visible}
+.hero-car-svg{width:100%;max-width:740px;height:auto;animation:carSlide 1.2s .3s var(--ease) both;filter:drop-shadow(0 40px 80px rgba(0,0,0,.8)) drop-shadow(0 0 60px rgba(0,237,184,.08))}
+@keyframes carSlide{from{opacity:0;transform:translateX(80px)}to{opacity:1;transform:translateX(0)}}
+@media(max-width:960px){
+  .hero-content{flex-direction:column;min-height:auto;padding:8rem 0 3rem}
+  .hero-text{flex:1;max-width:100%;padding:0}
+  .hero-car-wrap{width:100%;padding:2rem 0 0;max-height:280px;overflow:hidden}
+  .hero-car-svg{max-width:100%}
+}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;padding:.5rem 1.2rem;background:linear-gradient(135deg,rgba(0,237,184,.07),rgba(255,202,58,.05));border:1px solid rgba(0,237,184,.25);border-radius:100px;margin-bottom:2.5rem;font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);animation:fadeUp .8s var(--ease) both;backdrop-filter:blur(8px)}
 .eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--coral);flex-shrink:0;animation:blink 2s ease-in-out infinite}
 @keyframes blink{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.4);opacity:.3}}
-.hero h1{font-family:var(--font-display);font-size:clamp(4.5rem,11.5vw,10.5rem);line-height:.85;letter-spacing:-1px;margin-bottom:2rem;animation:fadeUp .85s .1s var(--ease) both}
+.hero h1{font-family:var(--font-display);font-size:clamp(3.2rem,6.5vw,7.2rem);line-height:.85;letter-spacing:-1px;margin-bottom:2rem;animation:fadeUp .85s .1s var(--ease) both}
 .hero h1 .line{display:block}
 .hero h1 .line-outline{-webkit-text-stroke:1.5px rgba(207,228,245,.45);color:transparent;letter-spacing:2px}
 .hero h1 .line-teal{
@@ -462,23 +472,255 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
     <div class="orb orb-4"></div>
   </div>
   <div class="container hero-content">
-    <div class="hero-eyebrow">
-      <span class="eyebrow-dot"></span>
-      Mobile Detailing · Bradenton &amp; Sarasota, FL
-    </div>
-    <h1>
-      <span class="line line-outline">PREMIUM</span>
-      <span class="line">AUTO</span>
-      <span class="line line-teal" data-t="DETAILING">DETAILING</span>
-    </h1>
-    <p class="hero-desc">We bring showroom-level results to your driveway. Ceramic coatings, paint correction, and full interior restoration — done on-site with obsessive precision.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary">Get A Free Quote</a>
-      <a href="#pricing" class="btn-arrow">
-        <span class="arrow-circle">→</span>
-        View Services
-      </a>
-    </div>
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Mobile Detailing · Bradenton &amp; Sarasota, FL
+      </div>
+      <h1>
+        <span class="line line-outline">PREMIUM</span>
+        <span class="line">AUTO</span>
+        <span class="line line-teal" data-t="DETAILING">DETAILING</span>
+      </h1>
+      <p class="hero-desc">We bring showroom-level results to your driveway. Ceramic coatings, paint correction, and full interior restoration — done on-site with obsessive precision.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get A Free Quote</a>
+        <a href="#pricing" class="btn-arrow">
+          <span class="arrow-circle">→</span>
+          View Services
+        </a>
+      </div>
+    </div><!-- /.hero-text -->
+
+    <div class="hero-car-wrap">
+      <svg class="hero-car-svg" viewBox="0 0 980 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <!-- body metallic gradient -->
+          <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#c8d8e8"/>
+            <stop offset="28%"  stop-color="#9ab0c4"/>
+            <stop offset="55%"  stop-color="#6a8499"/>
+            <stop offset="80%"  stop-color="#3e5568"/>
+            <stop offset="100%" stop-color="#1c2e3d"/>
+          </linearGradient>
+          <!-- highlight streak across roof/hood -->
+          <linearGradient id="highlightGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%"   stop-color="rgba(255,255,255,0)"/>
+            <stop offset="35%"  stop-color="rgba(255,255,255,.18)"/>
+            <stop offset="55%"  stop-color="rgba(255,255,255,.32)"/>
+            <stop offset="75%"  stop-color="rgba(255,255,255,.12)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+          </linearGradient>
+          <!-- glass tint -->
+          <linearGradient id="glassGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="rgba(80,160,210,.45)"/>
+            <stop offset="100%" stop-color="rgba(20,60,90,.7)"/>
+          </linearGradient>
+          <!-- wheel metallic -->
+          <radialGradient id="wheelGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#c0cdd8"/>
+            <stop offset="45%"  stop-color="#7a9ab0"/>
+            <stop offset="100%" stop-color="#2a3e50"/>
+          </radialGradient>
+          <!-- tire -->
+          <radialGradient id="tireGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#2a2a2a"/>
+            <stop offset="75%"  stop-color="#111"/>
+            <stop offset="100%" stop-color="#050505"/>
+          </radialGradient>
+          <!-- teal ground glow -->
+          <radialGradient id="glowGrad" cx="50%" cy="0%" r="80%">
+            <stop offset="0%"   stop-color="rgba(0,237,184,.28)"/>
+            <stop offset="60%"  stop-color="rgba(0,237,184,.07)"/>
+            <stop offset="100%" stop-color="rgba(0,237,184,0)"/>
+          </radialGradient>
+          <!-- tail light glow -->
+          <radialGradient id="taillightGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="rgba(255,90,40,.9)"/>
+            <stop offset="100%" stop-color="rgba(255,90,40,0)"/>
+          </radialGradient>
+          <!-- headlight glow -->
+          <radialGradient id="headlightGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="rgba(180,230,255,.95)"/>
+            <stop offset="100%" stop-color="rgba(180,230,255,0)"/>
+          </radialGradient>
+          <!-- reflection fade -->
+          <linearGradient id="reflectFade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="rgba(100,160,200,.13)"/>
+            <stop offset="100%" stop-color="rgba(100,160,200,0)"/>
+          </linearGradient>
+          <!-- shadow ellipse -->
+          <radialGradient id="shadowGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="rgba(0,0,0,.7)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+          </radialGradient>
+          <!-- clip for reflection -->
+          <clipPath id="reflectClip">
+            <rect x="60" y="296" width="860" height="60"/>
+          </clipPath>
+        </defs>
+
+        <!-- ── GROUND SHADOW ── -->
+        <ellipse cx="490" cy="304" rx="390" ry="18" fill="url(#shadowGrad)"/>
+
+        <!-- ── TEAL GROUND GLOW ── -->
+        <ellipse cx="490" cy="300" rx="420" ry="28" fill="url(#glowGrad)"/>
+
+        <!-- ── GROUND LINE ── -->
+        <line x1="60" y1="299" x2="920" y2="299" stroke="rgba(0,237,184,.35)" stroke-width="1.5"/>
+
+        <!-- ── CAR BODY — evenodd so wheel arch holes cut through ── -->
+        <!--
+          Body outline (clockwise), then two wheel arch circles (counter-clockwise)
+          fill-rule="evenodd" makes the circles become transparent holes.
+        -->
+        <path fill="url(#bodyGrad)" fill-rule="evenodd" d="
+          M 118 298
+          L 118 255 Q 118 248 124 244
+          L 168 218
+          Q 200 170 252 152
+          L 350 132
+          Q 390 108 450 100
+          L 560 100
+          Q 640 100 680 118
+          L 740 140
+          Q 790 162 820 192
+          L 862 240
+          Q 876 250 876 260
+          L 876 298 Z
+
+          M 218 298
+          A 76 76 0 1 0 218.001 298 Z
+
+          M 690 298
+          A 76 76 0 1 0 690.001 298 Z
+        "/>
+
+        <!-- ── BODY SIDE SHADOW (lower panel) ── -->
+        <path fill="rgba(0,0,0,.18)" d="M 118 275 L 118 298 L 876 298 L 876 275 Q 800 290 490 290 Q 200 290 118 275 Z"/>
+
+        <!-- ── ROOF HIGHLIGHT STREAK ── -->
+        <path fill="url(#highlightGrad)" d="M 252 152 Q 400 108 560 100 L 680 118 L 740 140 Q 620 118 490 118 Q 370 118 280 145 Z" opacity=".7"/>
+
+        <!-- ── WINDOWS ── -->
+        <!-- windshield -->
+        <path fill="url(#glassGrad)" opacity=".9" d="M 350 135 L 278 210 L 440 215 L 440 132 Z"/>
+        <!-- rear window -->
+        <path fill="url(#glassGrad)" opacity=".85" d="M 560 102 L 680 120 L 740 142 L 680 210 L 560 215 Z"/>
+        <!-- side glass join (middle pillar area) -->
+        <path fill="rgba(15,40,65,.55)" d="M 440 132 L 440 215 L 480 215 L 490 215 L 560 215 L 560 102 L 490 100 Z"/>
+        <!-- glass reflection streak -->
+        <path fill="rgba(255,255,255,.07)" d="M 295 170 L 308 155 L 420 148 L 418 162 Z"/>
+        <path fill="rgba(255,255,255,.05)" d="M 580 108 L 680 128 L 676 142 L 576 124 Z"/>
+
+        <!-- ── DOOR LINES ── -->
+        <line x1="440" y1="215" x2="430" y2="298" stroke="rgba(0,0,0,.35)" stroke-width="1.5"/>
+        <line x1="560" y1="215" x2="570" y2="298" stroke="rgba(0,0,0,.35)" stroke-width="1.5"/>
+
+        <!-- ── BODY CREASE LINE ── -->
+        <path fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1.5" d="M 165 245 Q 340 232 490 232 Q 660 232 860 248"/>
+
+        <!-- ── SIDE SKIRT ── -->
+        <path fill="rgba(0,0,0,.3)" d="M 295 298 L 295 285 Q 490 278 690 285 L 690 298 Z"/>
+
+        <!-- ── FRONT BUMPER ── -->
+        <path fill="rgba(80,110,130,.6)" d="M 826 260 L 876 260 L 876 298 L 820 298 Z"/>
+        <path fill="rgba(255,255,255,.08)" d="M 830 264 L 870 264 L 870 270 L 830 270 Z"/>
+        <!-- front grille slats -->
+        <rect x="833" y="272" width="34" height="2" rx="1" fill="rgba(0,237,184,.4)"/>
+        <rect x="833" y="278" width="34" height="2" rx="1" fill="rgba(0,237,184,.3)"/>
+        <rect x="833" y="284" width="34" height="2" rx="1" fill="rgba(0,237,184,.2)"/>
+
+        <!-- ── REAR BUMPER ── -->
+        <path fill="rgba(60,85,105,.6)" d="M 118 260 L 118 298 L 175 298 L 175 260 Z"/>
+
+        <!-- ── TAIL LIGHT ── -->
+        <rect x="118" y="248" width="14" height="36" rx="3" fill="rgba(255,60,20,.9)"/>
+        <rect x="120" y="250" width="10" height="10" rx="2" fill="rgba(255,200,100,.85)"/>
+        <!-- tail glow bloom -->
+        <ellipse cx="118" cy="265" rx="30" ry="22" fill="url(#taillightGlow)" opacity=".7"/>
+
+        <!-- ── HEAD LIGHT ── -->
+        <path fill="rgba(190,230,255,.88)" d="M 862 242 L 876 250 L 876 266 L 858 260 Z"/>
+        <!-- DRL strip -->
+        <line x1="862" y1="244" x2="874" y2="252" stroke="rgba(200,240,255,.9)" stroke-width="3" stroke-linecap="round"/>
+        <!-- headlight bloom -->
+        <ellipse cx="880" cy="255" rx="32" ry="20" fill="url(#headlightGlow)" opacity=".55"/>
+
+        <!-- ── REAR WHEEL (left on screen) ── -->
+        <!-- tire -->
+        <circle cx="218" cy="298" r="72" fill="url(#tireGrad)"/>
+        <!-- rim -->
+        <circle cx="218" cy="298" r="50" fill="url(#wheelGrad)"/>
+        <!-- center cap -->
+        <circle cx="218" cy="298" r="12" fill="#b0c4d4"/>
+        <circle cx="218" cy="298" r="6"  fill="#2a3e50"/>
+        <!-- 5 spokes -->
+        <g stroke="#4a6880" stroke-width="6" stroke-linecap="round">
+          <line x1="218" y1="298" x2="218" y2="250"/>
+          <line x1="218" y1="298" x2="263" y2="270"/>
+          <line x1="218" y1="298" x2="245" y2="326"/>
+          <line x1="218" y1="298" x2="191" y2="326"/>
+          <line x1="218" y1="298" x2="173" y2="270"/>
+        </g>
+        <!-- spoke highlights -->
+        <g stroke="rgba(255,255,255,.25)" stroke-width="2" stroke-linecap="round">
+          <line x1="218" y1="298" x2="218" y2="253"/>
+          <line x1="218" y1="298" x2="261" y2="271"/>
+          <line x1="218" y1="298" x2="244" y2="324"/>
+          <line x1="218" y1="298" x2="192" y2="324"/>
+          <line x1="218" y1="298" x2="175" y2="271"/>
+        </g>
+        <!-- rim edge highlight -->
+        <circle cx="218" cy="298" r="50" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2"/>
+        <!-- brake rotor hint -->
+        <circle cx="218" cy="298" r="28" fill="none" stroke="rgba(80,100,120,.5)" stroke-width="4"/>
+
+        <!-- ── FRONT WHEEL (right on screen) ── -->
+        <circle cx="690" cy="298" r="72" fill="url(#tireGrad)"/>
+        <circle cx="690" cy="298" r="50" fill="url(#wheelGrad)"/>
+        <circle cx="690" cy="298" r="12" fill="#b0c4d4"/>
+        <circle cx="690" cy="298" r="6"  fill="#2a3e50"/>
+        <g stroke="#4a6880" stroke-width="6" stroke-linecap="round">
+          <line x1="690" y1="298" x2="690" y2="250"/>
+          <line x1="690" y1="298" x2="735" y2="270"/>
+          <line x1="690" y1="298" x2="717" y2="326"/>
+          <line x1="690" y1="298" x2="663" y2="326"/>
+          <line x1="690" y1="298" x2="645" y2="270"/>
+        </g>
+        <g stroke="rgba(255,255,255,.25)" stroke-width="2" stroke-linecap="round">
+          <line x1="690" y1="298" x2="690" y2="253"/>
+          <line x1="690" y1="298" x2="733" y2="271"/>
+          <line x1="690" y1="298" x2="716" y2="324"/>
+          <line x1="690" y1="298" x2="664" y2="324"/>
+          <line x1="690" y1="298" x2="647" y2="271"/>
+        </g>
+        <circle cx="690" cy="298" r="50" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2"/>
+        <circle cx="690" cy="298" r="28" fill="none" stroke="rgba(80,100,120,.5)" stroke-width="4"/>
+
+        <!-- ── REFLECTION BELOW GROUND LINE ── -->
+        <g clip-path="url(#reflectClip)" transform="translate(0,598) scale(1,-1)" opacity=".18">
+          <path fill="url(#bodyGrad)" fill-rule="evenodd" d="
+            M 118 298 L 118 255 Q 118 248 124 244 L 168 218
+            Q 200 170 252 152 L 350 132 Q 390 108 450 100 L 560 100
+            Q 640 100 680 118 L 740 140 Q 790 162 820 192
+            L 862 240 Q 876 250 876 260 L 876 298 Z
+            M 218 298 A 76 76 0 1 0 218.001 298 Z
+            M 690 298 A 76 76 0 1 0 690.001 298 Z
+          "/>
+        </g>
+        <!-- reflection fade overlay -->
+        <rect x="60" y="299" width="860" height="60" fill="url(#reflectFade)" opacity=".6"/>
+
+        <!-- ── TEAL UNDERBODY GLOW STRIP ── -->
+        <rect x="200" y="296" width="580" height="4" rx="2" fill="rgba(0,237,184,.6)" opacity=".7" filter="url(#tealBlur)"/>
+        <defs>
+          <filter id="tealBlur" x="-20%" y="-200%" width="140%" height="500%">
+            <feGaussianBlur stdDeviation="4"/>
+          </filter>
+        </defs>
+      </svg>
+    </div><!-- /.hero-car-wrap -->
   </div>
 </section>
 
